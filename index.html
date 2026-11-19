@@ -68,7 +68,7 @@
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
             background: #E30613; /* Rojo intenso al pasar el mouse */
         }
-        }
+        
         @keyframes pulse-subtle {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.02); }
@@ -632,13 +632,15 @@ async function saveLeaderboardToStorage() {
         }
 
         // --- GESTIONE CLASSIFICA ---
+        function sortAndRender() {
+            leaderboard.sort((a, b) => (b.score - a.score) || (a.timeSeconds - b.timeSeconds));
+            renderLeaderboard();
+        }
+
         function saveResultToLeaderboard(record) {
             leaderboard.push(record);
             sortAndRender();
-        }
-
-        function saveLeaderboardToStorage() {
-            localStorage.setItem('geo_quiz_leaderboard', JSON.stringify(leaderboard));
+            saveLeaderboardToStorage();
         }
 
         function renderLeaderboard() {
@@ -717,6 +719,7 @@ async function saveLeaderboardToStorage() {
                             date: item.date || item.fecha || new Date().toLocaleDateString('es-AR')
                         }));
                         sortAndRender();
+                        saveLeaderboardToStorage();
                         showToast("¡Tabla de posiciones importada con éxito!", "success");
                     } else {
                         showToast("¡El archivo JSON no tiene un formato válido!", "error");
