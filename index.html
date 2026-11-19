@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de River Plate</title>
+    <title>Quiz de Geografía Mundial</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -386,45 +386,61 @@
             loadLeaderboardAutomatico();
         });
 
-        async function loadLeaderboardAutomatico() {
-            try {
-                // Tenta di caricare il file JSON
-                const response = await fetch('punteggi.json');
-                if (response.ok) {
-                    const jsonLeaderboard = await response.json();
-                    if (Array.isArray(jsonLeaderboard) && jsonLeaderboard.length > 0) {
-                        leaderboard = jsonLeaderboard.map(item => ({
-                            name: item.name || item.nombre,
-                            score: item.score !== undefined ? item.score : item.puntaje,
-                            timeSeconds: item.timeSeconds !== undefined ? item.timeSeconds : item.tiempo,
-                            timeFormatted: item.timeFormatted || `${Math.floor((item.timeSeconds || item.tiempo) / 60)}m ${(item.timeSeconds || item.tiempo) % 60}s`,
-                            passed: item.passed !== undefined ? item.passed : ((item.score || item.puntaje) >= PASS_THRESHOLD),
-                            date: item.date || item.fecha || new Date().toLocaleDateString('es-AR')
-                        }));
-                        sortAndRender();
-                        return;
-                    }
-                }
-            } catch (error) {
-                console.log("Impossibile caricare il file JSON locale direttamente. Uso il localStorage.");
+     async function loadLeaderboardAutomatico() {
+    try {
+        // Il parametro ?t=... evita che il browser carichi una versione vecchia dalla cache
+        const response = await fetch('punteggi.json?t=' + Date.now());
+        if (response.ok) {
+            const jsonLeaderboard = await response.json();
+            if (Array.isArray(jsonLeaderboard)) {
+                leaderboard = jsonLeaderboard.map(item => ({
+                    name: item.name || item.nombre,
+                    score: item.score !== undefined ? item.score : item.puntaje,
+                    timeSeconds: item.timeSeconds !== undefined ? item.timeSeconds : item.tiempo,
+                    timeFormatted: item.timeFormatted || `${Math.floor((item.timeSeconds || item.tiempo) / 60)}m ${(item.timeSeconds || item.tiempo) % 60}s`,
+                    passed: item.passed !== undefined ? item.passed : ((item.score || item.puntaje) >= PASS_THRESHOLD),
+                    date: item.date || item.fecha || new Date().toLocaleDateString('es-AR')
+                }));
+                // Ordina e renderizza senza risalvare subito sul server
+                leaderboard.sort((a, b) => (b.score - a.score) || (a.timeSeconds - b.timeSeconds));
+                renderLeaderboard();
+                return;
             }
-
-            // Fallback su localStorage
-            const stored = localStorage.getItem('geo_quiz_leaderboard');
-            if (stored) {
-                leaderboard = JSON.parse(stored);
-            } else {
-                leaderboard = [];
-            }
-            sortAndRender();
         }
+    } catch (error) {
+        console.error("Errore nel caricamento di punteggi.json:", error);
+    }
 
-        function sortAndRender() {
-            leaderboard.sort((a, b) => (b.score - a.score) || (a.timeSeconds - b.timeSeconds));
-            saveLeaderboardToStorage();
-            renderLeaderboard();
+    // Fallback su localStorage solo se il server non risponde
+    const stored = localStorage.getItem('geo_quiz_leaderboard');
+    leaderboard = stored ? JSON.parse(stored) : [];
+    renderLeaderboard();
+}
+
+async function saveLeaderboardToStorage() {
+    // Salva una copia di backup nel browser
+    localStorage.setItem('geo_quiz_leaderboard', JSON.stringify(leaderboard));
+
+    // Invia i dati al server PHP per aggiornare punteggi.json
+    try {
+        const response = await fetch('salva_punteggi.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(leaderboard)
+        });
+
+        const result = await response.json();
+        if (!response.ok || result.status !== 'success') {
+            console.error("Errore lato server:", result.message);
+            showToast("Errore nel salvataggio sul server", "error");
         }
-
+    } catch (error) {
+        console.error("Errore di rete durante il salvataggio:", error);
+        showToast("Impossibile contattare il server PHP", "error");
+    }
+}
         // --- LÓGICA DEL QUIZ ---
         function startQuiz(event) {
             event.preventDefault();
