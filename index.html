@@ -24,7 +24,7 @@
     <style>
         body {
             /* Sfondo immagine */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('cumple_flor.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('RIVER.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -32,25 +32,42 @@
         }
 
         /* CONTAINER PRINCIPALE ROSA CHIARO CON EFFETTO VETRO */
-        .pink-container {
-            background: rgba(252, 231, 243, 0.95); /* Rosa chiaro */
+ .pink-container {
+            background-color: rgba(255, 255, 255, 0.96); /* Blanco */
+            /* Banda transversal roja estilo camiseta de River Plate */
+            background-image: linear-gradient(
+                135deg,
+                transparent 43%,
+                rgba(227, 6, 19, 0.16) 43.5%,
+                rgba(227, 6, 19, 0.16) 56.5%,
+                transparent 57%
+            );
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(244, 114, 182, 0.3);
+            border: 2px solid #E30613; /* Borde rojo River */
+            color: #111111; /* Texto principal en negro */
+        }
+
+        /* Títulos o textos destacados en rojo dentro del container */
+        .pink-container h1,
+        .pink-container h2,
+        .pink-container h3 {
+            color: #E30613;
         }
 
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(251, 207, 232, 0.6);
+            background: rgba(229, 231, 235, 0.8); /* Gris claro neutro */
             border-radius: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(236, 72, 153, 0.5);
+            background: rgba(227, 6, 19, 0.7); /* Rojo River */
             border-radius: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: rgba(236, 72, 153, 0.8);
+            background: #E30613; /* Rojo intenso al pasar el mouse */
+        }
         }
         @keyframes pulse-subtle {
             0%, 100% { transform: scale(1); }
@@ -291,7 +308,7 @@
 
     <!-- Footer -->
     <footer class="mt-8 text-center text-xs text-pink-100 py-2">
-        <p>Quiz de Cultura General &copy; 2026 - Cumple de Flor</p>
+        <p>Quiz de River Plate &copy; 2026 - Vamos River!</p>
     </footer>
 
     <!-- JS APP LOGIC -->
