@@ -189,7 +189,7 @@
 
             <!-- Footer / Next Button -->
             <div class="mt-8 pt-4 border-t border-pink-200 flex justify-end">
-                <button id="next-btn" onclick="nextQuestion()" disabled class="px-6 py-3 bg-pink-200/60 opacity-50 cursor-not-allowed text-pink-400 font-bold rounded-xl flex items-center space-x-2 transition duration-200">
+                <button type="button" id="next-btn" onclick="nextQuestion()" disabled class="px-6 py-3 bg-pink-200/60 opacity-50 cursor-not-allowed text-pink-400 font-bold rounded-xl flex items-center space-x-2 transition duration-200">
                     <span>Siguiente Pregunta</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -539,7 +539,7 @@ async function saveLeaderboardToStorage() {
 
             const nextBtn = document.getElementById('next-btn');
             if (userAnswers[currentQuestionIndex] !== undefined) {
-                nextBtn.disabled = false;
+                nextBtn.removeAttribute('disabled');
                 nextBtn.className = "px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold rounded-xl flex items-center space-x-2 transition duration-200 cursor-pointer shadow-md";
                 if (currentQuestionIndex === QUESTIONS_BANK.length - 1) {
                     nextBtn.querySelector('span').textContent = "Terminar Quiz";
@@ -547,7 +547,7 @@ async function saveLeaderboardToStorage() {
                     nextBtn.querySelector('span').textContent = "Siguiente Pregunta";
                 }
             } else {
-                nextBtn.disabled = true;
+                nextBtn.setAttribute('disabled', 'true');
                 nextBtn.className = "px-6 py-3 bg-pink-200/60 opacity-50 cursor-not-allowed text-pink-400 font-bold rounded-xl flex items-center space-x-2 transition duration-200";
             }
         }
@@ -783,8 +783,9 @@ async function saveLeaderboardToStorage() {
             }, 3000);
         }
 
-        function escapeHtml(str) {
-            return str.replace(/&/g, "&amp;")
+       function escapeHtml(str) {
+            if (str === null || str === undefined) return "";
+            return String(str).replace(/&/g, "&amp;")
                       .replace(/</g, "&lt;")
                       .replace(/>/g, "&gt;")
                       .replace(/"/g, "&quot;")
