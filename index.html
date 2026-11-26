@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Geografía Mundial</title>
+    <title>Test de Personalidad - Descubrí tu Perfil</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -23,269 +23,314 @@
     </script>
     <style>
         body {
-            /* Sfondo immagine */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('RIVER.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 45%, #831843 100%);
             background-attachment: fixed;
         }
 
-        /* CONTAINER PRINCIPALE ROSA CHIARO CON EFFETTO VETRO */
- .pink-container {
-            background-color: rgba(255, 255, 255, 0.96); /* Blanco */
-            /* Banda transversal roja estilo camiseta de River Plate */
-            background-image: linear-gradient(
-                135deg,
-                transparent 43%,
-                rgba(227, 6, 19, 0.16) 43.5%,
-                rgba(227, 6, 19, 0.16) 56.5%,
-                transparent 57%
-            );
-            backdrop-filter: blur(12px);
-            border: 2px solid #E30613; /* Borde rojo River */
-            color: #111111; /* Texto principal en negro */
-        }
-
-        /* Títulos o textos destacados en rojo dentro del container */
-        .pink-container h1,
-        .pink-container h2,
-        .pink-container h3 {
-            color: #E30613;
+        .glass-container {
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            color: #1e1b4b;
         }
 
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(229, 231, 235, 0.8); /* Gris claro neutro */
+            background: rgba(243, 244, 246, 0.9);
             border-radius: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(227, 6, 19, 0.7); /* Rojo River */
+            background: rgba(124, 58, 237, 0.6);
             border-radius: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #E30613; /* Rojo intenso al pasar el mouse */
+            background: #7c3aed;
         }
-        
+
         @keyframes pulse-subtle {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+            50% { transform: scale(1.03); }
         }
         .animate-pulse-subtle {
             animation: pulse-subtle 3s infinite ease-in-out;
         }
     </style>
 </head>
-<body class="text-pink-950 flex flex-col justify-between p-3 sm:p-6 min-h-screen">
+<body class="text-slate-900 flex flex-col justify-between p-3 sm:p-6 min-h-screen">
 
     <!-- Header -->
-    <header class="max-w-4xl w-full mx-auto flex items-center justify-between py-4 px-6 pink-container rounded-2xl mb-6 shadow-xl">
+    <header class="max-w-4xl w-full mx-auto flex items-center justify-between py-4 px-6 glass-container rounded-2xl mb-6 shadow-xl">
         <div class="flex items-center space-x-3">
-            <div class="bg-gradient-to-tr from-pink-500 to-rose-600 p-3 rounded-xl shadow-lg shadow-pink-500/30">
-                <i class="fa-solid font-bold fa-earth-americas text-2xl text-white"></i>
+            <div class="bg-gradient-to-tr from-violet-600 to-fuchsia-600 p-3 rounded-xl shadow-lg shadow-violet-500/30">
+                <i class="fa-solid fa-brain text-2xl text-white"></i>
             </div>
             <div>
-                <h1 class="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-rose-600">River Plate Quiz</h1>
-                <p class="text-xs text-pink-700 hidden sm:block">Poné a prueba tus conocimientos</p>
+                <h1 class="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-violet-700 to-fuchsia-600">
+                    Mapa de Personalidad
+                </h1>
+                <p class="text-xs text-slate-500 hidden sm:block">15 preguntas para descubrir cómo pensás, actuás y ves el mundo</p>
             </div>
         </div>
-        <button id="leaderboardToggleBtn" onclick="toggleLeaderboardModal()" class="flex items-center space-x-2 bg-pink-200/80 hover:bg-pink-300 text-pink-900 border border-pink-300 px-4 py-2 rounded-xl transition duration-200 text-sm font-semibold shadow-sm">
-            <i class="fa-solid fa-trophy text-amber-500"></i>
-            <span>Posiciones</span>
+        <button id="leaderboardToggleBtn" onclick="toggleLeaderboardModal()" class="flex items-center space-x-2 bg-violet-100 hover:bg-violet-200 text-violet-900 border border-violet-200 px-4 py-2 rounded-xl transition duration-200 text-sm font-semibold shadow-sm">
+            <i class="fa-solid fa-users text-violet-600"></i>
+            <span>Historial</span>
         </button>
     </header>
 
     <!-- Main Container -->
     <main class="max-w-4xl w-full mx-auto flex-grow flex flex-col justify-center">
 
-        <!-- 1. REGISTRATION SCREEN -->
-        <div id="screen-register" class="pink-container rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-300">
+        <!-- 1. PANTALLA INICIAL -->
+        <div id="screen-register" class="glass-container rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-300">
             <div class="text-center max-w-xl mx-auto space-y-6">
-                <div class="inline-block p-4 rounded-full bg-pink-200/60 border border-pink-300 mb-2 animate-pulse-subtle">
-                    <i class="fa-solid fa-compass text-5xl text-pink-600"></i>
+                <div class="inline-block p-4 rounded-full bg-violet-100 border border-violet-200 mb-2 animate-pulse-subtle">
+                    <i class="fa-solid fa-compass-drafting text-5xl text-violet-600"></i>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-pink-950">¡Bienvenidos al River Plate Quiz!</h2>
-                <p class="text-pink-900 text-sm sm:text-base leading-relaxed font-medium">
-                    Desafiá tu conocimiento del club "Mas Grande" <strong class="text-pink-700">50 preguntas</strong> del mundo River. 
-                    Tenés un tiempo límite de <strong class="text-rose-700">10 minutos</strong>. Para aprobar la prueba necesitás responder correctamente al menos <strong class="text-emerald-700">30 preguntas</strong>.
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Descubrí tu Perfil de Personalidad</h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Respondé con sinceridad <strong class="text-violet-700">15 preguntas</strong> sobre tus hábitos, elecciones y reacciones cotidianas. 
+                    Cada opción suma un puntaje distinto que, al finalizar, va a revelar a cuál de los <strong class="text-fuchsia-700">5 perfiles</strong> pertenecés.
                 </p>
 
-                <!-- Rules Box -->
-                <div class="grid grid-cols-3 gap-3 text-left my-6 bg-pink-200/50 p-4 rounded-2xl border border-pink-300 text-xs sm:text-sm">
+                <!-- Info Box -->
+                <div class="grid grid-cols-3 gap-3 text-left my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs sm:text-sm">
                     <div class="flex flex-col items-center text-center p-2">
-                        <i class="fa-solid fa-list-check text-pink-600 text-xl mb-1"></i>
-                        <span class="font-bold text-pink-950">50 Preguntas</span>
-                        <span class="text-xs text-pink-700">Opciones múltiples</span>
+                        <i class="fa-solid fa-list-ol text-violet-600 text-xl mb-1"></i>
+                        <span class="font-bold text-slate-900">15 Preguntas</span>
+                        <span class="text-xs text-slate-500">De 1 a 5 puntos c/u</span>
                     </div>
                     <div class="flex flex-col items-center text-center p-2">
-                        <i class="fa-solid fa-stopwatch text-rose-600 text-xl mb-1"></i>
-                        <span class="font-bold text-pink-950">10 Minutos</span>
-                        <span class="text-xs text-pink-700">Tiempo máximo</span>
+                        <i class="fa-solid fa-calculator text-fuchsia-600 text-xl mb-1"></i>
+                        <span class="font-bold text-slate-900">15 – 75 Puntos</span>
+                        <span class="text-xs text-slate-500">Suma ponderada</span>
                     </div>
                     <div class="flex flex-col items-center text-center p-2">
-                        <i class="fa-solid fa-award text-emerald-600 text-xl mb-1"></i>
-                        <span class="font-bold text-pink-950">Mínimo: 30/50</span>
-                        <span class="text-xs text-pink-700">Para aprobar</span>
+                        <i class="fa-solid fa-masks-theater text-indigo-600 text-xl mb-1"></i>
+                        <span class="font-bold text-slate-900">5 Perfiles</span>
+                        <span class="text-xs text-slate-500">Análisis detallado</span>
                     </div>
                 </div>
 
                 <form onsubmit="startQuiz(event)" class="space-y-4 text-left">
                     <div>
-                        <label for="username" class="block text-xs font-bold text-pink-900 uppercase tracking-wider mb-2">Ingresá tu Nombre o Apodo</label>
+                        <label for="username" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Ingresá tu Nombre o Apodo</label>
                         <div class="relative">
-                            <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-pink-400"></i>
-                            <input type="text" id="username" required placeholder="Ej. San Martín" 
-                                class="w-full bg-white border border-pink-300 focus:border-pink-500 rounded-xl pl-11 pr-4 py-3 text-pink-950 placeholder-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-500/40 transition duration-200 font-medium shadow-sm">
+                            <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="text" id="username" required placeholder="Ej. Martín, Sofía..." 
+                                class="w-full bg-white border border-slate-300 focus:border-violet-500 rounded-xl pl-11 pr-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500/30 transition duration-200 font-medium shadow-sm">
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-pink-500/25 transform hover:-translate-y-0.5 active:translate-y-0 transition duration-200 flex items-center justify-center space-x-2">
-                        <span>EMPEZAR QUIZ</span>
-                        <i class="fa-solid fa-play text-sm"></i>
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-violet-500/25 transform hover:-translate-y-0.5 active:translate-y-0 transition duration-200 flex items-center justify-center space-x-2">
+                        <span>EMPEZAR TEST</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
                     </button>
                 </form>
             </div>
         </div>
 
-        <!-- 2. QUIZ SCREEN -->
-        <div id="screen-quiz" class="hidden pink-container rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-300">
-            <!-- Top Bar: Timer & Progress -->
-            <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-pink-200">
-                <!-- User Info -->
+        <!-- 2. PANTALLA DEL QUIZ -->
+        <div id="screen-quiz" class="hidden glass-container rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-300">
+            <!-- Top Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200">
                 <div class="flex items-center space-x-2">
                     <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span id="player-display-name" class="font-bold text-pink-950">Jugador</span>
+                    <span id="player-display-name" class="font-bold text-slate-900">Participante</span>
                 </div>
 
-                <!-- Progress Counter -->
-                <div class="text-sm font-bold text-pink-900 bg-pink-200/60 px-4 py-2 rounded-xl border border-pink-300">
-                    Pregunta <span id="current-q-num" class="text-pink-600 font-bold text-base">1</span> de <span class="text-pink-800">50</span>
+                <div class="text-sm font-bold text-slate-700 bg-violet-100 px-4 py-2 rounded-xl border border-violet-200">
+                    Pregunta <span id="current-q-num" class="text-violet-700 font-extrabold text-base">1</span> de <span id="total-q-num" class="text-slate-800">15</span>
                 </div>
 
-                <!-- Timer -->
-                <div id="timer-box" class="flex items-center space-x-2 bg-white border border-pink-300 px-4 py-2 rounded-xl shadow-sm">
-                    <i class="fa-solid fa-clock text-rose-500" id="timer-icon"></i>
-                    <span id="timer-text" class="font-mono text-lg font-bold text-rose-600">10:00</span>
+                <div class="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl shadow-sm">
+                    <i class="fa-regular fa-clock text-violet-600"></i>
+                    <span id="timer-text" class="font-mono text-base font-bold text-slate-700">00:00</span>
                 </div>
             </div>
 
             <!-- Progress Bar -->
-            <div class="w-full bg-pink-200/80 h-2.5 rounded-full overflow-hidden mb-8">
-                <div id="progress-bar-fill" class="bg-gradient-to-r from-pink-500 to-rose-600 h-full w-0 transition-all duration-300"></div>
+            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden mb-8">
+                <div id="progress-bar-fill" class="bg-gradient-to-r from-violet-600 to-fuchsia-600 h-full w-0 transition-all duration-300"></div>
             </div>
 
-            <!-- Question & Options Container -->
+            <!-- Question & Options -->
             <div class="space-y-6">
-                <h3 id="question-text" class="text-lg sm:text-xl font-bold text-pink-950 min-h-[60px] flex items-center">
+                <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 min-h-[60px] flex items-center leading-snug">
                     Cargando pregunta...
                 </h3>
 
                 <div id="options-container" class="grid grid-cols-1 gap-3">
-                    <!-- Options buttons rendered dynamically -->
+                    <!-- Opciones generadas dinámicamente -->
                 </div>
             </div>
 
-            <!-- Footer / Next Button -->
-            <div class="mt-8 pt-4 border-t border-pink-200 flex justify-end">
-                <button type="button" id="next-btn" onclick="nextQuestion()" disabled class="px-6 py-3 bg-pink-200/60 opacity-50 cursor-not-allowed text-pink-400 font-bold rounded-xl flex items-center space-x-2 transition duration-200">
-                    <span>Siguiente Pregunta</span>
-                    <i class="fa-solid fa-arrow-right"></i>
+            <!-- Navigation Footer -->
+            <div class="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+                <button type="button" id="prev-btn" onclick="prevQuestion()" class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl flex items-center space-x-2 transition duration-200 text-sm hidden">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Anterior</span>
                 </button>
+                <div class="ml-auto">
+                    <button type="button" id="next-btn" onclick="nextQuestion()" disabled class="px-6 py-3 bg-slate-200 opacity-60 cursor-not-allowed text-slate-500 font-bold rounded-xl flex items-center space-x-2 transition duration-200">
+                        <span>Siguiente Pregunta</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- 3. RESULTS SCREEN -->
-        <div id="screen-result" class="hidden pink-container rounded-3xl p-6 sm:p-10 shadow-2xl text-center transition-all duration-300">
-            <div id="result-badge-icon" class="w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-6 shadow-xl text-5xl">
-                <!-- Icon inserted via JS -->
+        <!-- 3. PANTALLA DE RESULTADO Y PERFIL DE PERSONALIDAD -->
+        <div id="screen-result" class="hidden glass-container rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-300">
+            <!-- Header Resultado -->
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <div id="result-badge-icon" class="w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-5 shadow-xl text-5xl">
+                    <!-- Ícono dinámico -->
+                </div>
+
+                <span id="res-score-pill" class="inline-block px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-violet-100 text-violet-800 border border-violet-200 mb-3">
+                    Puntaje Total: 0 / 75
+                </span>
+
+                <h2 id="result-profile-title" class="text-3xl sm:text-4xl font-black text-slate-900 mb-2">
+                    Título del Perfil
+                </h2>
+                <p id="result-profile-subtitle" class="text-sm sm:text-base font-semibold text-violet-700 mb-4">
+                    Subtítulo
+                </p>
+                <p id="result-profile-overview" class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Descripción general del perfil.
+                </p>
             </div>
 
-            <h2 id="result-status-title" class="text-3xl font-black text-pink-950 mb-2">Resultado</h2>
-            <p id="result-status-msg" class="text-pink-900 mb-8 max-w-md mx-auto font-medium">Mensaje de estado</p>
-
-            <!-- Stat Cards -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto mb-8">
-                <div class="bg-white/80 p-4 rounded-2xl border border-pink-200 shadow-sm">
-                    <span class="block text-xs text-pink-700 font-bold mb-1">Puntaje</span>
-                    <span id="res-score" class="text-2xl font-extrabold text-pink-600">0 / 50</span>
+            <!-- Resumen Numérico Compacto -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto mb-8">
+                <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
+                    <span class="block text-xs text-slate-500 font-semibold mb-1">Puntaje Total</span>
+                    <span id="res-score" class="text-xl sm:text-2xl font-black text-violet-700">0 / 75</span>
                 </div>
-                <div class="bg-white/80 p-4 rounded-2xl border border-pink-200 shadow-sm">
-                    <span class="block text-xs text-pink-700 font-bold mb-1">Efectividad</span>
-                    <span id="res-accuracy" class="text-2xl font-extrabold text-emerald-600">0%</span>
+                <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
+                    <span class="block text-xs text-slate-500 font-semibold mb-1">Rango del Perfil</span>
+                    <span id="res-range" class="text-xl sm:text-2xl font-black text-fuchsia-700">--</span>
                 </div>
-                <div class="bg-white/80 p-4 rounded-2xl border border-pink-200 shadow-sm">
-                    <span class="block text-xs text-pink-700 font-bold mb-1">Tiempo Utilizado</span>
-                    <span id="res-time" class="text-2xl font-extrabold text-rose-600">00:00</span>
-                </div>
-                <div class="bg-white/80 p-4 rounded-2xl border border-pink-200 shadow-sm">
-                    <span class="block text-xs text-pink-700 font-bold mb-1">Estado</span>
-                    <span id="res-pass" class="text-2xl font-extrabold text-pink-950">--</span>
+                <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
+                    <span class="block text-xs text-slate-500 font-semibold mb-1">Tiempo</span>
+                    <span id="res-time" class="text-xl sm:text-2xl font-black text-slate-800">00:00</span>
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button onclick="resetQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold rounded-xl shadow-lg transition duration-200">
-                    <i class="fa-solid fa-rotate-right mr-2"></i> Volver a Intentar
+            <!-- Ficha Detallada: Características, Pensar, Actuar, Ver las cosas -->
+            <div class="space-y-4 mb-8 text-left">
+                <!-- Características Principales -->
+                <div class="bg-violet-50/80 border border-violet-200 rounded-2xl p-5">
+                    <h3 class="text-base sm:text-lg font-extrabold text-violet-950 mb-3 flex items-center space-x-2">
+                        <i class="fa-solid fa-fingerprint text-violet-600"></i>
+                        <span>Características Principales</span>
+                    </h3>
+                    <div id="res-characteristics" class="flex flex-wrap gap-2">
+                        <!-- Badges de características -->
+                    </div>
+                </div>
+
+                <!-- Grilla 3 columnas para Pensar, Actuar, Ver las cosas -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-3 text-lg">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h4 class="font-extrabold text-slate-900 mb-2">Forma de Pensar</h4>
+                        <p id="res-thinking" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center mb-3 text-lg">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4 class="font-extrabold text-slate-900 mb-2">Forma de Actuar</h4>
+                        <p id="res-acting" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-3 text-lg">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h4 class="font-extrabold text-slate-900 mb-2">Forma de Ver las Cosas</h4>
+                        <p id="res-worldview" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acciones -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+                <button onclick="resetQuiz()" class="w-full sm:w-auto px-7 py-3.5 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white font-bold rounded-xl shadow-lg transition duration-200">
+                    <i class="fa-solid fa-rotate-right mr-2"></i> Volver a Hacer el Test
                 </button>
-                <button onclick="toggleLeaderboardModal()" class="w-full sm:w-auto px-8 py-3.5 bg-white hover:bg-pink-50 text-pink-900 border border-pink-300 font-bold rounded-xl shadow-sm transition duration-200">
-                    <i class="fa-solid fa-trophy mr-2 text-amber-500"></i> Ver Posiciones
+                <button onclick="toggleLeaderboardModal()" class="w-full sm:w-auto px-7 py-3.5 bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold rounded-xl shadow-sm transition duration-200">
+                    <i class="fa-solid fa-users mr-2 text-violet-600"></i> Ver Historial
                 </button>
+                <button onclick="toggleAllProfilesPanel()" class="w-full sm:w-auto px-7 py-3.5 bg-violet-100 hover:bg-violet-200 text-violet-900 border border-violet-200 font-bold rounded-xl transition duration-200">
+                    <i class="fa-solid fa-layer-group mr-2"></i> Ver los 5 Perfiles
+                </button>
+            </div>
+
+            <!-- Panel Panorámica de los 5 Perfiles -->
+            <div id="all-profiles-panel" class="hidden mt-6 pt-6 border-t border-slate-200 text-left space-y-3">
+                <h4 class="text-base font-extrabold text-slate-800 mb-3">Las 5 Personalidades y sus Rangos de Puntaje</h4>
+                <div id="all-profiles-list" class="grid grid-cols-1 gap-3">
+                    <!-- Completado por JS -->
+                </div>
             </div>
         </div>
 
     </main>
 
-    <!-- LEADERBOARD MODAL -->
+    <!-- MODAL HISTORIAL DE PARTICIPANTES -->
     <div id="modal-leaderboard" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md hidden items-center justify-center p-4 z-50 transition-opacity duration-300">
-        <div class="pink-container w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl relative border border-pink-300 flex flex-col max-h-[90vh]">
+        <div class="glass-container w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl relative flex flex-col max-h-[90vh]">
             
-            <!-- Modal Header -->
-            <div class="flex items-center justify-between pb-4 border-b border-pink-200">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200">
                 <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-trophy text-2xl text-amber-500"></i>
+                    <i class="fa-solid fa-users text-2xl text-violet-600"></i>
                     <div>
-                        <h3 class="text-xl font-extrabold text-pink-950">Tabla de Posiciones</h3>
-                        <p class="text-xs text-pink-700">Ordenados por respuestas correctas y menor tiempo</p>
+                        <h3 class="text-xl font-extrabold text-slate-900">Historial de Perfiles</h3>
+                        <p class="text-xs text-slate-500">Listado de participantes, puntajes totales y personalidades asignadas</p>
                     </div>
                 </div>
-                <button onclick="toggleLeaderboardModal()" class="text-pink-700 hover:text-pink-950 p-2 rounded-lg bg-pink-200/60">
+                <button onclick="toggleLeaderboardModal()" class="text-slate-600 hover:text-slate-900 p-2 rounded-lg bg-slate-100">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
 
-            <!-- Leaderboard Table Container -->
             <div class="overflow-y-auto custom-scrollbar my-4 flex-grow pr-1">
-                <table class="w-full text-left text-sm text-pink-950">
-                    <thead class="bg-pink-200/80 text-xs uppercase text-pink-900 sticky top-0 border-b border-pink-300">
+                <table class="w-full text-left text-sm text-slate-800">
+                    <thead class="bg-slate-100 text-xs uppercase text-slate-700 sticky top-0 border-b border-slate-200">
                         <tr>
-                            <th class="py-3 px-3 rounded-l-lg">Pos</th>
-                            <th class="py-3 px-3">Jugador</th>
+                            <th class="py-3 px-3 rounded-l-lg">#</th>
+                            <th class="py-3 px-3">Participante</th>
                             <th class="py-3 px-3 text-center">Puntos</th>
-                            <th class="py-3 px-3 text-center">Tiempo</th>
-                            <th class="py-3 px-3 text-right rounded-r-lg">Estado</th>
+                            <th class="py-3 px-3">Perfil de Personalidad</th>
+                            <th class="py-3 px-3 text-right rounded-r-lg">Tiempo</th>
                         </tr>
                     </thead>
-                    <tbody id="leaderboard-table-body" class="divide-y divide-pink-200">
-                        <!-- Dynamic rows -->
+                    <tbody id="leaderboard-table-body" class="divide-y divide-slate-200">
+                        <!-- Filas dinámicas -->
                     </tbody>
                 </table>
-                <div id="leaderboard-empty" class="hidden text-center py-8 text-pink-400">
+                <div id="leaderboard-empty" class="hidden text-center py-8 text-slate-400">
                     <i class="fa-regular fa-folder-open text-4xl mb-2"></i>
-                    <p>No hay resultados guardados en la tabla todavía.</p>
+                    <p>Todavía no hay resultados guardados.</p>
                 </div>
             </div>
 
-            <!-- Modal Actions: Import / Export JSON -->
-            <div class="pt-4 border-t border-pink-200 flex flex-wrap items-center justify-between gap-3">
+            <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
                 <div class="flex items-center space-x-2">
-                    <button onclick="exportLeaderboardJSON()" class="px-3.5 py-2 bg-white hover:bg-pink-50 text-pink-900 rounded-xl text-xs font-bold border border-pink-300 flex items-center space-x-1.5 transition shadow-sm">
-                        <i class="fa-solid fa-download text-pink-600"></i>
+                    <button onclick="exportLeaderboardJSON()" class="px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-800 rounded-xl text-xs font-bold border border-slate-300 flex items-center space-x-1.5 transition shadow-sm">
+                        <i class="fa-solid fa-download text-violet-600"></i>
                         <span>Exportar JSON</span>
                     </button>
                     
-                    <label for="import-json-input" class="px-3.5 py-2 bg-white hover:bg-pink-50 text-pink-900 rounded-xl text-xs font-bold border border-pink-300 flex items-center space-x-1.5 cursor-pointer transition shadow-sm">
+                    <label for="import-json-input" class="px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-800 rounded-xl text-xs font-bold border border-slate-300 flex items-center space-x-1.5 cursor-pointer transition shadow-sm">
                         <i class="fa-solid fa-upload text-emerald-600"></i>
                         <span>Importar JSON</span>
                     </label>
@@ -296,152 +341,351 @@
                     <i class="fa-solid fa-trash mr-1"></i> Limpiar
                 </button>
             </div>
-
         </div>
     </div>
 
     <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-6 right-6 bg-pink-950 text-white px-5 py-3 rounded-xl shadow-2xl border border-pink-500 flex items-center space-x-3 transition-all duration-300 transform translate-y-20 opacity-0 z-50">
-        <i id="toast-icon" class="fa-solid fa-circle-info text-pink-400"></i>
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl border border-violet-500 flex items-center space-x-3 transition-all duration-300 transform translate-y-20 opacity-0 z-50">
+        <i id="toast-icon" class="fa-solid fa-circle-info text-violet-400"></i>
         <span id="toast-msg" class="text-sm font-medium">Notificación</span>
     </div>
 
     <!-- Footer -->
-    <footer class="mt-8 text-center text-xs text-pink-100 py-2">
-        <p>Quiz de River Plate &copy; 2026 - Vamos River!</p>
+    <footer class="mt-8 text-center text-xs text-violet-200/80 py-2">
+        <p>Test de Personalidad &copy; 2026</p>
     </footer>
 
     <!-- JS APP LOGIC -->
     <script>
-        const QUESTIONS_BANK = [
-  
-  { q: "¿En qué fecha exacta se fundó el Club Atlético River Plate?", options: ["25 de mayo de 1901", "25 de mayo de 1905", "1 de enero de 1901", "15 de agosto de 1904"], answer: 0 },
-  { q: "¿Qué dos clubes se fusionaron para dar origen a River Plate?", options: ["Santa Rosa y La Rosales", "Alumni y Belgrano", "San Telmo y Boca Juniors", "Estudiantes y Porteño"], answer: 0 },
-  { q: "¿Quién es el máximo goleador histórico de River Plate?", options: ["Norberto Alonso", "Enzo Francescoli", "Ángel Labruna", "Fernando Cavenaghi"], answer: 2 },
-  { q: "¿Qué jugador tiene el récord de más partidos disputados con la camiseta de River?", options: ["Leonardo Astrada", "Reinaldo Merlo", "Amadeo Carrizo", "Ubaldo Fillol"], answer: 2 },
-  { q: "¿En qué año se inauguró el Estadio Monumental?", options: ["1936", "1938", "1940", "1942"], answer: 1 },
-  { q: "¿Contra qué equipo jugó River Plate el partido inaugural del Estadio Monumental?", options: ["Nacional de Uruguay", "Peñarol", "Independiente", "Real Madrid"], answer: 1 },
-  { q: "¿Quién fue el autor del primer gol en la historia del Estadio Monumental?", options: ["Bernabé Ferreyra", "José Manuel Moreno", "Carlos Peucelle", "Adolfo Pedernera"], answer: 2 },
-  { q: "¿En qué año ganó River Plate su primera Copa Libertadores?", options: ["1966", "1976", "1986", "1996"], answer: 2 },
-  { q: "¿A qué equipo derrotó River en la final de la Copa Libertadores 1986?", options: ["América de Cali", "Peñarol", "Barcelona de Guayaquil", "Atlético Nacional"], answer: 0 },
-  { q: "¿Quién convirtió los dos goles de River en la final de la Copa Libertadores 1996?", options: ["Enzo Francescoli", "Ariel Ortega", "Hernán Crespo", "Marcelo Salas"], answer: 2 },
-  { q: "¿Quién anotó el único gol en la final de la Copa Intercontinental 1986 ante el Steaua Bucarest?", options: ["Norberto Alonso", "Antonio Alzamendi", "Oscar Ruggeri", "Nery Pumpido"], answer: 1 },
-  { q: "¿Cuál fue el resultado global de la final de la Copa Libertadores 2018 frente a Boca Juniors?", options: ["4-2", "5-3", "3-1", "5-2"], answer: 1 },
-  { q: "¿En qué estadio se jugó el partido de vuelta de la final de la Copa Libertadores 2018?", options: ["El Monumental", "Santiago Bernabéu", "Camp Nou", "Maracaná"], answer: 1 },
-  { q: "¿Qué futbolista anotó el recordado gol con la 'pelota naranja' en La Bombonera en 1986?", options: ["Enzo Francescoli", "Norberto Alonso", "Ramón Díaz", "Claudio Caniggia"], answer: 1 },
-  { q: "¿Quiénes integraban la delantera original de 'La Máquina' en la década de 1940?", options: ["Muñoz, Moreno, Pedernera, Labruna y Loustau", "Ferreyra, Peucelle, Moreno, Labruna y Deambrossi", "Onega, Mas, Ermindo Onega, Artime y Solari", "Alonso, Luque, Ortiz, Ramón Díaz y Commisso"], answer: 0 },
-  { q: "¿De qué club provenía Bernabé Ferreyra cuando River pagó una cifra récord en 1932?", options: ["Tigre", "Platense", "Huracán", "Chacarita"], answer: 0 },
-  { q: "¿De qué puerto tomó el nombre el club tras verlo escrito en unos cajones?", options: ["Puerto de Buenos Aires", "Puerto de Rosario", "Puerto de Montevideo", "Puerto de La Plata"], answer: 0 },
-  { q: "¿En qué barrio porteño tuvo River su primera cancha oficial?", options: ["La Boca", "Palermo", "Núñez", "Belgrano"], answer: 0 },
-  { q: "¿Cuánto duró la sequía de títulos locales de River entre 1957 y 1975?", options: ["16 años", "17 años", "18 años", "19 años"], answer: 2 },
-  { q: "¿Qué entrenador cortó la sequía de 18 años en el Metropolitano 1975?", options: ["José María Minella", "Ángel Labruna", "Néstor Rossi", "Renato Cesarini"], answer: 1 },
-  { q: "¿Quién marcó el gol de la consagración ante Argentinos Juniors en el Metropolitano 1975?", options: ["Norberto Alonso", "Rubén Bruno", "Carlos Morete", "Oscar Mas"], answer: 1 },
-  { q: "¿Cuál es el jugador más ganador en la historia de River Plate contando títulos como jugador y técnico?", options: ["Ángel Labruna", "Marcelo Gallardo", "Leonardo Astrada", "Leonardo Ponzio"], answer: 1 },
-  { q: "¿Cuántos títulos oficiales ganó Marcelo Gallardo durante su primer ciclo como DT de River (2014-2022)?", options: ["12", "14", "15", "16"], answer: 1 },
-  { q: "¿Qué jugador tiene más títulos ganados únicamente dentro de la cancha con River Plate?", options: ["Ángel Labruna", "Leonardo Ponzio", "Jonatan Maidana", "Franco Armani"], answer: 1 },
-  { q: "¿En qué año ganó River su primera Copa Sudamericana?", options: ["2003", "2014", "2015", "2019"], answer: 1 },
-  { q: "¿A qué equipo venció River en la final de la Copa Sudamericana 2014?", options: ["São Paulo", "Atlético Nacional", "Boca Juniors", "Independiente Santa Fe"], answer: 1 },
-  { q: "¿Quién fue el arquero de River que le atajó un penal a Emmanuel Gigliotti en la semifinal de la Sudamericana 2014?", options: ["Franco Armani", "Marcelo Barovero", "Germán Lux", "Juan Pablo Carrizo"], answer: 1 },
-  { q: "¿En qué año se produjo el único descenso de River Plate a la Primera B Nacional?", options: ["2010", "2011", "2012", "2013"], answer: 1 },
-  { q: "¿Contra qué equipo disputó River la Promoción en 2011?", options: ["Belgrano de Córdoba", "Instituto", "Rosario Central", "Almirante Brown"], answer: 0 },
-  { q: "¿Quién marcó los dos goles en el partido ante Almirante Brown que selló el ascenso en 2012?", options: ["Fernando Cavenaghi", "Alejandro Domínguez", "David Trezeguet", "Lucas Ocampos"], answer: 2 },
-  { q: "¿Qué jugador convirtió un gol de rabona ante Banfield en 2003?", options: ["Ariel Ortega", "Andrés D'Alessandro", "Marcelo Gallardo", "Eduardo Coudet"], answer: 1 },
-  { q: "¿Quién marcó el recordado gol de chilena ante Polonia en Mar del Plata en 1986?", options: ["Enzo Francescoli", "Norberto Alonso", "Claudio Morresi", "Patricio Hernández"], answer: 0 },
-  { q: "¿Qué arquero de River ostenta el récord de mayor tiempo con la valla invicta en el fútbol argentino?", options: ["Amadeo Carrizo", "Ubaldo Fillol", "Franco Armani", "Ángel Comizzo"], answer: 2 },
-  { q: "¿Cuántos minutos estuvo Franco Armani sin recibir goles en el torneo local durante su récord de 2018?", options: ["800 minutos", "965 minutos", "1.024 minutos", "890 minutos"], answer: 1 },
-  { q: "¿Cuál es la mayor goleada de River Plate en la historia del profesionalismo argentino?", options: ["10-1 a Huracán de San Rafael", "9-0 a Atlanta", "8-0 a Independiente", "8-0 a Jorge Wilstermann"], answer: 0 },
-  { q: "¿Qué delantero colombiano fue clave en la conquista de la Copa Libertadores 2015 y la Recopa?", options: ["Radamel Falcao", "Teófilo Gutiérrez", "Rafael Santos Borré", "Juan Pablo Ángel"], answer: 1 },
-  { q: "¿Quién es el máximo goleador de la era Marcelo Gallardo en River Plate?", options: ["Lucas Alario", "Ignacio Scocco", "Rafael Santos Borré", "Julián Álvarez"], answer: 2 },
-  { q: "¿Cuántos goles le anotó Julián Álvarez a Alianza Lima en un solo partido de Copa Libertadores en 2022?", options: ["4", "5", "6", "3"], answer: 2 },
-  { q: "¿En qué año ganó River Plate el tricampeonato (Apertura, Clausura y Apertura)?", options: ["1996-1997", "1999-2000", "1979-1980", "1955-1957"], answer: 0 },
-  { q: "¿Quién era el director técnico de River Plate en el tricampeonato de 1996-1997?", options: ["Daniel Passarella", "Ramón Díaz", "Américo Gallego", "Manuel Pellegrini"], answer: 1 },
-  { q: "¿Qué jugador de campo tuvo que atajar en un partido completo de Copa Libertadores en 2021 por un brote de COVID-19?", options: ["Milton Casco", "Enzo Pérez", "Jonatan Maidana", "Fabrizio Angileri"], answer: 1 },
-  { q: "¿Contra qué equipo atajó Enzo Pérez en aquella histórica noche de Copa Libertadores 2021?", options: ["Junior de Barranquilla", "Independiente Santa Fe", "Fluminense", "Nacional"], answer: 1 },
-  { q: "¿Cuál fue el apodo histórico que recibió River Plate en la década de 1930 debido a sus grandes compras?", options: ["La Máquina", "Los Millonarios", "La Banda", "Los Caballeros de la Angustia"], answer: 1 },
-  { q: "¿Quién fue el primer presidente en la historia del Club Atlético River Plate?", options: ["Leopoldo Bard", "Antonio Vespucio Liberti", "Rafael Aguilar", "Hugo Santilli"], answer: 0 },
-  { q: "¿En qué año River Plate obtuvo su primer título oficial en la era amateur?", options: ["1914", "1920", "1908", "1925"], answer: 1 },
-  { q: "¿Cuál fue el primer título profesional que ganó River Plate?", options: ["Campeonato 1932", "Campeonato 1936", "Copa Competencia 1932", "Campeonato 1937"], answer: 0 },
-  { q: "¿A qué equipo derrotó River en el partido desempate para ganar su primer título profesional en 1932?", options: ["Independiente", "Racing Club", "Boca Juniors", "San Lorenzo"], answer: 0 },
-  { q: "¿Quién marcó el tercer gol de River (el del 3-1 definitivo) en la final de Madrid de 2018?", options: ["Lucas Pratto", "Juan Fernando Quintero", "Gonzalo Martínez", "Ignacio Fernández"], answer: 2 },
-  { q: "¿Qué número de camiseta utilizó históricamente Ariel 'Burrito' Ortega en River?", options: ["10", "7", "11", "8"], answer: 0 },
-  { q: "¿Quién fue el primer jugador de River Plate en ganar el premio al Futbolista del Año en Sudamérica (Rey de América)?", options: ["Norberto Alonso", "Enzo Francescoli", "Antonio Alzamendi", "Marcelo Salas"], answer: 1 }
-];
+        // --- 5 PERFILES DE PERSONALIDAD (15 - 75 PUNTOS) ---
+        const PERSONALITY_PROFILES = [
+            {
+                id: 1,
+                minScore: 15,
+                maxScore: 26,
+                title: "El Arquitecto Reflexivo",
+                subtitle: "Analítico, metódico y enfocado en la profundidad",
+                icon: "fa-chess-rook",
+                badgeStyle: "bg-indigo-100 text-indigo-700 border-2 border-indigo-300",
+                pillStyle: "bg-indigo-100 text-indigo-800 border-indigo-200",
+                overview: "Tenés una mente lúcida, estructurada y observadora. No te dejás llevar por el apuro ni el ruido externo: preferís entender a fondo cómo funcionan las cosas antes de opinar o tomar una postura.",
+                characteristics: [
+                    "Observador atento",
+                    "Metódico y prolijo",
+                    "Reservado pero auténtico",
+                    "Gran capacidad de concentración",
+                    "Coherencia interior"
+                ],
+                thinking: "Razonás de manera secuencial, lógica y profunda. Antes de decidir juntás datos, evaluás los pros y los contras y anticipás posibles imprevistos.",
+                acting: "Te movés con prudencia y planificación. Preferís dar pocos pasos bien calibrados antes que improvisar y terminás lo que empezás con rigor.",
+                worldview: "Ves el mundo como un sistema complejo para descifrar con calma, dándole valor a la sustancia, el criterio y la verdad más que a las apariencias."
+            },
+            {
+                id: 2,
+                minScore: 27,
+                maxScore: 38,
+                title: "El Guardián Empático",
+                subtitle: "Armónico, relacional y profundamente leal",
+                icon: "fa-hand-holding-heart",
+                badgeStyle: "bg-emerald-100 text-emerald-700 border-2 border-emerald-300",
+                pillStyle: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                overview: "Tu fortaleza está en tu sensibilidad hacia los demás y tu capacidad para generar climas cálidos y tranquilos. Sabés captar matices emocionales que a otros se les pasan por alto.",
+                characteristics: [
+                    "Gran inteligencia emocional",
+                    "Escucha activa",
+                    "Confiabilidad y lealtad",
+                    "Espíritu colaborativo",
+                    "Sentido de la responsabilidad"
+                ],
+                thinking: "Evaluás las situaciones teniendo siempre en cuenta el factor humano. Te preguntás cómo puede influir cada decisión en el bienestar de quienes te rodean.",
+                acting: "Actuás con tacto, paciencia y vocación de acompañar. En los grupos solés mediar, apoyar al que lo necesita y construir vínculos de confianza.",
+                worldview: "Percibís la realidad a través de los afectos y los vínculos: para vos cada experiencia cobra verdadero sentido cuando se comparte con respeto."
+            },
+            {
+                id: 3,
+                minScore: 39,
+                maxScore: 50,
+                title: "El Equilibrista Pragmático",
+                subtitle: "Versátil, concreto y capaz de adaptarse con lucidez",
+                icon: "fa-scale-balanced",
+                badgeStyle: "bg-violet-100 text-violet-700 border-2 border-violet-300",
+                pillStyle: "bg-violet-100 text-violet-800 border-violet-200",
+                overview: "Representás el punto justo entre reflexión y acción. Sabés leer el contexto y calibrar tu forma de responder según lo que pide cada momento, sin caer en rigideces.",
+                characteristics: [
+                    "Gran capacidad de adaptación",
+                    "Sentido práctico",
+                    "Equilibrio emocional",
+                    "Capacidad de síntesis",
+                    "Solidez frente a los cambios"
+                ],
+                thinking: "Tenés un pensamiento flexible y orientado a resolver. Integrás lógica y sentido común, evitando tanto la parálisis por análisis como la impulsividad.",
+                acting: "Alternás con naturalidad organización y cintura para improvisar: sabés seguir un plan cuando hace falta, pero cambiás de rumbo sin entrar en pánico ante un imprevisto.",
+                worldview: "Ves el mundo como un escenario dinámico y cambiante, donde la clave pasa por encontrar el equilibrio entre estabilidad y evolución."
+            },
+            {
+                id: 4,
+                minScore: 51,
+                maxScore: 62,
+                title: "El Explorador Visionario",
+                subtitle: "Creativo, curioso y atraído por nuevas perspectivas",
+                icon: "fa-compass",
+                badgeStyle: "bg-fuchsia-100 text-fuchsia-700 border-2 border-fuchsia-300",
+                pillStyle: "bg-fuchsia-100 text-fuchsia-800 border-fuchsia-200",
+                overview: "Tenés una mente inquieta, independiente y siempre en búsqueda de nuevos estímulos. La rutina rígida te queda chica porque sentís la necesidad constante de descubrir, imaginar y probar cosas distintas.",
+                characteristics: [
+                    "Curiosidad inagotable",
+                    "Pensamiento original",
+                    "Espíritu de iniciativa",
+                    "Apertura mental",
+                    "Entusiasmo contagioso"
+                ],
+                thinking: "Pensás de forma asociativa y divergente: conectás ideas lejanas, cuestionás las costumbres establecidas e imaginás escenarios alternativos.",
+                acting: "Te metés de lleno en proyectos creativos o novedosos, aprendiendo muchas veces sobre la marcha y transformando los errores en aprendizajes.",
+                worldview: "Mirás el mundo como un laboratorio abierto lleno de oportunidades por explorar, donde animarse a cambiar es lo que te hace sentir vivo."
+            },
+            {
+                id: 5,
+                minScore: 63,
+                maxScore: 75,
+                title: "El Catalizador Audaz",
+                subtitle: "Decidido, carismático y enfocado en generar impacto",
+                icon: "fa-fire-flame-curved",
+                badgeStyle: "bg-amber-100 text-amber-700 border-2 border-amber-300",
+                pillStyle: "bg-amber-100 text-amber-800 border-amber-200",
+                overview: "Tenés una energía impulsora natural y una fuerte determinación. No esperás a que las cosas pasen solas: preferís tomar la iniciativa, marcar el rumbo y llevar las ideas a la práctica.",
+                characteristics: [
+                    "Liderazgo natural",
+                    "Coraje para decidir",
+                    "Energía y dinamismo",
+                    "Foco en objetivos",
+                    "Resiliencia bajo presión"
+                ],
+                thinking: "Razonás de manera rápida, estratégica y orientada a resultados. Detectás al instante el núcleo de un problema y buscás el camino más directo para resolverlo.",
+                acting: "Actuás con rapidez y seguridad, asumiendo responsabilidades incluso en momentos complejos y motivando a los demás con tu ejemplo.",
+                worldview: "Percibís la realidad como un terreno abierto a la iniciativa: estás convencido de que con determinación y coraje se puede transformar cualquier escenario."
+            }
+        ];
 
+        // --- 15 PREGUNTAS CON PUNTAJE ASIGNADO A CADA RESPUESTA (1-5) ---
+        const QUESTIONS_BANK = [
+            {
+                q: "Tenés un fin de semana libre sin compromisos fijos. ¿Qué elegís por instinto?",
+                options: [
+                    { text: "Quedarme en casa con un buen libro, una serie o un hobby personal en total tranquilidad.", points: 1 },
+                    { text: "Armar una cena tranquila o una salida con uno o dos amigos de mucha confianza.", points: 2 },
+                    { text: "Dividir el finde entre un poco de descanso planeado y alguna salida improvisada.", points: 3 },
+                    { text: "Salir hacia un lugar que no conozco sin reservar todo al detalle.", points: 4 },
+                    { text: "Juntar un grupo grande y proponer un plan dinámico o una escapada de aventura.", points: 5 }
+                ]
+            },
+            {
+                q: "Cuando te enfrentás a un problema complejo en el trabajo o el estudio, ¿cuál es tu primera reacción?",
+                options: [
+                    { text: "Busco al toque soluciones creativas y poco convencionales para esquivar el obstáculo.", points: 4 },
+                    { text: "Analizo con calma todos los datos disponibles antes de mover una ficha.", points: 1 },
+                    { text: "Tomo las riendas de la situación y pruebo rápido la solución más directa.", points: 5 },
+                    { text: "Charlo con las personas involucradas para entender el clima y llegar a un acuerdo.", points: 2 },
+                    { text: "Divido el problema en etapas prácticas y avanzo paso a paso adaptándome.", points: 3 }
+                ]
+            },
+            {
+                q: "En una charla grupal donde surgen opiniones muy opuestas, ¿qué rol solés tomar?",
+                options: [
+                    { text: "Escucho atento a todos y hablo recién al final con una síntesis bien pensada.", points: 1 },
+                    { text: "Trato de bajar los decibeles y darle lugar a quien le cuesta más expresarse.", points: 2 },
+                    { text: "Tiro un punto de vista original que lleva la conversación hacia otro lado.", points: 4 },
+                    { text: "Ordeno el debate hacia una decisión concreta para no dar tantas vueltas.", points: 5 },
+                    { text: "Rescato lo válido de cada postura y propongo un punto medio equilibrado.", points: 3 }
+                ]
+            },
+            {
+                q: "¿Cómo vivís un cambio repentino en tus planes del día?",
+                options: [
+                    { text: "Me fastidia bastante: prefiero saber de antemano con qué me voy a encontrar.", points: 1 },
+                    { text: "Me preocupa sobre todo que el cambio de planes no complique a los demás.", points: 2 },
+                    { text: "Primero evalúo el impacto práctico y después reorganizo el día sin hacerme drama.", points: 3 },
+                    { text: "Me da curiosidad: muchas veces de los imprevistos salen las mejores ideas.", points: 4 },
+                    { text: "Lo tomo con energía como un desafío estimulante para resolver sobre la marcha.", points: 5 }
+                ]
+            },
+            {
+                q: "¿Qué frase describe mejor tu relación con las reglas y los procedimientos?",
+                options: [
+                    { text: "Sirven como guía, pero hay que adaptarlas según el contexto real.", points: 3 },
+                    { text: "Son fundamentales: garantizan orden, calidad y previsibilidad.", points: 1 },
+                    { text: "Muchas veces frenan la creatividad: prefiero explorar caminos alternativos.", points: 4 },
+                    { text: "Están para cuidar el respeto mutuo y la armonía entre las personas.", points: 2 },
+                    { text: "Si retrasan un objetivo importante, no dudo en cuestionarlas.", points: 5 }
+                ]
+            },
+            {
+                q: "Tenés que tomar una decisión importante con poco tiempo. ¿En qué te apoyás?",
+                options: [
+                    { text: "En mi intuición y en el coraje de hacerme cargo de la elección.", points: 5 },
+                    { text: "En los hechos objetivos que pueda chequear rápidamente.", points: 1 },
+                    { text: "En lo que siento y en cómo va a afectar emocionalmente a quienes me rodean.", points: 2 },
+                    { text: "En mi experiencia previa combinada con una evaluación rápida de las opciones.", points: 3 },
+                    { text: "En la alternativa que abra escenarios nuevos y estimulantes.", points: 4 }
+                ]
+            },
+            {
+                q: "En una fiesta o reunión donde conocés a muy poca gente, ¿cómo te manejás?",
+                options: [
+                    { text: "Me acerco a alguien que parece medio aislado para charlar tranquilos.", points: 2 },
+                    { text: "Me quedo observando el ambiente y converso solo si alguien se acerca.", points: 1 },
+                    { text: "Busco a las personas más interesantes o distintas para escuchar historias nuevas.", points: 4 },
+                    { text: "Me muevo con naturalidad entre varios grupitos encontrando temas en común.", points: 3 },
+                    { text: "Rompo el hielo sin problema y armo charla en el centro del grupo.", points: 5 }
+                ]
+            },
+            {
+                q: "¿Qué es lo que más satisfacción te da al terminar un proyecto?",
+                options: [
+                    { text: "Saber que cada detalle quedó impecable, sin errores ni cosas sueltas.", points: 1 },
+                    { text: "Haber trabajado en un clima lindo donde todos se sintieron valorados.", points: 2 },
+                    { text: "Haber cumplido los tiempos con eficiencia y buen equilibrio entre esfuerzo y resultado.", points: 3 },
+                    { text: "Haber aportado una idea distinta que nadie había probado antes.", points: 4 },
+                    { text: "Haber alcanzado una meta ambiciosa superando obstáculos difíciles.", points: 5 }
+                ]
+            },
+            {
+                q: "Cuando aprendés algo totalmente nuevo, ¿cuál es tu método preferido?",
+                options: [
+                    { text: "Combino un poco de teoría básica con ejercicios prácticos progresivos.", points: 3 },
+                    { text: "Leo guías, esquemas y teoría hasta entender toda la estructura.", points: 1 },
+                    { text: "Me mando directo a la práctica, aprendiendo de los errores en la cancha.", points: 5 },
+                    { text: "Le pido a alguien que sepa que me lo muestre y aprendo charlando.", points: 2 },
+                    { text: "Experimento por mi cuenta haciendo conexiones creativas y pruebas propias.", points: 4 }
+                ]
+            },
+            {
+                q: "¿Cómo reaccionás cuando alguien critica una idea o un trabajo tuyo?",
+                options: [
+                    { text: "Analizo en silencio si la crítica tiene lógica antes de contestar.", points: 1 },
+                    { text: "Trato de entender el punto de vista del otro para no tensar el vínculo.", points: 2 },
+                    { text: "Tomo lo que suma y descarto lo que no me sirve.", points: 3 },
+                    { text: "Uso la crítica como disparador para convertir la idea en algo aún más original.", points: 4 },
+                    { text: "Defiendo con firmeza mi postura y redoblo la apuesta con argumentos claros.", points: 5 }
+                ]
+            },
+            {
+                q: "¿Qué ambiente de trabajo o estudio te hace rendir mejor?",
+                options: [
+                    { text: "Un espacio colaborativo, empático y basado en el apoyo mutuo.", points: 2 },
+                    { text: "Un lugar informal, estimulante y abierto a probar cosas nuevas todo el tiempo.", points: 4 },
+                    { text: "Un lugar silencioso, ordenado y sin interrupciones constantes.", points: 1 },
+                    { text: "Un entorno dinámico, desafiante y con mucho ritmo.", points: 5 },
+                    { text: "Un espacio organizado pero flexible, con objetivos claros y autonomía.", points: 3 }
+                ]
+            },
+            {
+                q: "Cuando pensás en tu futuro a cinco años, ¿qué es lo que más pesa para vos?",
+                options: [
+                    { text: "Tener estabilidad, seguridad y dominar a fondo lo que hago.", points: 1 },
+                    { text: "Cultivar vínculos genuinos y construir tranquilidad para mí y los míos.", points: 2 },
+                    { text: "Sostener un buen equilibrio entre crecimiento profesional y calidad de vida.", points: 3 },
+                    { text: "Explorar nuevos horizontes, viajar y reinventarme continuamente.", points: 4 },
+                    { text: "Lograr metas ambiciosas y dejar una huella concreta.", points: 5 }
+                ]
+            },
+            {
+                q: "Un amigo está pasando por un mal momento y te pide consejo. ¿Qué hacés?",
+                options: [
+                    { text: "Lo escucho con empatía sin juzgar, dándole presencia y contención.", points: 2 },
+                    { text: "Lo ayudo a desarmar el problema con lógica para encontrar la salida más clara.", points: 1 },
+                    { text: "Primero lo escucho y después le tiro algunas sugerencias prácticas y realistas.", points: 3 },
+                    { text: "Lo incentivo a actuar ya mismo y lo ayudo a dar el primer paso concreto.", points: 5 },
+                    { text: "Le propongo una mirada distinta para que pueda ver la situación desde afuera.", points: 4 }
+                ]
+            },
+            {
+                q: "¿Cómo te llevás con el riesgo?",
+                options: [
+                    { text: "Lo evito todo lo posible: prefiero ir sobre seguro.", points: 1 },
+                    { text: "Asumo un riesgo solo si no perjudica a las personas que tengo alrededor.", points: 2 },
+                    { text: "Lo evalúo de forma calculada: arriesgo únicamente si los beneficios superan los costos.", points: 3 },
+                    { text: "Me atrae cuando implica descubrir algo nuevo y salir de la rutina.", points: 4 },
+                    { text: "Lo considero indispensable para conseguir grandes resultados.", points: 5 }
+                ]
+            },
+            {
+                q: "Si tuvieras que elegir una frase que te represente en el día a día, ¿cuál sería?",
+                options: [
+                    { text: "«Primero entender a fondo, después construir con precisión.»", points: 1 },
+                    { text: "«Ningún logro vale más que la calidad de los vínculos humanos.»", points: 2 },
+                    { text: "«La verdadera fuerza está en el equilibrio y en saber adaptarse.»", points: 3 },
+                    { text: "«Cada límite es apenas el comienzo de una nueva exploración.»", points: 4 },
+                    { text: "«El que se anima a decidir y actuar crea su propio destino.»", points: 5 }
+                ]
+            }
+        ];
 
         // --- ESTADO DE LA APLICACIÓN ---
-        const TOTAL_TIME = 600; // 10 minutos
-        const PASS_THRESHOLD = 30;
-
         let currentUser = "";
         let currentQuestionIndex = 0;
-        let score = 0;
         let userAnswers = [];
         let timerInterval = null;
-        let timeRemaining = TOTAL_TIME;
-        let timeTaken = 0;
+        let timeElapsed = 0;
         let leaderboard = [];
 
-        // --- CARICAMENTO AUTOMATICO JSON E LOCALSTORAGE ---
+        document.getElementById('total-q-num').textContent = QUESTIONS_BANK.length;
+
+        // --- CARGA AUTOMÁTICA DE JSON Y LOCALSTORAGE ---
         window.addEventListener('DOMContentLoaded', () => {
             loadLeaderboardAutomatico();
         });
 
-     async function loadLeaderboardAutomatico() {
-    try {
-        // Il parametro ?t=... evita che il browser carichi una versione vecchia dalla cache
-        const response = await fetch('punteggi.json?t=' + Date.now());
-        if (response.ok) {
-            const jsonLeaderboard = await response.json();
-            if (Array.isArray(jsonLeaderboard)) {
-                leaderboard = jsonLeaderboard.map(item => ({
-                    name: item.name || item.nombre,
-                    score: item.score !== undefined ? item.score : item.puntaje,
-                    timeSeconds: item.timeSeconds !== undefined ? item.timeSeconds : item.tiempo,
-                    timeFormatted: item.timeFormatted || `${Math.floor((item.timeSeconds || item.tiempo) / 60)}m ${(item.timeSeconds || item.tiempo) % 60}s`,
-                    passed: item.passed !== undefined ? item.passed : ((item.score || item.puntaje) >= PASS_THRESHOLD),
-                    date: item.date || item.fecha || new Date().toLocaleDateString('es-AR')
-                }));
-                // Ordina e renderizza senza risalvare subito sul server
-                leaderboard.sort((a, b) => (b.score - a.score) || (a.timeSeconds - b.timeSeconds));
-                renderLeaderboard();
-                return;
+        async function loadLeaderboardAutomatico() {
+            try {
+                const response = await fetch('punteggi.json?t=' + Date.now());
+                if (response.ok) {
+                    const jsonLeaderboard = await response.json();
+                    if (Array.isArray(jsonLeaderboard)) {
+                        leaderboard = jsonLeaderboard.map(item => {
+                            const pts = item.score !== undefined ? Number(item.score) : 0;
+                            const profileObj = getProfileByScore(pts);
+                            return {
+                                name: item.name || "Anónimo",
+                                score: pts,
+                                profileTitle: item.profileTitle || profileObj.title,
+                                timeSeconds: item.timeSeconds || 0,
+                                timeFormatted: item.timeFormatted || formatSeconds(item.timeSeconds || 0),
+                                date: item.date || new Date().toLocaleDateString('es-AR')
+                            };
+                        });
+                        renderLeaderboard();
+                        return;
+                    }
+                }
+            } catch (error) {
+                console.error("Error al cargar punteggi.json:", error);
+            }
+
+            const stored = localStorage.getItem('personality_quiz_results_ar');
+            leaderboard = stored ? JSON.parse(stored) : [];
+            renderLeaderboard();
+        }
+
+        async function saveLeaderboardToStorage() {
+            localStorage.setItem('personality_quiz_results_ar', JSON.stringify(leaderboard));
+
+            try {
+                const response = await fetch('salva_punteggi.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(leaderboard)
+                });
+
+                const result = await response.json();
+                if (!response.ok || result.status !== 'success') {
+                    console.error("Error del servidor:", result.message);
+                }
+            } catch (error) {
+                console.warn("Guardado local completado (servidor PHP no disponible):", error);
             }
         }
-    } catch (error) {
-        console.error("Errore nel caricamento di punteggi.json:", error);
-    }
 
-    // Fallback su localStorage solo se il server non risponde
-    const stored = localStorage.getItem('geo_quiz_leaderboard');
-    leaderboard = stored ? JSON.parse(stored) : [];
-    renderLeaderboard();
-}
-
-async function saveLeaderboardToStorage() {
-    // Salva una copia di backup nel browser
-    localStorage.setItem('geo_quiz_leaderboard', JSON.stringify(leaderboard));
-
-    // Invia i dati al server PHP per aggiornare punteggi.json
-    try {
-        const response = await fetch('salva_punteggi.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(leaderboard)
-        });
-
-        const result = await response.json();
-        if (!response.ok || result.status !== 'success') {
-            console.error("Errore lato server:", result.message);
-            showToast("Errore nel salvataggio sul server", "error");
-        }
-    } catch (error) {
-        console.error("Errore di rete durante il salvataggio:", error);
-        showToast("Impossibile contattare il server PHP", "error");
-    }
-}
-        // --- LÓGICA DEL QUIZ ---
+        // --- LÓGICA DEL TEST ---
         function startQuiz(event) {
             event.preventDefault();
             const inputName = document.getElementById('username').value.trim();
@@ -451,10 +695,8 @@ async function saveLeaderboardToStorage() {
             document.getElementById('player-display-name').textContent = currentUser;
 
             currentQuestionIndex = 0;
-            score = 0;
             userAnswers = [];
-            timeRemaining = TOTAL_TIME;
-            timeTaken = 0;
+            timeElapsed = 0;
 
             showScreen('screen-quiz');
             startTimer();
@@ -463,38 +705,18 @@ async function saveLeaderboardToStorage() {
 
         function startTimer() {
             clearInterval(timerInterval);
-            updateTimerDisplay();
+            document.getElementById('timer-text').textContent = "00:00";
 
             timerInterval = setInterval(() => {
-                timeRemaining--;
-                timeTaken++;
-                updateTimerDisplay();
-
-                if (timeRemaining <= 0) {
-                    clearInterval(timerInterval);
-                    finishQuiz(true);
-                }
+                timeElapsed++;
+                document.getElementById('timer-text').textContent = formatSeconds(timeElapsed);
             }, 1000);
         }
 
-        function updateTimerDisplay() {
-            const minutes = Math.floor(timeRemaining / 60);
-            const seconds = timeRemaining % 60;
-            const text = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            
-            const timerTextElem = document.getElementById('timer-text');
-            const timerBoxElem = document.getElementById('timer-box');
-            timerTextElem.textContent = text;
-
-            if (timeRemaining <= 60) {
-                timerBoxElem.classList.add('border-rose-500', 'bg-rose-100');
-                timerTextElem.classList.remove('text-rose-600');
-                timerTextElem.classList.add('text-rose-700', 'animate-pulse');
-            } else {
-                timerBoxElem.classList.remove('border-rose-500', 'bg-rose-100');
-                timerTextElem.classList.add('text-rose-600');
-                timerTextElem.classList.remove('text-rose-700', 'animate-pulse');
-            }
+        function formatSeconds(sec) {
+            const minutes = Math.floor(sec / 60);
+            const seconds = sec % 60;
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
         }
 
         function renderQuestion() {
@@ -511,50 +733,68 @@ async function saveLeaderboardToStorage() {
 
             const selectedOption = userAnswers[currentQuestionIndex];
 
-            qData.options.forEach((optText, idx) => {
+            qData.options.forEach((optObj, idx) => {
                 const btn = document.createElement('button');
+                btn.type = "button";
                 btn.className = `w-full text-left p-4 rounded-xl border transition-all duration-200 font-medium flex items-center justify-between text-sm sm:text-base shadow-sm `;
                 
                 if (selectedOption === undefined) {
-                    btn.className += `bg-white/90 border-pink-200 hover:bg-pink-100 hover:border-pink-400 text-pink-950`;
+                    btn.className += `bg-white border-slate-200 hover:bg-violet-50 hover:border-violet-400 text-slate-800`;
                 } else if (selectedOption === idx) {
-                    btn.className += `bg-pink-500 border-pink-600 text-white font-bold ring-2 ring-pink-400`;
+                    btn.className += `bg-violet-600 border-violet-700 text-white font-semibold ring-2 ring-violet-400`;
                 } else {
-                    btn.className += `bg-white/50 border-pink-200 text-pink-400 opacity-60`;
+                    btn.className += `bg-slate-50 border-slate-200 text-slate-400 opacity-70`;
                 }
 
                 btn.onclick = () => selectOption(idx);
 
                 const optionLetter = String.fromCharCode(65 + idx);
                 btn.innerHTML = `
-                    <div class="flex items-center space-x-3">
-                        <span class="w-7 h-7 rounded-lg ${selectedOption === idx ? 'bg-white text-pink-600' : 'bg-pink-200 text-pink-900'} flex items-center justify-center font-bold text-xs">${optionLetter}</span>
-                        <span>${optText}</span>
+                    <div class="flex items-center space-x-3 pr-2">
+                        <span class="w-7 h-7 shrink-0 rounded-lg ${selectedOption === idx ? 'bg-white text-violet-700' : 'bg-violet-100 text-violet-800'} flex items-center justify-center font-bold text-xs">${optionLetter}</span>
+                        <span>${escapeHtml(optObj.text)}</span>
                     </div>
-                    ${selectedOption === idx ? '<i class="fa-solid fa-circle-check text-white text-lg"></i>' : ''}
+                    ${selectedOption === idx ? '<i class="fa-solid fa-circle-check text-white text-lg shrink-0"></i>' : ''}
                 `;
 
                 container.appendChild(btn);
             });
 
+            // Botón Anterior
+            const prevBtn = document.getElementById('prev-btn');
+            if (currentQuestionIndex > 0) {
+                prevBtn.classList.remove('hidden');
+            } else {
+                prevBtn.classList.add('hidden');
+            }
+
+            // Botón Siguiente / Descubrir Perfil
             const nextBtn = document.getElementById('next-btn');
             if (userAnswers[currentQuestionIndex] !== undefined) {
                 nextBtn.removeAttribute('disabled');
-                nextBtn.className = "px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold rounded-xl flex items-center space-x-2 transition duration-200 cursor-pointer shadow-md";
+                nextBtn.className = "px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white font-bold rounded-xl flex items-center space-x-2 transition duration-200 cursor-pointer shadow-md";
                 if (currentQuestionIndex === QUESTIONS_BANK.length - 1) {
-                    nextBtn.querySelector('span').textContent = "Terminar Quiz";
+                    nextBtn.querySelector('span').textContent = "Descubrir mi Perfil";
                 } else {
                     nextBtn.querySelector('span').textContent = "Siguiente Pregunta";
                 }
             } else {
                 nextBtn.setAttribute('disabled', 'true');
-                nextBtn.className = "px-6 py-3 bg-pink-200/60 opacity-50 cursor-not-allowed text-pink-400 font-bold rounded-xl flex items-center space-x-2 transition duration-200";
+                nextBtn.className = "px-6 py-3 bg-slate-200 opacity-60 cursor-not-allowed text-slate-500 font-bold rounded-xl flex items-center space-x-2 transition duration-200";
+                nextBtn.querySelector('span').textContent = currentQuestionIndex === QUESTIONS_BANK.length - 1 ? "Descubrir mi Perfil" : "Siguiente Pregunta";
             }
         }
 
         function selectOption(index) {
             userAnswers[currentQuestionIndex] = index;
             renderQuestion();
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
         }
 
         function nextQuestion() {
@@ -564,82 +804,118 @@ async function saveLeaderboardToStorage() {
                 currentQuestionIndex++;
                 renderQuestion();
             } else {
-                finishQuiz(false);
+                finishQuiz();
             }
         }
 
-        function finishQuiz(timeOut = false) {
+        function getProfileByScore(totalPoints) {
+            const found = PERSONALITY_PROFILES.find(p => totalPoints >= p.minScore && totalPoints <= p.maxScore);
+            return found || PERSONALITY_PROFILES[2];
+        }
+
+        function finishQuiz() {
             clearInterval(timerInterval);
 
-            score = 0;
+            // Suma total de los números asignados a cada respuesta elegida
+            let totalScore = 0;
             QUESTIONS_BANK.forEach((q, idx) => {
-                if (userAnswers[idx] === q.answer) {
-                    score++;
+                const chosenIdx = userAnswers[idx];
+                if (chosenIdx !== undefined && q.options[chosenIdx]) {
+                    totalScore += q.options[chosenIdx].points;
                 }
             });
 
-            const passed = score >= PASS_THRESHOLD;
-            const accuracy = Math.round((score / QUESTIONS_BANK.length) * 100);
+            const maxPossibleScore = QUESTIONS_BANK.length * 5;
+            const profile = getProfileByScore(totalScore);
+            const formattedTime = formatSeconds(timeElapsed);
 
-            const minutesTaken = Math.floor(timeTaken / 60);
-            const secondsTaken = timeTaken % 60;
-            const formattedTimeTaken = `${String(minutesTaken).padStart(2, '0')}:${String(secondsTaken).padStart(2, '0')}`;
-
-            document.getElementById('res-score').textContent = `${score} / ${QUESTIONS_BANK.length}`;
-            document.getElementById('res-accuracy').textContent = `${accuracy}%`;
-            document.getElementById('res-time').textContent = formattedTimeTaken;
-
-            const resPassElem = document.getElementById('res-pass');
+            // Encabezado del resultado
             const badgeElem = document.getElementById('result-badge-icon');
-            const titleElem = document.getElementById('result-status-title');
-            const msgElem = document.getElementById('result-status-msg');
+            badgeElem.className = `w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-5 shadow-xl text-5xl ${profile.badgeStyle}`;
+            badgeElem.innerHTML = `<i class="fa-solid ${profile.icon}"></i>`;
 
-            if (passed) {
-                resPassElem.textContent = "APROBADO";
-                resPassElem.className = "text-2xl font-extrabold text-emerald-600";
-                
-                badgeElem.className = "w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-6 shadow-xl text-5xl bg-emerald-100 text-emerald-600 border-2 border-emerald-300 animate-bounce";
-                badgeElem.innerHTML = `<i class="fa-solid fa-trophy"></i>`;
+            const pillElem = document.getElementById('res-score-pill');
+            pillElem.className = `inline-block px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider border mb-3 ${profile.pillStyle}`;
+            pillElem.textContent = `${currentUser} • Puntaje Total: ${totalScore} / ${maxPossibleScore}`;
 
-                titleElem.textContent = "¡Felicitaciones!";
-                msgElem.textContent = `¡Aprobaste el quiz contestando correctamente ${score} preguntas de 50!`;
-            } else {
-                resPassElem.textContent = "NO APROBADO";
-                resPassElem.className = "text-2xl font-extrabold text-rose-600";
+            document.getElementById('result-profile-title').textContent = profile.title;
+            document.getElementById('result-profile-subtitle').textContent = profile.subtitle;
+            document.getElementById('result-profile-overview').textContent = profile.overview;
 
-                badgeElem.className = "w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-6 shadow-xl text-5xl bg-rose-100 text-rose-600 border-2 border-rose-300";
-                badgeElem.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+            // Resumen numérico
+            document.getElementById('res-score').textContent = `${totalScore} / ${maxPossibleScore}`;
+            document.getElementById('res-range').textContent = `${profile.minScore}–${profile.maxScore} pts`;
+            document.getElementById('res-time').textContent = formattedTime;
 
-                titleElem.textContent = timeOut ? "¡Tiempo agotado!" : "¡Casi lo lográs!";
-                msgElem.textContent = `Necesitás responder al menos ${PASS_THRESHOLD} preguntas bien para aprobar. Conseguiste ${score} puntos.`;
-            }
+            // Características
+            const charContainer = document.getElementById('res-characteristics');
+            charContainer.innerHTML = '';
+            profile.characteristics.forEach(trait => {
+                const span = document.createElement('span');
+                span.className = "px-3 py-1.5 bg-white text-violet-900 border border-violet-200 rounded-xl text-xs sm:text-sm font-semibold shadow-sm";
+                span.textContent = trait;
+                charContainer.appendChild(span);
+            });
 
+            // Formas de pensar, actuar y ver las cosas
+            document.getElementById('res-thinking').textContent = profile.thinking;
+            document.getElementById('res-acting').textContent = profile.acting;
+            document.getElementById('res-worldview').textContent = profile.worldview;
+
+            // Panorámica de los 5 perfiles
+            renderAllProfilesOverview(profile.id);
+
+            // Guardar en el historial
             saveResultToLeaderboard({
                 name: currentUser,
-                score: score,
-                timeSeconds: timeTaken,
-                timeFormatted: formattedTimeTaken,
-                passed: passed,
+                score: totalScore,
+                profileTitle: profile.title,
+                timeSeconds: timeElapsed,
+                timeFormatted: formattedTime,
                 date: new Date().toLocaleDateString('es-AR')
             });
 
             showScreen('screen-result');
         }
 
+        function renderAllProfilesOverview(activeProfileId) {
+            const listContainer = document.getElementById('all-profiles-list');
+            listContainer.innerHTML = '';
+
+            PERSONALITY_PROFILES.forEach(p => {
+                const isUnlocked = p.id === activeProfileId;
+                const card = document.createElement('div');
+                card.className = `p-4 rounded-2xl border ${isUnlocked ? 'bg-violet-50 border-violet-400 ring-2 ring-violet-300' : 'bg-slate-50 border-slate-200'}`;
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid ${p.icon} text-violet-600"></i>
+                            <span class="font-extrabold text-slate-900">${escapeHtml(p.title)}</span>
+                            ${isUnlocked ? '<span class="text-xs bg-violet-600 text-white px-2 py-0.5 rounded-full font-bold">Tu perfil</span>' : ''}
+                        </div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700">${p.minScore} – ${p.maxScore} puntos</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600">${escapeHtml(p.overview)}</p>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+
+        function toggleAllProfilesPanel() {
+            const panel = document.getElementById('all-profiles-panel');
+            panel.classList.toggle('hidden');
+        }
+
         function resetQuiz() {
             document.getElementById('username').value = currentUser;
+            document.getElementById('all-profiles-panel').classList.add('hidden');
             showScreen('screen-register');
         }
 
-        // --- GESTIONE CLASSIFICA ---
-        function sortAndRender() {
-            leaderboard.sort((a, b) => (b.score - a.score) || (a.timeSeconds - b.timeSeconds));
-            renderLeaderboard();
-        }
-
+        // --- GESTIÓN DE HISTORIAL DE PARTICIPANTES ---
         function saveResultToLeaderboard(record) {
-            leaderboard.push(record);
-            sortAndRender();
+            leaderboard.unshift(record);
+            renderLeaderboard();
             saveLeaderboardToStorage();
         }
 
@@ -657,27 +933,21 @@ async function saveLeaderboardToStorage() {
 
             leaderboard.forEach((entry, idx) => {
                 const row = document.createElement('tr');
-                row.className = "hover:bg-pink-200/50 transition duration-150";
-
-                let medal = `<span class="font-bold text-pink-700">#${idx + 1}</span>`;
-                if (idx === 0) medal = `<i class="fa-solid fa-medal text-amber-500 text-lg"></i>`;
-                else if (idx === 1) medal = `<i class="fa-solid fa-medal text-slate-400 text-lg"></i>`;
-                else if (idx === 2) medal = `<i class="fa-solid fa-medal text-amber-700 text-lg"></i>`;
-
-                const isCurrent = entry.name === currentUser;
+                row.className = "hover:bg-violet-50/60 transition duration-150";
+                const isCurrent = entry.name === currentUser && idx === 0;
 
                 row.innerHTML = `
-                    <td class="py-3 px-3 font-medium">${medal}</td>
-                    <td class="py-3 px-3 font-semibold ${isCurrent ? 'text-pink-600 font-bold' : 'text-pink-950'}">
-                        ${escapeHtml(entry.name)} ${isCurrent ? '<span class="text-xs bg-pink-200 px-2 py-0.5 rounded text-pink-800 border border-pink-300">Vos</span>' : ''}
+                    <td class="py-3 px-3 font-bold text-slate-500">#${idx + 1}</td>
+                    <td class="py-3 px-3 font-semibold ${isCurrent ? 'text-violet-700 font-bold' : 'text-slate-900'}">
+                        ${escapeHtml(entry.name)} ${isCurrent ? '<span class="text-xs bg-violet-100 px-2 py-0.5 rounded text-violet-800 border border-violet-200 ml-1">Vos</span>' : ''}
                     </td>
-                    <td class="py-3 px-3 text-center font-bold text-pink-700">${entry.score}/50</td>
-                    <td class="py-3 px-3 text-center font-mono text-xs text-rose-700 font-bold">${entry.timeFormatted}</td>
-                    <td class="py-3 px-3 text-right">
-                        ${entry.passed 
-                            ? '<span class="inline-block bg-emerald-100 text-emerald-700 text-xs px-2.5 py-1 rounded-full border border-emerald-300 font-bold">Aprobado</span>' 
-                            : '<span class="inline-block bg-rose-100 text-rose-700 text-xs px-2.5 py-1 rounded-full border border-rose-300 font-bold">No Aprob.</span>'}
+                    <td class="py-3 px-3 text-center font-extrabold text-violet-700">${entry.score}/75</td>
+                    <td class="py-3 px-3">
+                        <span class="inline-block bg-fuchsia-50 text-fuchsia-800 text-xs px-2.5 py-1 rounded-full border border-fuchsia-200 font-bold">
+                            ${escapeHtml(entry.profileTitle)}
+                        </span>
                     </td>
+                    <td class="py-3 px-3 text-right font-mono text-xs text-slate-600 font-semibold">${escapeHtml(entry.timeFormatted)}</td>
                 `;
 
                 tbody.appendChild(row);
@@ -693,12 +963,12 @@ async function saveLeaderboardToStorage() {
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(leaderboard, null, 2));
             const downloadAnchor = document.createElement('a');
             downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", `punteggi.json`);
+            downloadAnchor.setAttribute("download", "punteggi.json");
             document.body.appendChild(downloadAnchor);
             downloadAnchor.click();
             downloadAnchor.remove();
 
-            showToast("¡Tabla exportada en JSON con éxito!", "success");
+            showToast("¡Historial exportado en JSON!", "success");
         }
 
         function importLeaderboardJSON(event) {
@@ -710,17 +980,21 @@ async function saveLeaderboardToStorage() {
                 try {
                     const importedData = JSON.parse(e.target.result);
                     if (Array.isArray(importedData)) {
-                        leaderboard = importedData.map(item => ({
-                            name: item.name || item.nombre,
-                            score: item.score !== undefined ? item.score : item.puntaje,
-                            timeSeconds: item.timeSeconds !== undefined ? item.timeSeconds : item.tiempo,
-                            timeFormatted: item.timeFormatted || `${Math.floor((item.timeSeconds || item.tiempo) / 60)}m ${(item.timeSeconds || item.tiempo) % 60}s`,
-                            passed: item.passed !== undefined ? item.passed : ((item.score || item.puntaje) >= PASS_THRESHOLD),
-                            date: item.date || item.fecha || new Date().toLocaleDateString('es-AR')
-                        }));
-                        sortAndRender();
+                        leaderboard = importedData.map(item => {
+                            const pts = item.score !== undefined ? Number(item.score) : 0;
+                            const profileObj = getProfileByScore(pts);
+                            return {
+                                name: item.name || "Anónimo",
+                                score: pts,
+                                profileTitle: item.profileTitle || profileObj.title,
+                                timeSeconds: item.timeSeconds || 0,
+                                timeFormatted: item.timeFormatted || formatSeconds(item.timeSeconds || 0),
+                                date: item.date || new Date().toLocaleDateString('es-AR')
+                            };
+                        });
+                        renderLeaderboard();
                         saveLeaderboardToStorage();
-                        showToast("¡Tabla de posiciones importada con éxito!", "success");
+                        showToast("¡Historial importado con éxito!", "success");
                     } else {
                         showToast("¡El archivo JSON no tiene un formato válido!", "error");
                     }
@@ -733,11 +1007,11 @@ async function saveLeaderboardToStorage() {
         }
 
         function clearLeaderboard() {
-            if (confirm("¿Estás seguro de que querés borrar toda la tabla de posiciones?")) {
+            if (confirm("¿Estás seguro de que querés borrar todo el historial de resultados?")) {
                 leaderboard = [];
                 saveLeaderboardToStorage();
                 renderLeaderboard();
-                showToast("Tabla de posiciones limpiada", "info");
+                showToast("Historial limpiado", "info");
             }
         }
 
@@ -746,6 +1020,7 @@ async function saveLeaderboardToStorage() {
             document.getElementById('screen-quiz').classList.add('hidden');
             document.getElementById('screen-result').classList.add('hidden');
             document.getElementById(screenId).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleLeaderboardModal() {
@@ -771,7 +1046,7 @@ async function saveLeaderboardToStorage() {
             } else if (type === "error") {
                 toastIcon.className = "fa-solid fa-triangle-exclamation text-rose-400";
             } else {
-                toastIcon.className = "fa-solid fa-circle-info text-pink-400";
+                toastIcon.className = "fa-solid fa-circle-info text-violet-400";
             }
 
             toast.classList.remove('translate-y-20', 'opacity-0');
@@ -783,7 +1058,7 @@ async function saveLeaderboardToStorage() {
             }, 3000);
         }
 
-       function escapeHtml(str) {
+        function escapeHtml(str) {
             if (str === null || str === undefined) return "";
             return String(str).replace(/&/g, "&amp;")
                       .replace(/</g, "&lt;")
