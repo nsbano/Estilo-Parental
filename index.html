@@ -656,14 +656,7 @@
             const downloadUrl = `${GOOGLE_SCRIPT_URL}?download=1&key=${encodeURIComponent(adminKey.trim())}`;
             window.location.href = downloadUrl;
         }
-        // --- DESCARGA PRIVADA SOLO PARA EL ADMINISTRADOR ---
-        function downloadAdminJSON() {
-            const adminKey = prompt("Ingresá la clave de administrador para descargar punteggi.json:");
-            if (!adminKey) return;
-
-            const downloadUrl = `salva_punteggi.php?download=1&key=${encodeURIComponent(adminKey.trim())}`;
-            window.location.href = downloadUrl;
-        }
+        
 
         // --- LÓGICA DEL TEST ---
         function startQuiz(event) {
