@@ -623,24 +623,39 @@
             return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
         }
 
-        // --- ENVÍO SOLO DE REGISTRO NUEVO AL SERVIDOR (SIN LEER LISTA DE EMAILS) ---
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGHpKjAJto5w1p3Fni60QWABuax6uGZSwbLM0B6fMRgaXnRMSKMZxIhzABpG7b9Ix5/exec";
+
+        // --- ENVÍO DE RESULTADOS A GOOGLE SHEETS PRIVADO ---
         async function appendResultToServer(record) {
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("INCOLLA_QUI")) {
+                console.warn("Configura GOOGLE_SCRIPT_URL para guardar los resultados.");
+                return;
+            }
+
             try {
-                const response = await fetch('salva_punteggi.php', {
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify(record)
                 });
-
-                const result = await response.json();
-                if (!response.ok || result.status !== 'success') {
-                    console.error("Error al guardar en servidor:", result.message);
-                }
             } catch (error) {
-                console.warn("No se pudo conectar con salva_punteggi.php:", error);
+                console.warn("Error al enviar los datos:", error);
             }
         }
 
+        // --- DESCARGA PRIVADA DE PUNTEGGI.JSON SOLO PARA EL ADMINISTRADOR ---
+        function downloadAdminJSON() {
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("INCOLLA_QUI")) {
+                showToast("Configurá primero GOOGLE_SCRIPT_URL en el código.", "error");
+                return;
+            }
+
+            const adminKey = prompt("Ingresá la clave de administrador para descargar punteggi.json:");
+            if (!adminKey) return;
+
+            const downloadUrl = `${GOOGLE_SCRIPT_URL}?download=1&key=${encodeURIComponent(adminKey.trim())}`;
+            window.location.href = downloadUrl;
+        }
         // --- DESCARGA PRIVADA SOLO PARA EL ADMINISTRADOR ---
         function downloadAdminJSON() {
             const adminKey = prompt("Ingresá la clave de administrador para descargar punteggi.json:");
