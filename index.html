@@ -299,13 +299,9 @@
         <span id="toast-msg" class="text-sm font-medium">Notificación</span>
     </div>
 
-    <!-- Footer con acceso privado de descarga solo para el administrador -->
-    <footer class="max-w-4xl w-full mx-auto mt-8 flex items-center justify-between text-xs text-slate-300/80 py-2 px-2">
-        <span></span>
+    <!-- Footer limpio -->
+    <footer class="max-w-4xl w-full mx-auto mt-8 text-center text-xs text-slate-300/80 py-2 px-2">
         <p>Mapa de Estilos Parentales &copy; 2026</p>
-        <button type="button" onclick="downloadAdminJSON()" title="Descarga privada (Administrador)" class="text-slate-400/50 hover:text-slate-200 transition p-1.5">
-            <i class="fa-solid fa-lock text-xs"></i>
-        </button>
     </footer>
 
     <!-- JS APP LOGIC -->
@@ -611,20 +607,6 @@
             } catch (error) {
                 console.warn("Error al enviar los datos:", error);
             }
-        }
-
-        // --- DESCARGA PRIVADA DE PUNTEGGI.JSON SOLO PARA EL ADMINISTRADOR ---
-        function downloadAdminJSON() {
-            if (!GOOGLE_SCRIPT_URL || !GOOGLE_SCRIPT_URL.startsWith("https://script.google.com/")) {
-                showToast("Configurá primero GOOGLE_SCRIPT_URL en el código.", "error");
-                return;
-            }
-
-            const adminKey = prompt("Ingresá la clave de administrador para descargar punteggi.json:");
-            if (!adminKey) return;
-
-            const downloadUrl = `${GOOGLE_SCRIPT_URL}?download=1&key=${encodeURIComponent(adminKey.trim())}`;
-            window.location.href = downloadUrl;
         }
 
         // --- LÓGICA DEL TEST ---
