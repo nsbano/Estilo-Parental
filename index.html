@@ -615,7 +615,7 @@
 
         // --- ENVÍO DE RESULTADOS A GOOGLE SHEETS PRIVADO ---
         async function appendResultToServer(record) {
-            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("https://script.google.com/macros/s/AKfycbxGHpKjAJto5w1p3Fni60QWABuax6uGZSwbLM0B6fMRgaXnRMSKMZxIhzABpG7b9Ix5/exec")) {
+            if (!GOOGLE_SCRIPT_URL || !GOOGLE_SCRIPT_URL.startsWith("https://script.google.com/")) {
                 console.warn("Configura GOOGLE_SCRIPT_URL para guardar los resultados.");
                 return;
             }
@@ -633,7 +633,7 @@
 
         // --- DESCARGA PRIVADA DE PUNTEGGI.JSON SOLO PARA EL ADMINISTRADOR ---
         function downloadAdminJSON() {
-            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("https://script.google.com/macros/s/AKfycbxGHpKjAJto5w1p3Fni60QWABuax6uGZSwbLM0B6fMRgaXnRMSKMZxIhzABpG7b9Ix5/exec")) {
+            if (!GOOGLE_SCRIPT_URL || !GOOGLE_SCRIPT_URL.startsWith("https://script.google.com/")) {
                 showToast("Configurá primero GOOGLE_SCRIPT_URL en el código.", "error");
                 return;
             }
