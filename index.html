@@ -46,24 +46,29 @@
 <body class="text-slate-900 flex flex-col justify-between p-3 sm:p-6 min-h-screen">
 
     <!-- Header -->
-    <header class="max-w-4xl w-full mx-auto flex items-center justify-between py-4 px-6 glass-container rounded-2xl mb-6 shadow-xl">
-        <div class="flex items-center space-x-3">
-            <div class="bg-gradient-to-tr from-teal-600 to-sky-600 p-3 rounded-xl shadow-lg shadow-teal-500/25">
-                <i class="fa-solid fa-seedling text-2xl text-white"></i>
-            </div>
-            <div>
-                <h1 class="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-teal-700 to-sky-700">
-                    Mapa de Estilos Parentales
-                </h1>
-                <p class="text-xs text-slate-500 hidden sm:block">Una mirada sobre tu forma cotidiana de acompañar la crianza</p>
-            </div>
+   <!-- Header con Banner Institucional + Título del Test -->
+    <header class="max-w-4xl w-full mx-auto bg-white rounded-3xl mb-6 shadow-xl overflow-hidden border border-stone-200">
+        <!-- Banner superior a todo lo ancho -->
+        <div class="w-full bg-white">
+            <img src="hM.jpg" alt="HumanaMente - Psicología, Orientación y Desarrollo Humano - Lic. Gilda De Salvo" class="w-full h-auto block">
         </div>
-        <span class="hidden sm:inline-flex items-center space-x-1.5 text-xs font-bold text-teal-800 bg-teal-50 border border-teal-200 px-3.5 py-1.5 rounded-xl">
-            <i class="fa-solid fa-heart-pulse text-teal-600"></i>
-            <span>Sin límite de tiempo</span>
-        </span>
-    </header>
 
+        <!-- Franja inferior con el título específico del test -->
+        <div class="px-6 py-4 sm:px-8 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-3 bg-white">
+            <div class="text-center sm:text-left">
+                <h1 class="text-xl sm:text-2xl font-black tracking-tight text-[#135d66]">
+                    Mapa de <span class="text-[#9a5330]">Estilos Parentales</span>
+                </h1>
+                <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+                    Una mirada sobre tu forma cotidiana de acompañar la crianza
+                </p>
+            </div>
+            <span class="inline-flex items-center space-x-1.5 text-xs font-bold text-[#135d66] bg-[#f5efe2] border border-[#dfd3bc] px-3.5 py-1.5 rounded-xl shrink-0">
+                <i class="fa-solid fa-heart-pulse text-[#9a5330]"></i>
+                <span>Sin límite de tiempo</span>
+            </span>
+        </div>
+    </header>
     <!-- Main Container -->
     <main class="max-w-4xl w-full mx-auto flex-grow flex flex-col justify-center">
 
