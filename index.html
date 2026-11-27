@@ -55,7 +55,7 @@
                 <h1 class="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-teal-700 to-sky-700">
                     Mapa de Estilos Parentales
                 </h1>
-                <p class="text-xs text-slate-500 hidden sm:block">Vínculo, límites, empatía y autonomía en la crianza cotidiana</p>
+                <p class="text-xs text-slate-500 hidden sm:block">Una mirada sobre tu forma cotidiana de acompañar la crianza</p>
             </div>
         </div>
         <span class="hidden sm:inline-flex items-center space-x-1.5 text-xs font-bold text-teal-800 bg-teal-50 border border-teal-200 px-3.5 py-1.5 rounded-xl">
@@ -75,7 +75,7 @@
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Descubrí tu Estilo Parental</h2>
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Respondé a tu ritmo <strong class="text-teal-700">15 situaciones cotidianas</strong> de la crianza. No hay respuestas "buenas" o "malas": cada opción refleja una intención genuina de cuidado, guía o acompañamiento. Al finalizar, vas a conocer tu estilo predominante y una <strong class="text-sky-700">ruta práctica de mejora</strong>.
+                    Respondé a tu ritmo <strong class="text-teal-700">15 situaciones cotidianas</strong> de la vida en familia. No hay respuestas correctas ni incorrectas: elegí lo que más se parezca a lo que hacés habitualmente en casa. Al terminar, vas a ver tu perfil y una <strong class="text-sky-700">guía práctica con sugerencias</strong>.
                 </p>
 
                 <!-- Info Box -->
@@ -86,9 +86,9 @@
                         <span class="text-xs text-slate-500">Sin reloj ni apuro</span>
                     </div>
                     <div class="flex flex-col items-center text-center p-2">
-                        <i class="fa-solid fa-compass text-sky-600 text-xl mb-1"></i>
-                        <span class="font-bold text-slate-900">9 Dimensiones</span>
-                        <span class="text-xs text-slate-500">Límites, apego y empatía</span>
+                        <i class="fa-solid fa-house-user text-sky-600 text-xl mb-1"></i>
+                        <span class="font-bold text-slate-900">Crianza Real</span>
+                        <span class="text-xs text-slate-500">Situaciones del día a día</span>
                     </div>
                     <div class="flex flex-col items-center text-center p-2">
                         <i class="fa-solid fa-route text-amber-600 text-xl mb-1"></i>
@@ -125,16 +125,12 @@
                         <i class="fa-solid fa-arrow-right text-sm"></i>
                     </button>
                 </form>
-
-                <p class="text-[11px] text-slate-400 pt-2">
-                    Marco conceptual inspirado en los aportes de M. Seitún, R. Levy, J. Gottman, J. P. Louis y K. McDonald Louis.
-                </p>
             </div>
         </div>
 
-        <!-- 2. PANTALLA DEL QUIZ -->
+        <!-- 2. PANTALLA DEL QUIZ (sin etiqueta del rasgo evaluado) -->
         <div id="screen-quiz" class="hidden glass-container rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-300">
-            <!-- Top Bar (sin temporizador) -->
+            <!-- Top Bar -->
             <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200">
                 <div class="flex items-center space-x-2">
                     <span class="w-3 h-3 rounded-full bg-teal-500 animate-pulse"></span>
@@ -147,16 +143,8 @@
             </div>
 
             <!-- Progress Bar -->
-            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden mb-6">
+            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden mb-8">
                 <div id="progress-bar-fill" class="bg-gradient-to-r from-teal-600 to-sky-600 h-full w-0 transition-all duration-300"></div>
-            </div>
-
-            <!-- Etiqueta de Dimensión -->
-            <div class="mb-3">
-                <span id="question-dimension" class="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1 rounded-lg">
-                    <i class="fa-solid fa-tag text-[10px]"></i>
-                    <span>Dimensión</span>
-                </span>
             </div>
 
             <!-- Question & Options -->
@@ -208,7 +196,7 @@
                 </p>
             </div>
 
-            <!-- Resumen Numérico Compacto (2 columnas, sin tiempo) -->
+            <!-- Resumen Numérico Compacto -->
             <div class="grid grid-cols-2 gap-3 sm:gap-4 max-w-lg mx-auto mb-8">
                 <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
                     <span class="block text-xs text-slate-500 font-semibold mb-1">Puntaje Total</span>
@@ -220,7 +208,7 @@
                 </div>
             </div>
 
-            <!-- Ficha Detallada sobre los 9 Temas de las Preguntas -->
+            <!-- Ficha Detallada -->
             <div class="space-y-4 mb-8 text-left">
                 <!-- Rasgos Clave -->
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
@@ -233,9 +221,8 @@
                     </div>
                 </div>
 
-                <!-- 3 Pilares Temáticos que cubren las 9 dimensiones -->
+                <!-- 3 Pilares Temáticos -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- Pilar 1: Límites, Directividad y Autonomía -->
                     <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
                         <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-3 text-lg">
                             <i class="fa-solid fa-sliders"></i>
@@ -244,7 +231,6 @@
                         <p id="res-limits-autonomy" class="text-sm text-slate-600 leading-relaxed"></p>
                     </div>
 
-                    <!-- Pilar 2: Apego, Cercanía Emocional y Empatía -->
                     <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
                         <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-3 text-lg">
                             <i class="fa-solid fa-heart"></i>
@@ -253,7 +239,6 @@
                         <p id="res-attachment-empathy" class="text-sm text-slate-600 leading-relaxed"></p>
                     </div>
 
-                    <!-- Pilar 3: Frustración, Autocontrol y Reparación -->
                     <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
                         <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center mb-3 text-lg">
                             <i class="fa-solid fa-arrows-rotate"></i>
@@ -287,7 +272,7 @@
                 </div>
             </div>
 
-            <!-- Acciones (sin botón de clasificación) -->
+            <!-- Acciones -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
                 <button onclick="resetQuiz()" class="w-full sm:w-auto px-7 py-3.5 bg-gradient-to-r from-teal-600 to-sky-600 hover:from-teal-700 hover:to-sky-700 text-white font-bold rounded-xl shadow-lg transition duration-200">
                     <i class="fa-solid fa-rotate-right mr-2"></i> Volver a Hacer el Test
@@ -325,6 +310,9 @@
 
     <!-- JS APP LOGIC -->
     <script>
+        // PEGA AQUÍ LA URL DE TU WEB APP DE GOOGLE APPS SCRIPT (/exec)
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGHpKjAJto5w1p3Fni60QWABuax6uGZSwbLM0B6fMRgaXnRMSKMZxIhzABpG7b9Ix5/exec";
+
         // --- 4 ESTILOS PARENTALES BIEN DIFERENCIADOS (15 - 75 PUNTOS) ---
         const PARENTAL_STYLES = [
             {
@@ -392,10 +380,10 @@
                 icon: "fa-scale-balanced",
                 badgeStyle: "bg-emerald-100 text-emerald-700 border-2 border-emerald-300",
                 pillStyle: "bg-emerald-100 text-emerald-800 border-emerald-200",
-                overview: "Lográs integrar afecto y estructura de manera saludable (el espíritu de la crianza «suficientemente buena»). Validás el mundo emocional de tus hijos mientras sostenés un encuadre claro que los ayuda a crecer seguros.",
+                overview: "Lográs integrar afecto y estructura de manera saludable. Validás el mundo emocional de tus hijos mientras sostenés un encuadre claro que los ayuda a crecer seguros y con confianza en sí mismos.",
                 characteristics: [
                     "Límites claros con afecto",
-                    "Validación emocional (Gottman)",
+                    "Validación emocional",
                     "Autonomía progresiva",
                     "Regulación parental consciente",
                     "Reparación vincular genuina"
@@ -441,171 +429,173 @@
             }
         ];
 
-        // --- 15 PREGUNTAS SOBRE LAS 9 DIMENSIONES (5 OPCIONES SIN SESGOS NEGATIVOS, 1-5 PUNTOS) ---
+        // --- 15 PREGUNTAS COTIDIANAS ---
+        // Cada puntaje (1..5) aparece exactamente 3 veces en cada posición (A, B, C, D, E)
+        // para evitar cualquier patrón predecible.
         const QUESTIONS_BANK = [
             {
-                dimension: "Puesta de límites",
-                q: "Llega la hora acordada para apagar las pantallas o ir a dormir, y tu hijo te pide «diez minutos más» porque está entusiasmado con lo que hace. ¿Cómo respondés habitualmente?",
+                // Puesta de límites
+                q: "Ya es la hora acordada para apagar las pantallas o ir a dormir, y tu hijo te pide «diez minutos más» porque está re enganchado con lo que hace. ¿Qué solés hacer?",
                 options: [
-                    { text: "Mantengo el horario acordado con firmeza porque las rutinas claras le dan orden y descanso.", points: 1 },
-                    { text: "Le recuerdo que ya es hora y lo ayudo enseguida a guardar todo para que no se pase ni un minuto.", points: 2 },
-                    { text: "Valido que le cueste cortar algo lindo, sostengo el límite y le propongo seguir mañana.", points: 4 },
-                    { text: "Le cedo esos diez minutos para evitar que se vaya a dormir enojado y cerrar el día en armonía.", points: 3 },
-                    { text: "Le dejo administrar ese cierre por su cuenta para que aprenda a regular sus propios tiempos.", points: 5 }
+                    { text: "Le doy esos diez minutos extra para evitar una pelea antes de dormir y cerrar el día en paz.", points: 3 },
+                    { text: "Le aviso qué hora es y dejo que maneje solo cuándo cortar, aunque al otro día tenga sueño.", points: 5 },
+                    { text: "Le digo que ya se cumplió el horario y apago o guardo todo para respetar la rutina.", points: 1 },
+                    { text: "Le digo que entiendo que está re entusiasmado, pero que hoy cortamos acá y mañana sigue.", points: 4 },
+                    { text: "Lo ayudo rápido a cerrar lo que está haciendo para que no se pase de hora y descanse bien.", points: 2 }
                 ]
             },
             {
-                dimension: "Estilos de apego",
-                q: "Después de un día largo separados (jardín, escuela o trabajo), se reencuentran en casa. ¿Qué priorizás en esos primeros minutos?",
+                // Estilos de apego
+                q: "Después de varias horas separados (jardín, escuela o trabajo), se reencuentran en casa. ¿Qué se da primero entre ustedes?",
                 options: [
-                    { text: "Chequear cómo le fue con sus obligaciones, la mochila y las tareas del día.", points: 1 },
-                    { text: "Asegurarme de que haya comido bien, esté cómodo y no le haya faltado nada.", points: 2 },
-                    { text: "Darle un espacio tranquilo para que haga lo suyo y se acerque cuando tenga ganas.", points: 5 },
-                    { text: "Buscar el abrazo y quedarme un rato disponible para conectar afectivamente antes de pasar a la rutina.", points: 3 },
-                    { text: "Sintonizar con cómo llega emocionalmente, ofreciéndole presencia cercana y respetando su ritmo.", points: 4 }
+                    { text: "Me quedo un rato disponible charlando o jugando a lo que tenga ganas antes de pasar a las obligaciones.", points: 4 },
+                    { text: "Le pregunto cómo le fue en el día y reviso enseguida la mochila o los pendientes.", points: 1 },
+                    { text: "Cada uno se acomoda en lo suyo tranquilo y nos vamos encontrando a medida que surge.", points: 5 },
+                    { text: "Me ocupo de prepararle la merienda y asegurarme de que esté cómodo y no le falte nada.", points: 2 },
+                    { text: "Lo busco para darle un abrazo largo y hacerle mimos para recargar energía juntos.", points: 3 }
                 ]
             },
             {
-                dimension: "Autonomía vs. Control",
-                q: "Tu hijo tiene que preparar la mochila o resolver una tarea escolar y ves que se está olvidando algo importante. ¿Qué hacés?",
+                // Autonomía vs. Control
+                q: "Está preparando la mochila o terminando una tarea escolar y ves que se está olvidando algo importante. ¿Cómo actuás?",
                 options: [
-                    { text: "Se lo marco directamente y superviso que lo guarde bien para que cumpla como corresponde.", points: 1 },
-                    { text: "Se lo agrego yo en silencio para evitarle un mal momento o un reto en la escuela.", points: 2 },
-                    { text: "Le pregunto cómo piensa organizarse y le doy una pista para que lo revise por sí mismo.", points: 4 },
-                    { text: "Lo ayudo a armarla juntos entre charlas para que no se sienta solo con la carga.", points: 3 },
-                    { text: "No intervengo: prefiero que viva la experiencia natural de hacerse cargo de sus olvidos.", points: 5 }
+                    { text: "Se lo agrego yo en silencio para ahorrarle un mal momento o un reto al día siguiente.", points: 2 },
+                    { text: "Le tiro una pregunta para que vuelva a revisar lo que guardó y se dé cuenta por su cuenta.", points: 4 },
+                    { text: "Nos sentamos juntos un ratito a repasarlo entre charlas para que no se sienta solo con eso.", points: 3 },
+                    { text: "No le digo nada: prefiero que viva la experiencia de hacerse cargo de sus propios olvidos.", points: 5 },
+                    { text: "Se lo señalo en el momento y me aseguro de que lo guarde bien antes de cerrar.", points: 1 }
                 ]
             },
             {
-                dimension: "Cercanía / Lejanía emocional",
-                q: "Notás que tu hijo vuelve a casa más callado de lo habitual, pero cuando le preguntás qué le pasa te dice «nada». ¿Cuál es tu reacción?",
+                // Cercanía / Lejanía emocional
+                q: "Notás que vuelve a casa más callado de lo habitual, pero cuando le preguntás si pasó algo te contesta «nada». ¿Qué hacés?",
                 options: [
-                    { text: "Le hago varias preguntas concretas hasta entender qué ocurrió y poder orientarlo.", points: 1 },
-                    { text: "Insisto con cariño y me quedo muy cerca haciéndole mimos hasta que logre abrirse.", points: 3 },
-                    { text: "Le digo que estoy disponible cuando quiera hablar y me quedo cerca compartiendo alguna actividad tranquila.", points: 4 },
-                    { text: "Trato de animarlo rápido proponiéndole algo rico o divertido para que se le pase el malestar.", points: 2 },
-                    { text: "Respeto su silencio sin insistir, confiando en que necesita procesar las cosas a su manera.", points: 5 }
+                    { text: "Lo dejo tranquilo en su espacio sin insistir, confiando en que cada uno procesa las cosas a su ritmo.", points: 5 },
+                    { text: "Trato de levantarlo rápido proponiéndole algo rico o un plan divertido para cambiarle el ánimo.", points: 2 },
+                    { text: "Le digo que si en algún momento quiere charlar estoy ahí, y me quedo cerca haciendo algo tranquilo.", points: 4 },
+                    { text: "Insisto un poco más para saber qué pasó y poder darle una mano o un consejo concreto.", points: 1 },
+                    { text: "Me acerco con cariño y le hago compañía bien cerca hasta que se sienta cómodo para contarme.", points: 3 }
                 ]
             },
             {
-                dimension: "Empatía",
-                q: "Tu hijo llora angustiado porque se le rompió un juguete sencillo o perdió algo que para un adulto parece menor. ¿Cómo lo acompañás?",
+                // Empatía
+                q: "Está angustiado y llorando porque se le rompió un juguete sencillo o perdió algo que para un adulto parece menor. ¿Cómo respondés?",
                 options: [
-                    { text: "Le explico con calma que tiene solución o que hay otros juguetes para que recupere la perspectiva.", points: 1 },
-                    { text: "Le prometo enseguida que lo vamos a arreglar o conseguir otro igual para que deje de sufrir.", points: 2 },
-                    { text: "Lo abrazo con mucha ternura y trato de distraerlo rápido para aliviarle la tristeza.", points: 3 },
-                    { text: "Reconozco lo importante que era para él, acompaño su tristeza sin minimizarla y luego vemos qué hacer.", points: 4 },
-                    { text: "Lo dejo descargar su emoción con libertad, confiando en que enseguida va a encontrar otro interés.", points: 5 }
+                    { text: "Le explico que es algo chico que tiene arreglo y que no hace falta ponerse así.", points: 1 },
+                    { text: "Lo abrazo fuerte y trato de distraerlo enseguida con otra cosa para que se le pase el llanto.", points: 3 },
+                    { text: "Le prometo en el momento que vamos a conseguir otro igual para que deje de sufrir.", points: 2 },
+                    { text: "Lo dejo descargar su tristeza solo un rato, sabiendo que enseguida se le pasa y sigue jugando.", points: 5 },
+                    { text: "Me quedo a su lado acompañando el mal rato sin minimizar lo que siente, y después vemos qué hacer.", points: 4 }
                 ]
             },
             {
-                dimension: "Directividad / Intervencionismo",
-                q: "Mientras juega con un amigo o hermano, surge una discusión por las reglas del juego y empiezan a levantar la voz. ¿Cómo intervenís?",
+                // Directividad / Intervencionismo
+                q: "Mientras juega con un hermano o un amigo, empiezan a discutir fuerte por las reglas del juego y levantan la voz. ¿Qué hacés?",
                 options: [
-                    { text: "Intervengo de inmediato y establezco cómo deben jugar para que haya orden y justicia.", points: 1 },
-                    { text: "Me acerco a mediar suavemente proponiendo un turno para cada uno para que nadie quede mal.", points: 3 },
-                    { text: "Me mantengo al margen y dejo que negocien entre ellos, salvo que haya riesgo físico.", points: 5 },
-                    { text: "Escucho brevemente a ambos, pongo un límite si hay agresión y les devuelvo el desafío de acordar.", points: 4 },
-                    { text: "Organizo el juego con ellos durante un rato para guiar la dinámica y prevenir nuevos roces.", points: 2 }
+                    { text: "Freno un segundo el juego si se están lastimando y les pido que acuerden ellos cómo seguir.", points: 4 },
+                    { text: "Me sumo un rato al juego para ordenar la dinámica y evitar que vuelvan a pelearse.", points: 2 },
+                    { text: "No intervengo y dejo que lo resuelvan entre ellos, salvo que haya riesgo físico.", points: 5 },
+                    { text: "Propongo un turno o una regla intermedia para que ninguno quede enojado y sigan jugando bien.", points: 3 },
+                    { text: "Intervengo al toque y defino cómo tienen que jugar para cortar la discusión.", points: 1 }
                 ]
             },
             {
-                dimension: "Manejo de la frustración de los hijos",
-                q: "Está intentando armar algo o aprender una habilidad nueva, no le sale y se enoja tirando las piezas. ¿Qué hacés en ese momento?",
+                // Manejo de la frustración de los hijos
+                q: "Está intentando armar algo o aprender una actividad nueva, no le sale y se enoja tirando las cosas. ¿Cuál es tu reacción?",
                 options: [
-                    { text: "Le indico paso a paso cómo hacerlo bien para que vea que con método se logra.", points: 1 },
-                    { text: "Le armo la parte difícil para que no se desanime y pueda disfrutar del resultado.", points: 2 },
-                    { text: "Le pongo palabras a su bronca, le marco que tirar las cosas no vale y lo invito a tomarse una pausa.", points: 4 },
-                    { text: "Lo consuelo con afecto y le sugiero dejarlo para otro momento así no la pasa mal.", points: 3 },
-                    { text: "Lo dejo que lidie solo con su enojo y decida si quiere volver a intentarlo o cambiar de actividad.", points: 5 }
+                    { text: "Le armo la parte más trabada para que no se desanime y pueda disfrutarlo.", points: 2 },
+                    { text: "Me corro y lo dejo lidiar solo con su bronca hasta que decida si sigue o cambia de actividad.", points: 5 },
+                    { text: "Le muestro paso a paso cómo hacerlo bien para que vea que con orden sale.", points: 1 },
+                    { text: "Lo consuelo con cariño y le propongo dejarlo para otro día así no la pasa mal.", points: 3 },
+                    { text: "Le marco que tirar las cosas no va, lo acompaño a bajar un cambio y vemos si quiere probar de nuevo.", points: 4 }
                 ]
             },
             {
-                dimension: "Autocontrol de los padres",
-                q: "Estás muy cansado después de un día exigente y en casa hay desorden, gritos y demandas al mismo tiempo. ¿Cómo gestionás tu propio estado?",
+                // Autocontrol de los padres
+                q: "Llegás muy cansado después de un día pesado y en casa hay desorden, ruido y varios pedidos al mismo tiempo. ¿Cómo te manejás?",
                 options: [
-                    { text: "Pongo orden rápido con indicaciones claras y firmes para recuperar enseguida el control de la situación.", points: 1 },
-                    { text: "Me esfuerzo por seguir respondiendo a todo lo que me piden aunque por dentro esté agotado.", points: 2 },
-                    { text: "Hago una pausa breve, les digo con honestidad que necesito cinco minutos de calma y luego retomamos.", points: 4 },
-                    { text: "Bajo las exigencias del día y priorizo que estemos tranquilos y abrazados, aunque quede todo desordenado.", points: 3 },
-                    { text: "Me retiro un rato a mi espacio dejando que cada uno se entretenga por su cuenta hasta que baje el ritmo.", points: 5 }
+                    { text: "Me retiro unos minutos a mi cuarto y dejo que se entretengan solos hasta que baje el ruido.", points: 5 },
+                    { text: "Pongo orden rápido con indicaciones firmes para recuperar enseguida la calma en casa.", points: 1 },
+                    { text: "Bajo un cambio con las obligaciones del día y priorizo estar tranquilos y juntos aunque quede desorden.", points: 3 },
+                    { text: "Les digo que necesito cinco minutos para respirar tranquilo y que después seguimos.", points: 4 },
+                    { text: "Hago el esfuerzo de resolver todo lo que me piden en el momento aunque esté agotado.", points: 2 }
                 ]
             },
             {
-                dimension: "Reconocer errores y reparar",
-                q: "Tuviste una reacción apurada o alzaste la voz más de lo necesario frente a una conducta de tu hijo. Una vez que baja la tensión, ¿qué hacés?",
+                // Capacidad para reconocer errores y reparar
+                q: "Te das cuenta de que perdiste la paciencia y contestaste mal o gritaste más de la cuenta. Cuando pasa el momento, ¿qué hacés?",
                 options: [
-                    { text: "Retomo la rutina con normalidad y refuerzo con claridad cuál era la conducta esperada.", points: 1 },
-                    { text: "Le preparo algo que le gusta o tengo un gesto cariñoso para que sienta que está todo bien.", points: 2 },
-                    { text: "Le pido disculpas sinceras, reconozco que me desbordé y hablamos sobre cómo manejarlo mejor.", points: 4 },
-                    { text: "Lo abrazo largo rato pidiéndole perdón para asegurarme de que no haya quedado herido.", points: 3 },
-                    { text: "Comento al pasar que fue un mal momento para ambos y seguimos adelante sin darle demasiadas vueltas.", points: 5 }
+                    { text: "Lo abrazo largo rato pidiéndole perdón para asegurarme de que no haya quedado sentido.", points: 3 },
+                    { text: "Le pido disculpas de frente, le digo que me desbordé y charlamos cómo hacerlo distinto.", points: 4 },
+                    { text: "Le preparo algo que le gusta o tengo un gesto lindo para que sienta que está todo bien.", points: 2 },
+                    { text: "Retomo la rutina normal y vuelvo a marcar con claridad qué era lo que correspondía hacer.", points: 1 },
+                    { text: "Hago un comentario al pasar de que fue un momento difícil para los dos y seguimos adelante.", points: 5 }
                 ]
             },
             {
-                dimension: "Puesta de límites",
-                q: "Tu hijo insiste en pedir algo que ya dijiste que no (un dulce antes de cenar, una compra o un permiso). ¿Cómo sostenés la situación?",
+                // Puesta de límites
+                q: "Insiste varias veces pidiendo algo a lo que ya le dijiste que no (una golosina antes de comer, una compra o un permiso). ¿Cómo sostenés la situación?",
                 options: [
-                    { text: "Repito el «no» con autoridad y doy por cerrada la conversación para que aprenda a respetar la palabra adulta.", points: 1 },
-                    { text: "Le explico varias veces las razones de cuidado detrás de mi decisión buscando que quede conforme.", points: 2 },
-                    { text: "Acepto su enojo con empatía («sé que tenías muchas ganas»), pero mantengo el límite sin ceder.", points: 4 },
-                    { text: "Busco una alternativa intermedia parecida para que no sienta la negativa como algo tan duro.", points: 3 },
-                    { text: "Le explico mi postura una vez y dejo que procese solo su desacuerdo sin seguir debatiendo.", points: 5 }
+                    { text: "Repito que no con tono firme y corto el tema para que quede claro que la decisión está tomada.", points: 1 },
+                    { text: "Le explico varias veces por qué no conviene, buscando que lo entienda y no se quede mal.", points: 2 },
+                    { text: "Le digo que ya sé que tenía muchas ganas, pero que la respuesta sigue siendo que no.", points: 4 },
+                    { text: "Busco alguna alternativa parecida para que la negativa no le resulte tan frustrante.", points: 3 },
+                    { text: "Le digo mi postura una vez y dejo que mastique solo su enojo sin entrar en discusiones.", points: 5 }
                 ]
             },
             {
-                dimension: "Estilos de apego",
-                q: "Tu hijo tiene que enfrentar una situación nueva que le da inseguridad (un primer día, una visita médica o dormir fuera). ¿Cómo lo preparás?",
+                // Estilos de apego
+                q: "Tiene que atravesar una situación nueva que le da algo de miedo o inseguridad (empezar una actividad, ir al médico o dormir afuera). ¿Cómo lo acompañás?",
                 options: [
-                    { text: "Le transmito seguridad diciéndole lo que tiene que hacer y recordándole que ya es grande para afrontarlo.", points: 1 },
-                    { text: "Me quedo a su lado todo el tiempo posible o busco facilitarle el entorno para que no sienta temor.", points: 2 },
-                    { text: "Escucho sus miedos, le doy mucha contención física y le aseguro que siempre voy a estar ahí.", points: 3 },
-                    { text: "Validamos juntos su nerviosismo, anticipamos qué va a pasar y le muestro que confío en su capacidad.", points: 4 },
-                    { text: "Le doy espacio para que explore la situación a su modo, transmitiéndole tranquilidad desde la distancia.", points: 5 }
+                    { text: "Le explico bien qué tiene que hacer y lo animo diciéndole que ya está grande para hacerlo.", points: 1 },
+                    { text: "Me quedo bien cerca todo el tiempo posible para que no sienta incomodidad ni temor.", points: 2 },
+                    { text: "Lo escucho, lo mimo mucho y le aseguro que siempre voy a estar ahí para sostenerlo.", points: 3 },
+                    { text: "Charlamos sobre lo que le da nervios, le cuento qué va a pasar y le muestro que confío en él.", points: 4 },
+                    { text: "Le doy espacio para que lo encare a su manera, acompañando tranquilo desde un costado.", points: 5 }
                 ]
             },
             {
-                dimension: "Autonomía vs. Control",
-                q: "A la hora de elegir su ropa, su peinado o cómo ordenar su cuarto (dentro de lo seguro), ¿qué margen de decisión tiene?",
+                // Autonomía vs. Control
+                q: "A la hora de elegir su ropa, su peinado o cómo acomodar sus cosas (dentro de lo seguro), ¿qué margen tiene?",
                 options: [
-                    { text: "Elijo o superviso directamente yo para asegurarme de que esté prolijo y adecuado al clima.", points: 1 },
-                    { text: "Le preparo dos opciones ya seleccionadas por mí para evitar que elija mal o pase frío.", points: 2 },
-                    { text: "Lo vamos charlando juntos hasta llegar a una elección con la que ambos nos sintamos cómodos.", points: 3 },
-                    { text: "Le doy libertad dentro de ciertos criterios básicos (ej. abrigo según el clima) y respeto su gusto.", points: 4 },
-                    { text: "Decide completamente por su cuenta, incluso si combina colores raros o sale desabrigado y lo nota después.", points: 5 }
+                    { text: "Le doy dos opciones ya elegidas por mí para evitar que salga desabrigado o desprolijo.", points: 2 },
+                    { text: "Lo vamos viendo juntos hasta encontrar algo con lo que los dos estemos conformes.", points: 3 },
+                    { text: "Elige dentro de algunas pautas básicas (como abrigarse si hace frío) y respeto su gusto.", points: 4 },
+                    { text: "Decide totalmente por su cuenta, incluso si combina cualquier cosa o pasa frío y lo nota solo.", points: 5 },
+                    { text: "Elijo o superviso directamente yo para asegurarme de que salga prolijo y acorde al clima.", points: 1 }
                 ]
             },
             {
-                dimension: "Cercanía / Lejanía emocional",
-                q: "En el ritmo semanal entre trabajo, obligaciones y actividades, ¿cómo se da el encuentro afectivo con tus hijos?",
+                // Cercanía / Lejanía emocional
+                q: "En medio de la semana entre trabajo, horarios y actividades, ¿cómo suelen compartir tiempo juntos?",
                 options: [
-                    { text: "A través del acompañamiento en las rutinas, los horarios y el seguimiento de sus responsabilidades.", points: 1 },
-                    { text: "Estando siempre atento a resolver sus necesidades prácticas y pendientes del día a día.", points: 2 },
-                    { text: "Buscando momentos espontáneos de juego, charla o juego libre sin reloj ni agenda.", points: 4 },
-                    { text: "Con mucho contacto físico, demostraciones constantes de cariño y tiempo compartido en familia.", points: 3 },
-                    { text: "Compartiendo el mismo espacio mientras cada uno disfruta de sus propios intereses con libertad.", points: 5 }
+                    { text: "Aprovechando las rutinas diarias, las comidas y el seguimiento de sus actividades.", points: 3 },
+                    { text: "Buscando ratos libres de juego o charla sin reloj ni pendientes de por medio.", points: 4 },
+                    { text: "Estando en casa compartiendo el espacio mientras cada uno hace lo que le gusta.", points: 5 },
+                    { text: "Organizando bien la agenda familiar para cumplir con todo y mantener el orden.", points: 1 },
+                    { text: "Ocupándome de resolver sus cosas prácticas del día para que esté cómodo y cuidado.", points: 2 }
                 ]
             },
             {
-                dimension: "Directividad / Intervencionismo",
-                q: "Tu hijo te cuenta un problema que tuvo con un compañero en la escuela. ¿Cuál es tu primer impulso?",
+                // Directividad / Intervencionismo
+                q: "Te cuenta un problema o un roce que tuvo con un compañero en la escuela. ¿Qué es lo primero que te sale hacer?",
                 options: [
-                    { text: "Decirle exactamente qué tiene que contestar o hacer mañana para resolverlo de raíz.", points: 1 },
-                    { text: "Evaluar si conviene hablar enseguida con la docente o los otros padres para protegerlo.", points: 2 },
-                    { text: "Escucharlo con empatía, darle contención afectiva y acompañarlo en lo que sintió.", points: 3 },
-                    { text: "Ayudarlo a poner en palabras lo que sintió y preguntarle qué opciones se le ocurren para encararlo.", points: 4 },
-                    { text: "Escuchar su relato con interés y confiar en que va a encontrar su propia forma de manejarlo.", points: 5 }
+                    { text: "Escucharlo y preguntarle qué se le ocurre hacer mañana para manejarlo.", points: 4 },
+                    { text: "Oír su relato con interés, confiando en que va a encontrar su propia vuelta para resolverlo.", points: 5 },
+                    { text: "Decirle exactamente qué tiene que contestar o hacer para cortar el problema de raíz.", points: 1 },
+                    { text: "Evaluar si conviene hablar enseguida con la maestra o los otros padres para cuidarlo.", points: 2 },
+                    { text: "Darle mucha contención y acompañarlo afectivamente para que se sienta respaldado.", points: 3 }
                 ]
             },
             {
-                dimension: "Reconocer errores y reparar",
-                q: "Te das cuenta de que pusiste una sanción o una regla en caliente que resultó desproporcionada. ¿Cómo actuás?",
+                // Capacidad para reconocer errores y reparar
+                q: "Notás que pusiste una penitencia o una regla en caliente que después te pareció exagerada. ¿Cómo seguís?",
                 options: [
-                    { text: "La mantengo hasta el final para no perder autoridad y la próxima vez trato de medirla mejor.", points: 1 },
-                    { text: "La voy levantando de a poco sin mencionarlo demasiado para suavizar el clima en casa.", points: 2 },
-                    { text: "Me acerco con cariño y le digo que prefiero que estemos bien antes que seguir enojados.", points: 3 },
-                    { text: "Le explico con claridad que me apresuré, ajusto la medida a algo justo y valido su mirada.", points: 4 },
-                    { text: "Le digo abiertamente que cada uno tiene derecho a rever sus decisiones y dejamos el tema cerrado.", points: 5 }
+                    { text: "La dejo tal cual para no desautorizarme y la próxima vez trato de medirla mejor.", points: 5 },
+                    { text: "La voy aflojando de a poco sin darle demasiada vuelta para suavizar el clima.", points: 1 },
+                    { text: "Me acerco con cariño y le digo que prefiero que estemos bien antes que seguir enojados.", points: 2 },
+                    { text: "Le digo que me apuré con la medida, la ajusto a algo más justo y escucho su punto de vista.", points: 3 },
+                    { text: "Le comento con naturalidad que uno también puede cambiar de opinión y damos vuelta la página.", points: 4 }
                 ]
             }
         ];
@@ -623,11 +613,9 @@
             return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
         }
 
-      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGHpKjAJto5w1p3Fni60QWABuax6uGZSwbLM0B6fMRgaXnRMSKMZxIhzABpG7b9Ix5/exec";
-
         // --- ENVÍO DE RESULTADOS A GOOGLE SHEETS PRIVADO ---
         async function appendResultToServer(record) {
-            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("INCOLLA_QUI")) {
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("https://script.google.com/macros/s/AKfycbxGHpKjAJto5w1p3Fni60QWABuax6uGZSwbLM0B6fMRgaXnRMSKMZxIhzABpG7b9Ix5/exec")) {
                 console.warn("Configura GOOGLE_SCRIPT_URL para guardar los resultados.");
                 return;
             }
@@ -645,7 +633,7 @@
 
         // --- DESCARGA PRIVADA DE PUNTEGGI.JSON SOLO PARA EL ADMINISTRADOR ---
         function downloadAdminJSON() {
-            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("INCOLLA_QUI")) {
+            if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("https://script.google.com/macros/s/AKfycbxGHpKjAJto5w1p3Fni60QWABuax6uGZSwbLM0B6fMRgaXnRMSKMZxIhzABpG7b9Ix5/exec")) {
                 showToast("Configurá primero GOOGLE_SCRIPT_URL en el código.", "error");
                 return;
             }
@@ -656,7 +644,6 @@
             const downloadUrl = `${GOOGLE_SCRIPT_URL}?download=1&key=${encodeURIComponent(adminKey.trim())}`;
             window.location.href = downloadUrl;
         }
-        
 
         // --- LÓGICA DEL TEST ---
         function startQuiz(event) {
@@ -694,7 +681,6 @@
             const progressPercent = ((currentQuestionIndex + 1) / QUESTIONS_BANK.length) * 100;
             document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
 
-            document.getElementById('question-dimension').querySelector('span').textContent = qData.dimension;
             document.getElementById('question-text').textContent = `${currentQuestionIndex + 1}. ${qData.q}`;
 
             const container = document.getElementById('options-container');
@@ -843,7 +829,7 @@
             // Panorámica de los 4 estilos
             renderAllProfilesOverview(style.id);
 
-            // Enviar nombre, email y resultado al servidor (sin descargar ni mostrar lista)
+            // Enviar nombre, email y resultado a Google Sheets privado
             appendResultToServer({
                 name: currentUser,
                 email: currentEmail,
