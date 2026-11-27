@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test de Personalidad - Descubrí tu Perfil</title>
+    <title>Estilos Parentales - Descubrí tu Forma de Acompañar</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -23,30 +23,30 @@
     </script>
     <style>
         body {
-            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 45%, #831843 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 48%, #134e4a 100%);
             background-attachment: fixed;
         }
 
         .glass-container {
-            background-color: rgba(255, 255, 255, 0.96);
+            background-color: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            color: #1e1b4b;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            color: #0f172a;
         }
 
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(243, 244, 246, 0.9);
+            background: rgba(241, 245, 249, 0.9);
             border-radius: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(124, 58, 237, 0.6);
+            background: rgba(13, 148, 136, 0.6);
             border-radius: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #7c3aed;
+            background: #0d9488;
         }
 
         @keyframes pulse-subtle {
@@ -63,18 +63,18 @@
     <!-- Header -->
     <header class="max-w-4xl w-full mx-auto flex items-center justify-between py-4 px-6 glass-container rounded-2xl mb-6 shadow-xl">
         <div class="flex items-center space-x-3">
-            <div class="bg-gradient-to-tr from-violet-600 to-fuchsia-600 p-3 rounded-xl shadow-lg shadow-violet-500/30">
-                <i class="fa-solid fa-brain text-2xl text-white"></i>
+            <div class="bg-gradient-to-tr from-teal-600 to-sky-600 p-3 rounded-xl shadow-lg shadow-teal-500/25">
+                <i class="fa-solid fa-seedling text-2xl text-white"></i>
             </div>
             <div>
-                <h1 class="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-violet-700 to-fuchsia-600">
-                    Mapa de Personalidad
+                <h1 class="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-teal-700 to-sky-700">
+                    Mapa de Estilos Parentales
                 </h1>
-                <p class="text-xs text-slate-500 hidden sm:block">15 preguntas para descubrir cómo pensás, actuás y ves el mundo</p>
+                <p class="text-xs text-slate-500 hidden sm:block">Vínculo, límites, empatía y autonomía en la crianza cotidiana</p>
             </div>
         </div>
-        <button id="leaderboardToggleBtn" onclick="toggleLeaderboardModal()" class="flex items-center space-x-2 bg-violet-100 hover:bg-violet-200 text-violet-900 border border-violet-200 px-4 py-2 rounded-xl transition duration-200 text-sm font-semibold shadow-sm">
-            <i class="fa-solid fa-users text-violet-600"></i>
+        <button id="leaderboardToggleBtn" onclick="toggleLeaderboardModal()" class="flex items-center space-x-2 bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200 px-4 py-2 rounded-xl transition duration-200 text-sm font-semibold shadow-sm">
+            <i class="fa-solid fa-users text-teal-600"></i>
             <span>Historial</span>
         </button>
     </header>
@@ -84,50 +84,53 @@
 
         <!-- 1. PANTALLA INICIAL -->
         <div id="screen-register" class="glass-container rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-300">
-            <div class="text-center max-w-xl mx-auto space-y-6">
-                <div class="inline-block p-4 rounded-full bg-violet-100 border border-violet-200 mb-2 animate-pulse-subtle">
-                    <i class="fa-solid fa-compass-drafting text-5xl text-violet-600"></i>
+            <div class="text-center max-w-2xl mx-auto space-y-6">
+                <div class="inline-block p-4 rounded-full bg-teal-50 border border-teal-200 mb-2 animate-pulse-subtle">
+                    <i class="fa-solid fa-hands-holding-child text-5xl text-teal-600"></i>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Descubrí tu Perfil de Personalidad</h2>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Descubrí tu Estilo Parental</h2>
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Respondé con sinceridad <strong class="text-violet-700">15 preguntas</strong> sobre tus hábitos, elecciones y reacciones cotidianas. 
-                    Cada opción suma un puntaje distinto que, al finalizar, va a revelar a cuál de los <strong class="text-fuchsia-700">5 perfiles</strong> pertenecés.
+                    Respondé <strong class="text-teal-700">15 situaciones cotidianas</strong> de la crianza. No hay respuestas "buenas" o "malas": cada opción refleja una intención genuina de cuidado, guía o acompañamiento. Al finalizar, vas a conocer tu estilo predominante y una <strong class="text-sky-700">ruta práctica de mejora</strong>.
                 </p>
 
                 <!-- Info Box -->
                 <div class="grid grid-cols-3 gap-3 text-left my-6 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs sm:text-sm">
                     <div class="flex flex-col items-center text-center p-2">
-                        <i class="fa-solid fa-list-ol text-violet-600 text-xl mb-1"></i>
-                        <span class="font-bold text-slate-900">15 Preguntas</span>
-                        <span class="text-xs text-slate-500">De 1 a 5 puntos c/u</span>
+                        <i class="fa-solid fa-list-check text-teal-600 text-xl mb-1"></i>
+                        <span class="font-bold text-slate-900">15 Escenas</span>
+                        <span class="text-xs text-slate-500">Crianza real y cotidiana</span>
                     </div>
                     <div class="flex flex-col items-center text-center p-2">
-                        <i class="fa-solid fa-calculator text-fuchsia-600 text-xl mb-1"></i>
-                        <span class="font-bold text-slate-900">15 – 75 Puntos</span>
-                        <span class="text-xs text-slate-500">Suma ponderada</span>
+                        <i class="fa-solid fa-compass text-sky-600 text-xl mb-1"></i>
+                        <span class="font-bold text-slate-900">9 Dimensiones</span>
+                        <span class="text-xs text-slate-500">Límites, apego y empatía</span>
                     </div>
                     <div class="flex flex-col items-center text-center p-2">
-                        <i class="fa-solid fa-masks-theater text-indigo-600 text-xl mb-1"></i>
-                        <span class="font-bold text-slate-900">5 Perfiles</span>
-                        <span class="text-xs text-slate-500">Análisis detallado</span>
+                        <i class="fa-solid fa-route text-amber-600 text-xl mb-1"></i>
+                        <span class="font-bold text-slate-900">4 Estilos + Guía</span>
+                        <span class="text-xs text-slate-500">Con ruta de mejora</span>
                     </div>
                 </div>
 
-                <form onsubmit="startQuiz(event)" class="space-y-4 text-left">
+                <form onsubmit="startQuiz(event)" class="space-y-4 text-left max-w-md mx-auto">
                     <div>
                         <label for="username" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Ingresá tu Nombre o Apodo</label>
                         <div class="relative">
                             <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                            <input type="text" id="username" required placeholder="Ej. Martín, Sofía..." 
-                                class="w-full bg-white border border-slate-300 focus:border-violet-500 rounded-xl pl-11 pr-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500/30 transition duration-200 font-medium shadow-sm">
+                            <input type="text" id="username" required placeholder="Ej. Laura, Diego..." 
+                                class="w-full bg-white border border-slate-300 focus:border-teal-500 rounded-xl pl-11 pr-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/30 transition duration-200 font-medium shadow-sm">
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-violet-500/25 transform hover:-translate-y-0.5 active:translate-y-0 transition duration-200 flex items-center justify-center space-x-2">
-                        <span>EMPEZAR TEST</span>
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-teal-600 to-sky-600 hover:from-teal-700 hover:to-sky-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-teal-500/25 transform hover:-translate-y-0.5 active:translate-y-0 transition duration-200 flex items-center justify-center space-x-2">
+                        <span>COMENZAR TEST</span>
                         <i class="fa-solid fa-arrow-right text-sm"></i>
                     </button>
                 </form>
+
+                <p class="text-[11px] text-slate-400 pt-2">
+                    Marco conceptual inspirado en los aportes de M. Seitún, R. Levy, J. Gottman, J. P. Louis y K. McDonald Louis.
+                </p>
             </div>
         </div>
 
@@ -136,28 +139,36 @@
             <!-- Top Bar -->
             <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200">
                 <div class="flex items-center space-x-2">
-                    <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="w-3 h-3 rounded-full bg-teal-500 animate-pulse"></span>
                     <span id="player-display-name" class="font-bold text-slate-900">Participante</span>
                 </div>
 
-                <div class="text-sm font-bold text-slate-700 bg-violet-100 px-4 py-2 rounded-xl border border-violet-200">
-                    Pregunta <span id="current-q-num" class="text-violet-700 font-extrabold text-base">1</span> de <span id="total-q-num" class="text-slate-800">15</span>
+                <div class="text-sm font-bold text-slate-700 bg-teal-50 px-4 py-2 rounded-xl border border-teal-200">
+                    Pregunta <span id="current-q-num" class="text-teal-700 font-extrabold text-base">1</span> de <span id="total-q-num" class="text-slate-800">15</span>
                 </div>
 
                 <div class="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl shadow-sm">
-                    <i class="fa-regular fa-clock text-violet-600"></i>
+                    <i class="fa-regular fa-clock text-teal-600"></i>
                     <span id="timer-text" class="font-mono text-base font-bold text-slate-700">00:00</span>
                 </div>
             </div>
 
             <!-- Progress Bar -->
-            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden mb-8">
-                <div id="progress-bar-fill" class="bg-gradient-to-r from-violet-600 to-fuchsia-600 h-full w-0 transition-all duration-300"></div>
+            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden mb-6">
+                <div id="progress-bar-fill" class="bg-gradient-to-r from-teal-600 to-sky-600 h-full w-0 transition-all duration-300"></div>
+            </div>
+
+            <!-- Etiqueta de Dimensión -->
+            <div class="mb-3">
+                <span id="question-dimension" class="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1 rounded-lg">
+                    <i class="fa-solid fa-tag text-[10px]"></i>
+                    <span>Dimensión</span>
+                </span>
             </div>
 
             <!-- Question & Options -->
             <div class="space-y-6">
-                <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 min-h-[60px] flex items-center leading-snug">
+                <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 min-h-[56px] flex items-center leading-snug">
                     Cargando pregunta...
                 </h3>
 
@@ -181,7 +192,7 @@
             </div>
         </div>
 
-        <!-- 3. PANTALLA DE RESULTADO Y PERFIL DE PERSONALIDAD -->
+        <!-- 3. PANTALLA DE RESULTADO Y ESTILO PARENTAL -->
         <div id="screen-result" class="hidden glass-container rounded-3xl p-6 sm:p-10 shadow-2xl transition-all duration-300">
             <!-- Header Resultado -->
             <div class="text-center max-w-2xl mx-auto mb-8">
@@ -189,18 +200,18 @@
                     <!-- Ícono dinámico -->
                 </div>
 
-                <span id="res-score-pill" class="inline-block px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-violet-100 text-violet-800 border border-violet-200 mb-3">
+                <span id="res-score-pill" class="inline-block px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-teal-50 text-teal-800 border border-teal-200 mb-3">
                     Puntaje Total: 0 / 75
                 </span>
 
                 <h2 id="result-profile-title" class="text-3xl sm:text-4xl font-black text-slate-900 mb-2">
-                    Título del Perfil
+                    Título del Estilo Parental
                 </h2>
-                <p id="result-profile-subtitle" class="text-sm sm:text-base font-semibold text-violet-700 mb-4">
+                <p id="result-profile-subtitle" class="text-sm sm:text-base font-semibold text-teal-700 mb-4">
                     Subtítulo
                 </p>
                 <p id="result-profile-overview" class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Descripción general del perfil.
+                    Descripción general del estilo.
                 </p>
             </div>
 
@@ -208,11 +219,11 @@
             <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto mb-8">
                 <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
                     <span class="block text-xs text-slate-500 font-semibold mb-1">Puntaje Total</span>
-                    <span id="res-score" class="text-xl sm:text-2xl font-black text-violet-700">0 / 75</span>
+                    <span id="res-score" class="text-xl sm:text-2xl font-black text-teal-700">0 / 75</span>
                 </div>
                 <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
-                    <span class="block text-xs text-slate-500 font-semibold mb-1">Rango del Perfil</span>
-                    <span id="res-range" class="text-xl sm:text-2xl font-black text-fuchsia-700">--</span>
+                    <span class="block text-xs text-slate-500 font-semibold mb-1">Rango del Estilo</span>
+                    <span id="res-range" class="text-xl sm:text-2xl font-black text-sky-700">--</span>
                 </div>
                 <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
                     <span class="block text-xs text-slate-500 font-semibold mb-1">Tiempo</span>
@@ -220,63 +231,89 @@
                 </div>
             </div>
 
-            <!-- Ficha Detallada: Características, Pensar, Actuar, Ver las cosas -->
+            <!-- Ficha Detallada sobre los 9 Temas de las Preguntas -->
             <div class="space-y-4 mb-8 text-left">
-                <!-- Características Principales -->
-                <div class="bg-violet-50/80 border border-violet-200 rounded-2xl p-5">
-                    <h3 class="text-base sm:text-lg font-extrabold text-violet-950 mb-3 flex items-center space-x-2">
-                        <i class="fa-solid fa-fingerprint text-violet-600"></i>
-                        <span>Características Principales</span>
+                <!-- Rasgos Clave -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                    <h3 class="text-base sm:text-lg font-extrabold text-slate-900 mb-3 flex items-center space-x-2">
+                        <i class="fa-solid fa-star text-teal-600"></i>
+                        <span>Fortalezas de tu Estilo de Crianza</span>
                     </h3>
                     <div id="res-characteristics" class="flex flex-wrap gap-2">
-                        <!-- Badges de características -->
+                        <!-- Badges -->
                     </div>
                 </div>
 
-                <!-- Grilla 3 columnas para Pensar, Actuar, Ver las cosas -->
+                <!-- 3 Pilares Temáticos que cubren las 9 dimensiones -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Pilar 1: Límites, Directividad y Autonomía -->
                     <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-3 text-lg">
-                            <i class="fa-solid fa-lightbulb"></i>
+                        <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-3 text-lg">
+                            <i class="fa-solid fa-sliders"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 mb-2">Forma de Pensar</h4>
-                        <p id="res-thinking" class="text-sm text-slate-600 leading-relaxed"></p>
+                        <h4 class="font-extrabold text-slate-900 mb-2">Límites, Directividad y Autonomía</h4>
+                        <p id="res-limits-autonomy" class="text-sm text-slate-600 leading-relaxed"></p>
                     </div>
 
+                    <!-- Pilar 2: Apego, Cercanía Emocional y Empatía -->
                     <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <div class="w-10 h-10 rounded-xl bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center mb-3 text-lg">
-                            <i class="fa-solid fa-bolt"></i>
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-3 text-lg">
+                            <i class="fa-solid fa-heart"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 mb-2">Forma de Actuar</h4>
-                        <p id="res-acting" class="text-sm text-slate-600 leading-relaxed"></p>
+                        <h4 class="font-extrabold text-slate-900 mb-2">Apego, Cercanía y Empatía</h4>
+                        <p id="res-attachment-empathy" class="text-sm text-slate-600 leading-relaxed"></p>
                     </div>
 
+                    <!-- Pilar 3: Frustración, Autocontrol y Reparación -->
                     <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-3 text-lg">
-                            <i class="fa-solid fa-eye"></i>
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center mb-3 text-lg">
+                            <i class="fa-solid fa-arrows-rotate"></i>
                         </div>
-                        <h4 class="font-extrabold text-slate-900 mb-2">Forma de Ver las Cosas</h4>
-                        <p id="res-worldview" class="text-sm text-slate-600 leading-relaxed"></p>
+                        <h4 class="font-extrabold text-slate-900 mb-2">Frustración, Autocontrol y Reparación</h4>
+                        <p id="res-frustration-repair" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- CALL TO ACTION / RUTA DE MEJORA -->
+                <div class="bg-gradient-to-br from-amber-50 via-orange-50/70 to-teal-50/60 border-2 border-amber-300/80 rounded-2xl p-6 shadow-md">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-11 h-11 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl shadow-sm shrink-0">
+                                <i class="fa-solid fa-compass"></i>
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-800 block">Ruta de Mejora · Próximo Paso</span>
+                                <h3 id="res-cta-title" class="text-lg sm:text-xl font-black text-slate-900">Tu desafío práctico</h3>
+                            </div>
+                        </div>
+                        <button type="button" onclick="copyActionPlan()" class="self-start sm:self-center px-3.5 py-2 bg-white hover:bg-amber-50 text-amber-900 border border-amber-300 rounded-xl text-xs font-bold flex items-center space-x-1.5 transition shadow-sm">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Copiar mi ruta</span>
+                        </button>
+                    </div>
+                    <p id="res-cta-description" class="text-sm sm:text-base text-slate-700 leading-relaxed mb-4"></p>
+                    <div id="res-cta-steps" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                        <!-- 3 pasos concretos -->
                     </div>
                 </div>
             </div>
 
             <!-- Acciones -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
-                <button onclick="resetQuiz()" class="w-full sm:w-auto px-7 py-3.5 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white font-bold rounded-xl shadow-lg transition duration-200">
+                <button onclick="resetQuiz()" class="w-full sm:w-auto px-7 py-3.5 bg-gradient-to-r from-teal-600 to-sky-600 hover:from-teal-700 hover:to-sky-700 text-white font-bold rounded-xl shadow-lg transition duration-200">
                     <i class="fa-solid fa-rotate-right mr-2"></i> Volver a Hacer el Test
                 </button>
                 <button onclick="toggleLeaderboardModal()" class="w-full sm:w-auto px-7 py-3.5 bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold rounded-xl shadow-sm transition duration-200">
-                    <i class="fa-solid fa-users mr-2 text-violet-600"></i> Ver Historial
+                    <i class="fa-solid fa-users mr-2 text-teal-600"></i> Ver Historial
                 </button>
-                <button onclick="toggleAllProfilesPanel()" class="w-full sm:w-auto px-7 py-3.5 bg-violet-100 hover:bg-violet-200 text-violet-900 border border-violet-200 font-bold rounded-xl transition duration-200">
-                    <i class="fa-solid fa-layer-group mr-2"></i> Ver los 5 Perfiles
+                <button onclick="toggleAllProfilesPanel()" class="w-full sm:w-auto px-7 py-3.5 bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200 font-bold rounded-xl transition duration-200">
+                    <i class="fa-solid fa-layer-group mr-2"></i> Explorar los 4 Estilos
                 </button>
             </div>
 
-            <!-- Panel Panorámica de los 5 Perfiles -->
+            <!-- Panel Panorámica de los 4 Estilos Parentales -->
             <div id="all-profiles-panel" class="hidden mt-6 pt-6 border-t border-slate-200 text-left space-y-3">
-                <h4 class="text-base font-extrabold text-slate-800 mb-3">Las 5 Personalidades y sus Rangos de Puntaje</h4>
+                <h4 class="text-base font-extrabold text-slate-800 mb-3">Los 4 Estilos Parentales y sus Rangos de Puntaje</h4>
                 <div id="all-profiles-list" class="grid grid-cols-1 gap-3">
                     <!-- Completado por JS -->
                 </div>
@@ -291,10 +328,10 @@
             
             <div class="flex items-center justify-between pb-4 border-b border-slate-200">
                 <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-users text-2xl text-violet-600"></i>
+                    <i class="fa-solid fa-users text-2xl text-teal-600"></i>
                     <div>
-                        <h3 class="text-xl font-extrabold text-slate-900">Historial de Perfiles</h3>
-                        <p class="text-xs text-slate-500">Listado de participantes, puntajes totales y personalidades asignadas</p>
+                        <h3 class="text-xl font-extrabold text-slate-900">Historial de Resultados</h3>
+                        <p class="text-xs text-slate-500">Registro de participantes, puntajes totales y estilos parentales</p>
                     </div>
                 </div>
                 <button onclick="toggleLeaderboardModal()" class="text-slate-600 hover:text-slate-900 p-2 rounded-lg bg-slate-100">
@@ -309,7 +346,7 @@
                             <th class="py-3 px-3 rounded-l-lg">#</th>
                             <th class="py-3 px-3">Participante</th>
                             <th class="py-3 px-3 text-center">Puntos</th>
-                            <th class="py-3 px-3">Perfil de Personalidad</th>
+                            <th class="py-3 px-3">Estilo Parental</th>
                             <th class="py-3 px-3 text-right rounded-r-lg">Tiempo</th>
                         </tr>
                     </thead>
@@ -326,7 +363,7 @@
             <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
                 <div class="flex items-center space-x-2">
                     <button onclick="exportLeaderboardJSON()" class="px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-800 rounded-xl text-xs font-bold border border-slate-300 flex items-center space-x-1.5 transition shadow-sm">
-                        <i class="fa-solid fa-download text-violet-600"></i>
+                        <i class="fa-solid fa-download text-teal-600"></i>
                         <span>Exportar JSON</span>
                     </button>
                     
@@ -345,277 +382,299 @@
     </div>
 
     <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl border border-violet-500 flex items-center space-x-3 transition-all duration-300 transform translate-y-20 opacity-0 z-50">
-        <i id="toast-icon" class="fa-solid fa-circle-info text-violet-400"></i>
+    <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl border border-teal-500 flex items-center space-x-3 transition-all duration-300 transform translate-y-20 opacity-0 z-50">
+        <i id="toast-icon" class="fa-solid fa-circle-info text-teal-400"></i>
         <span id="toast-msg" class="text-sm font-medium">Notificación</span>
     </div>
 
     <!-- Footer -->
-    <footer class="mt-8 text-center text-xs text-violet-200/80 py-2">
-        <p>Test de Personalidad &copy; 2026</p>
+    <footer class="mt-8 text-center text-xs text-slate-300/80 py-2">
+        <p>Mapa de Estilos Parentales &copy; 2026</p>
     </footer>
 
     <!-- JS APP LOGIC -->
     <script>
-        // --- 5 PERFILES DE PERSONALIDAD (15 - 75 PUNTOS) ---
-        const PERSONALITY_PROFILES = [
+        // --- 4 ESTILOS PARENTALES BIEN DIFERENCIADOS (15 - 75 PUNTOS) ---
+        const PARENTAL_STYLES = [
             {
                 id: 1,
                 minScore: 15,
-                maxScore: 26,
-                title: "El Arquitecto Reflexivo",
-                subtitle: "Analítico, metódico y enfocado en la profundidad",
-                icon: "fa-chess-rook",
-                badgeStyle: "bg-indigo-100 text-indigo-700 border-2 border-indigo-300",
-                pillStyle: "bg-indigo-100 text-indigo-800 border-indigo-200",
-                overview: "Tenés una mente lúcida, estructurada y observadora. No te dejás llevar por el apuro ni el ruido externo: preferís entender a fondo cómo funcionan las cosas antes de opinar o tomar una postura.",
+                maxScore: 29,
+                title: "Estilo Estructurado y Protector",
+                subtitle: "Foco en el orden, la previsibilidad y el cuidado preventivo",
+                icon: "fa-shield-halved",
+                badgeStyle: "bg-sky-100 text-sky-700 border-2 border-sky-300",
+                pillStyle: "bg-sky-100 text-sky-800 border-sky-200",
+                overview: "Tu crianza nace de un profundo sentido de responsabilidad y deseo de cuidar. Priorizás darle a tus hijos un marco claro, rutinas previsibles y orientación firme para evitarles riesgos innecesarios y prepararlos para la vida.",
                 characteristics: [
-                    "Observador atento",
-                    "Metódico y prolijo",
-                    "Reservado pero auténtico",
-                    "Gran capacidad de concentración",
-                    "Coherencia interior"
+                    "Claridad normativa",
+                    "Presencia activa y cuidadosa",
+                    "Previsibilidad y rutinas",
+                    "Compromiso con los hábitos",
+                    "Protección ante el error"
                 ],
-                thinking: "Razonás de manera secuencial, lógica y profunda. Antes de decidir juntás datos, evaluás los pros y los contras y anticipás posibles imprevistos.",
-                acting: "Te movés con prudencia y planificación. Preferís dar pocos pasos bien calibrados antes que improvisar y terminás lo que empezás con rigor.",
-                worldview: "Ves el mundo como un sistema complejo para descifrar con calma, dándole valor a la sustancia, el criterio y la verdad más que a las apariencias."
+                limitsAutonomy: "Establecés límites firmes y definidos de antemano. Tendés a un nivel alto de directividad e intervencionismo porque sentís que tu guía ordena y resguarda, dosificando la autonomía hasta asegurarte de que estén listos.",
+                attachmentEmpathy: "Tu apego se expresa a través del cuidado concreto, la seguridad y el estar atento a lo que necesitan. A veces priorizás resolver rápido lo práctico por encima de detenerte a explorar emociones difusas.",
+                frustrationRepair: "Frente a la frustración de tus hijos buscás encauzar la conducta o corregir el rumbo con rapidez. Mantenés un autocontrol basado en el deber y solés reparar mediante acciones concretas más que con largas charlas.",
+                ctaTitle: "De la protección directiva a la confianza compartida",
+                ctaDescription: "Tu estructura les da un piso muy seguro; el siguiente paso es abrir espacios graduales para que puedan equivocarse, sentir frustración y descubrir sus propios recursos con tu respaldo.",
+                ctaSteps: [
+                    "1. Validá antes de corregir: nombrá lo que siente tu hijo antes de explicar la norma.",
+                    "2. Delegá una decisión cotidiana por semana sin intervenir en el resultado.",
+                    "3. Practicá decir «me equivoqué» en voz alta cuando notes que te apuraste a imponer."
+                ]
             },
             {
                 id: 2,
-                minScore: 27,
-                maxScore: 38,
-                title: "El Guardián Empático",
-                subtitle: "Armónico, relacional y profundamente leal",
+                minScore: 30,
+                maxScore: 44,
+                title: "Estilo Cálido y Contenedor",
+                subtitle: "Foco en la cercanía afectiva, la armonía y el sostén emocional",
                 icon: "fa-hand-holding-heart",
-                badgeStyle: "bg-emerald-100 text-emerald-700 border-2 border-emerald-300",
-                pillStyle: "bg-emerald-100 text-emerald-800 border-emerald-200",
-                overview: "Tu fortaleza está en tu sensibilidad hacia los demás y tu capacidad para generar climas cálidos y tranquilos. Sabés captar matices emocionales que a otros se les pasan por alto.",
+                badgeStyle: "bg-teal-100 text-teal-700 border-2 border-teal-300",
+                pillStyle: "bg-teal-100 text-teal-800 border-teal-200",
+                overview: "Tu prioridad absoluta es que tus hijos se sientan queridos, escuchados y emocionalmente acompañados. Construís un clima familiar cálido y cercano donde el bienestar afectivo está siempre en el centro.",
                 characteristics: [
-                    "Gran inteligencia emocional",
-                    "Escucha activa",
-                    "Confiabilidad y lealtad",
-                    "Espíritu colaborativo",
-                    "Sentido de la responsabilidad"
+                    "Alta disponibilidad afectiva",
+                    "Sensibilidad emocional",
+                    "Escucha paciente",
+                    "Búsqueda de armonía",
+                    "Cercanía cotidiana"
                 ],
-                thinking: "Evaluás las situaciones teniendo siempre en cuenta el factor humano. Te preguntás cómo puede influir cada decisión en el bienestar de quienes te rodean.",
-                acting: "Actuás con tacto, paciencia y vocación de acompañar. En los grupos solés mediar, apoyar al que lo necesita y construir vínculos de confianza.",
-                worldview: "Percibís la realidad a través de los afectos y los vínculos: para vos cada experiencia cobra verdadero sentido cuando se comparte con respeto."
+                limitsAutonomy: "Ponés límites desde el diálogo y el consenso, aunque a veces flexibilizás el «no» para evitar el malestar o el conflicto. Preferís acompañar de cerca antes que dejarlos solos frente a situaciones difíciles.",
+                attachmentEmpathy: "Cultivás un vínculo muy estrecho y empático: captás al instante sus estados de ánimo y ofrecés cercanía emocional inmediata como refugio seguro.",
+                frustrationRepair: "Ante su frustración tendés a consolar y suavizar el obstáculo para aliviarlos. Tu autocontrol busca preservar la calma vincular y tenés gran facilidad para pedir disculpas y recomponer el vínculo.",
+                ctaTitle: "Sostener límites firmes sin perder la ternura",
+                ctaDescription: "Tu calidez es una base afectiva enorme; el desafío de crecimiento es animarte a sostener límites claros aun cuando generen enojo o llanto, confiando en que el vínculo resiste el disenso.",
+                ctaSteps: [
+                    "1. Sostené un «no» necesario con tono amable pero firme, sin compensarlo después.",
+                    "2. Acompañá el enojo o la frustración sin apurarte a resolverle el problema.",
+                    "3. Diferenciá tu propia angustia de la experiencia de aprendizaje de tu hijo."
+                ]
             },
             {
                 id: 3,
-                minScore: 39,
-                maxScore: 50,
-                title: "El Equilibrista Pragmático",
-                subtitle: "Versátil, concreto y capaz de adaptarse con lucidez",
+                minScore: 45,
+                maxScore: 59,
+                title: "Estilo Guía Empático y Equilibrado",
+                subtitle: "Foco en el apego seguro, límites con amor y autonomía progresiva",
                 icon: "fa-scale-balanced",
-                badgeStyle: "bg-violet-100 text-violet-700 border-2 border-violet-300",
-                pillStyle: "bg-violet-100 text-violet-800 border-violet-200",
-                overview: "Representás el punto justo entre reflexión y acción. Sabés leer el contexto y calibrar tu forma de responder según lo que pide cada momento, sin caer en rigideces.",
+                badgeStyle: "bg-emerald-100 text-emerald-700 border-2 border-emerald-300",
+                pillStyle: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                overview: "Lográs integrar afecto y estructura de manera saludable (el espíritu de la crianza «suficientemente buena»). Validás el mundo emocional de tus hijos mientras sostenés un encuadre claro que los ayuda a crecer seguros.",
                 characteristics: [
-                    "Gran capacidad de adaptación",
-                    "Sentido práctico",
-                    "Equilibrio emocional",
-                    "Capacidad de síntesis",
-                    "Solidez frente a los cambios"
+                    "Límites claros con afecto",
+                    "Validación emocional (Gottman)",
+                    "Autonomía progresiva",
+                    "Regulación parental consciente",
+                    "Reparación vincular genuina"
                 ],
-                thinking: "Tenés un pensamiento flexible y orientado a resolver. Integrás lógica y sentido común, evitando tanto la parálisis por análisis como la impulsividad.",
-                acting: "Alternás con naturalidad organización y cintura para improvisar: sabés seguir un plan cuando hace falta, pero cambiás de rumbo sin entrar en pánico ante un imprevisto.",
-                worldview: "Ves el mundo como un escenario dinámico y cambiante, donde la clave pasa por encontrar el equilibrio entre estabilidad y evolución."
+                limitsAutonomy: "Sostenés límites firmes y predecibles explicando su sentido, sin caer en el autoritarismo ni en la sobreprotección. Ajustás tu nivel de directividad según la edad, promoviendo una autonomía acompañada.",
+                attachmentEmpathy: "Funcionás como base segura: combinás cercanía emocional y empatía con respeto por su individualidad, legitimando todas sus emociones incluso cuando ponés freno a una conducta.",
+                frustrationRepair: "Entendés la frustración como parte necesaria del desarrollo y la acompañás sin rescatarlos de inmediato. Cuidás tu propio autocontrol haciendo pausas y asumís tus errores con reparación explícita.",
+                ctaTitle: "Profundizar la sintonía en etapas de transición",
+                ctaDescription: "Ya contás con herramientas muy sólidas de equilibrio entre conexión y encuadre; tu ruta de mejora pasa por recalibrar ese balance a medida que tus hijos cambian de etapa.",
+                ctaSteps: [
+                    "1. Revisá cada pocos meses qué normas siguen vigentes y cuáles ya pueden flexibilizarse.",
+                    "2. Sumá espacios breves de escucha 1 a 1 sin agenda educativa ni consejos.",
+                    "3. Identificá tus disparadores personales de cansancio para anticipar pausas de autocuidado."
+                ]
             },
             {
                 id: 4,
-                minScore: 51,
-                maxScore: 62,
-                title: "El Explorador Visionario",
-                subtitle: "Creativo, curioso y atraído por nuevas perspectivas",
-                icon: "fa-compass",
-                badgeStyle: "bg-fuchsia-100 text-fuchsia-700 border-2 border-fuchsia-300",
-                pillStyle: "bg-fuchsia-100 text-fuchsia-800 border-fuchsia-200",
-                overview: "Tenés una mente inquieta, independiente y siempre en búsqueda de nuevos estímulos. La rutina rígida te queda chica porque sentís la necesidad constante de descubrir, imaginar y probar cosas distintas.",
-                characteristics: [
-                    "Curiosidad inagotable",
-                    "Pensamiento original",
-                    "Espíritu de iniciativa",
-                    "Apertura mental",
-                    "Entusiasmo contagioso"
-                ],
-                thinking: "Pensás de forma asociativa y divergente: conectás ideas lejanas, cuestionás las costumbres establecidas e imaginás escenarios alternativos.",
-                acting: "Te metés de lleno en proyectos creativos o novedosos, aprendiendo muchas veces sobre la marcha y transformando los errores en aprendizajes.",
-                worldview: "Mirás el mundo como un laboratorio abierto lleno de oportunidades por explorar, donde animarse a cambiar es lo que te hace sentir vivo."
-            },
-            {
-                id: 5,
-                minScore: 63,
+                minScore: 60,
                 maxScore: 75,
-                title: "El Catalizador Audaz",
-                subtitle: "Decidido, carismático y enfocado en generar impacto",
-                icon: "fa-fire-flame-curved",
-                badgeStyle: "bg-amber-100 text-amber-700 border-2 border-amber-300",
-                pillStyle: "bg-amber-100 text-amber-800 border-amber-200",
-                overview: "Tenés una energía impulsora natural y una fuerte determinación. No esperás a que las cosas pasen solas: preferís tomar la iniciativa, marcar el rumbo y llevar las ideas a la práctica.",
+                title: "Estilo Promotor de Autonomía",
+                subtitle: "Foco en la libertad, la autogestión y el aprendizaje por experiencia",
+                icon: "fa-dove",
+                badgeStyle: "bg-indigo-100 text-indigo-700 border-2 border-indigo-300",
+                pillStyle: "bg-indigo-100 text-indigo-800 border-indigo-200",
+                overview: "Confiás profundamente en la capacidad de tus hijos para explorar, elegir y aprender de su propia experiencia. Respetás su singularidad y evitás invadir sus procesos con directivas innecesarias.",
                 characteristics: [
-                    "Liderazgo natural",
-                    "Coraje para decidir",
-                    "Energía y dinamismo",
-                    "Foco en objetivos",
-                    "Resiliencia bajo presión"
+                    "Respeto por la individualidad",
+                    "Baja directividad",
+                    "Fomento de la autogestión",
+                    "Confianza en sus recursos",
+                    "Apertura y flexibilidad"
                 ],
-                thinking: "Razonás de manera rápida, estratégica y orientada a resultados. Detectás al instante el núcleo de un problema y buscás el camino más directo para resolverlo.",
-                acting: "Actuás con rapidez y seguridad, asumiendo responsabilidades incluso en momentos complejos y motivando a los demás con tu ejemplo.",
-                worldview: "Percibís la realidad como un terreno abierto a la iniciativa: estás convencido de que con determinación y coraje se puede transformar cualquier escenario."
+                limitsAutonomy: "Preferís los acuerdos amplios y las consecuencias naturales antes que los límites rígidos. Tu nivel de control es bajo y otorgás altos márgenes de autonomía para que desarrollen criterio propio.",
+                attachmentEmpathy: "Promovés un apego basado en la libertad y el respeto mutuo, manteniendo cierta distancia saludable para no invadir su espacio, aunque a veces puedan necesitar señales más explícitas de cercanía.",
+                frustrationRepair: "Dejás que atraviesen la frustración por sí mismos para que ganen resiliencia. Conservás la calma sin sobrerreaccionar y abordás los desacuerdos de igual a igual, reconociendo errores con naturalidad.",
+                ctaTitle: "Anclar la libertad en presencia emocional y encuadre",
+                ctaDescription: "Tu confianza en ellos fortalece su independencia; el siguiente paso es asegurarte de que esa libertad esté sostenida por límites de referencia claros y disponibilidad emocional visible.",
+                ctaSteps: [
+                    "1. Marcá 2 o 3 límites no negociables que funcionen como marco seguro y predecible.",
+                    "2. Ofrecé cercanía emocional activa («estoy acá si me necesitás») sin esperar a que la pidan.",
+                    "3. Acompañá de cerca los momentos de alta frustración antes de dejarlos resolver solos."
+                ]
             }
         ];
 
-        // --- 15 PREGUNTAS CON PUNTAJE ASIGNADO A CADA RESPUESTA (1-5) ---
+        // --- 15 PREGUNTAS SOBRE LAS 9 DIMENSIONES (5 OPCIONES SIN SESGOS NEGATIVOS, 1-5 PUNTOS) ---
         const QUESTIONS_BANK = [
             {
-                q: "Tenés un fin de semana libre sin compromisos fijos. ¿Qué elegís por instinto?",
+                dimension: "Puesta de límites",
+                q: "Llega la hora acordada para apagar las pantallas o ir a dormir, y tu hijo te pide «diez minutos más» porque está entusiasmado con lo que hace. ¿Cómo respondés habitualmente?",
                 options: [
-                    { text: "Quedarme en casa con un buen libro, una serie o un hobby personal en total tranquilidad.", points: 1 },
-                    { text: "Armar una cena tranquila o una salida con uno o dos amigos de mucha confianza.", points: 2 },
-                    { text: "Dividir el finde entre un poco de descanso planeado y alguna salida improvisada.", points: 3 },
-                    { text: "Salir hacia un lugar que no conozco sin reservar todo al detalle.", points: 4 },
-                    { text: "Juntar un grupo grande y proponer un plan dinámico o una escapada de aventura.", points: 5 }
+                    { text: "Mantengo el horario acordado con firmeza porque las rutinas claras le dan orden y descanso.", points: 1 },
+                    { text: "Le recuerdo que ya es hora y lo ayudo enseguida a guardar todo para que no se pase ni un minuto.", points: 2 },
+                    { text: "Valido que le cueste cortar algo lindo, sostengo el límite y le propongo seguir mañana.", points: 4 },
+                    { text: "Le cedo esos diez minutos para evitar que se vaya a dormir enojado y cerrar el día en armonía.", points: 3 },
+                    { text: "Le dejo administrar ese cierre por su cuenta para que aprenda a regular sus propios tiempos.", points: 5 }
                 ]
             },
             {
-                q: "Cuando te enfrentás a un problema complejo en el trabajo o el estudio, ¿cuál es tu primera reacción?",
+                dimension: "Estilos de apego",
+                q: "Después de un día largo separados (jardín, escuela o trabajo), se reencuentran en casa. ¿Qué priorizás en esos primeros minutos?",
                 options: [
-                    { text: "Busco al toque soluciones creativas y poco convencionales para esquivar el obstáculo.", points: 4 },
-                    { text: "Analizo con calma todos los datos disponibles antes de mover una ficha.", points: 1 },
-                    { text: "Tomo las riendas de la situación y pruebo rápido la solución más directa.", points: 5 },
-                    { text: "Charlo con las personas involucradas para entender el clima y llegar a un acuerdo.", points: 2 },
-                    { text: "Divido el problema en etapas prácticas y avanzo paso a paso adaptándome.", points: 3 }
+                    { text: "Chequear cómo le fue con sus obligaciones, la mochila y las tareas del día.", points: 1 },
+                    { text: "Asegurarme de que haya comido bien, esté cómodo y no le haya faltado nada.", points: 2 },
+                    { text: "Darle un espacio tranquilo para que haga lo suyo y se acerque cuando tenga ganas.", points: 5 },
+                    { text: "Buscar el abrazo y quedarme un rato disponible para conectar afectivamente antes de pasar a la rutina.", points: 3 },
+                    { text: "Sintonizar con cómo llega emocionalmente, ofreciéndole presencia cercana y respetando su ritmo.", points: 4 }
                 ]
             },
             {
-                q: "En una charla grupal donde surgen opiniones muy opuestas, ¿qué rol solés tomar?",
+                dimension: "Autonomía vs. Control",
+                q: "Tu hijo tiene que preparar la mochila o resolver una tarea escolar y ves que se está olvidando algo importante. ¿Qué hacés?",
                 options: [
-                    { text: "Escucho atento a todos y hablo recién al final con una síntesis bien pensada.", points: 1 },
-                    { text: "Trato de bajar los decibeles y darle lugar a quien le cuesta más expresarse.", points: 2 },
-                    { text: "Tiro un punto de vista original que lleva la conversación hacia otro lado.", points: 4 },
-                    { text: "Ordeno el debate hacia una decisión concreta para no dar tantas vueltas.", points: 5 },
-                    { text: "Rescato lo válido de cada postura y propongo un punto medio equilibrado.", points: 3 }
+                    { text: "Se lo marco directamente y superviso que lo guarde bien para que cumpla como corresponde.", points: 1 },
+                    { text: "Se lo agrego yo en silencio para evitarle un mal momento o un reto en la escuela.", points: 2 },
+                    { text: "Le pregunto cómo piensa organizarse y le doy una pista para que lo revise por sí mismo.", points: 4 },
+                    { text: "Lo ayudo a armarla juntos entre charlas para que no se sienta solo con la carga.", points: 3 },
+                    { text: "No intervengo: prefiero que viva la experiencia natural de hacerse cargo de sus olvidos.", points: 5 }
                 ]
             },
             {
-                q: "¿Cómo vivís un cambio repentino en tus planes del día?",
+                dimension: "Cercanía / Lejanía emocional",
+                q: "Notás que tu hijo vuelve a casa más callado de lo habitual, pero cuando le preguntás qué le pasa te dice «nada». ¿Cuál es tu reacción?",
                 options: [
-                    { text: "Me fastidia bastante: prefiero saber de antemano con qué me voy a encontrar.", points: 1 },
-                    { text: "Me preocupa sobre todo que el cambio de planes no complique a los demás.", points: 2 },
-                    { text: "Primero evalúo el impacto práctico y después reorganizo el día sin hacerme drama.", points: 3 },
-                    { text: "Me da curiosidad: muchas veces de los imprevistos salen las mejores ideas.", points: 4 },
-                    { text: "Lo tomo con energía como un desafío estimulante para resolver sobre la marcha.", points: 5 }
+                    { text: "Le hago varias preguntas concretas hasta entender qué ocurrió y poder orientarlo.", points: 1 },
+                    { text: "Insisto con cariño y me quedo muy cerca haciéndole mimos hasta que logre abrirse.", points: 3 },
+                    { text: "Le digo que estoy disponible cuando quiera hablar y me quedo cerca compartiendo alguna actividad tranquila.", points: 4 },
+                    { text: "Trato de animarlo rápido proponiéndole algo rico o divertido para que se le pase el malestar.", points: 2 },
+                    { text: "Respeto su silencio sin insistir, confiando en que necesita procesar las cosas a su manera.", points: 5 }
                 ]
             },
             {
-                q: "¿Qué frase describe mejor tu relación con las reglas y los procedimientos?",
+                dimension: "Empatía",
+                q: "Tu hijo llora angustiado porque se le rompió un juguete sencillo o perdió algo que para un adulto parece menor. ¿Cómo lo acompañás?",
                 options: [
-                    { text: "Sirven como guía, pero hay que adaptarlas según el contexto real.", points: 3 },
-                    { text: "Son fundamentales: garantizan orden, calidad y previsibilidad.", points: 1 },
-                    { text: "Muchas veces frenan la creatividad: prefiero explorar caminos alternativos.", points: 4 },
-                    { text: "Están para cuidar el respeto mutuo y la armonía entre las personas.", points: 2 },
-                    { text: "Si retrasan un objetivo importante, no dudo en cuestionarlas.", points: 5 }
+                    { text: "Le explico con calma que tiene solución o que hay otros juguetes para que recupere la perspectiva.", points: 1 },
+                    { text: "Le prometo enseguida que lo vamos a arreglar o conseguir otro igual para que deje de sufrir.", points: 2 },
+                    { text: "Lo abrazo con mucha ternura y trato de distraerlo rápido para aliviarle la tristeza.", points: 3 },
+                    { text: "Reconozco lo importante que era para él, acompaño su tristeza sin minimizarla y luego vemos qué hacer.", points: 4 },
+                    { text: "Lo dejo descargar su emoción con libertad, confiando en que enseguida va a encontrar otro interés.", points: 5 }
                 ]
             },
             {
-                q: "Tenés que tomar una decisión importante con poco tiempo. ¿En qué te apoyás?",
+                dimension: "Directividad / Intervencionismo",
+                q: "Mientras juega con un amigo o hermano, surge una discusión por las reglas del juego y empiezan a levantar la voz. ¿Cómo intervenís?",
                 options: [
-                    { text: "En mi intuición y en el coraje de hacerme cargo de la elección.", points: 5 },
-                    { text: "En los hechos objetivos que pueda chequear rápidamente.", points: 1 },
-                    { text: "En lo que siento y en cómo va a afectar emocionalmente a quienes me rodean.", points: 2 },
-                    { text: "En mi experiencia previa combinada con una evaluación rápida de las opciones.", points: 3 },
-                    { text: "En la alternativa que abra escenarios nuevos y estimulantes.", points: 4 }
+                    { text: "Intervengo de inmediato y establezco cómo deben jugar para que haya orden y justicia.", points: 1 },
+                    { text: "Me acerco a mediar suavemente proponiendo un turno para cada uno para que nadie quede mal.", points: 3 },
+                    { text: "Me mantengo al margen y dejo que negocien entre ellos, salvo que haya riesgo físico.", points: 5 },
+                    { text: "Escucho brevemente a ambos, pongo un límite si hay agresión y les devuelvo el desafío de acordar.", points: 4 },
+                    { text: "Organizo el juego con ellos durante un rato para guiar la dinámica y prevenir nuevos roces.", points: 2 }
                 ]
             },
             {
-                q: "En una fiesta o reunión donde conocés a muy poca gente, ¿cómo te manejás?",
+                dimension: "Manejo de la frustración de los hijos",
+                q: "Está intentando armar algo o aprender una habilidad nueva, no le sale y se enoja tirando las piezas. ¿Qué hacés en ese momento?",
                 options: [
-                    { text: "Me acerco a alguien que parece medio aislado para charlar tranquilos.", points: 2 },
-                    { text: "Me quedo observando el ambiente y converso solo si alguien se acerca.", points: 1 },
-                    { text: "Busco a las personas más interesantes o distintas para escuchar historias nuevas.", points: 4 },
-                    { text: "Me muevo con naturalidad entre varios grupitos encontrando temas en común.", points: 3 },
-                    { text: "Rompo el hielo sin problema y armo charla en el centro del grupo.", points: 5 }
+                    { text: "Le indico paso a paso cómo hacerlo bien para que vea que con método se logra.", points: 1 },
+                    { text: "Le armo la parte difícil para que no se desanime y pueda disfrutar del resultado.", points: 2 },
+                    { text: "Le pongo palabras a su bronca, le marco que tirar las cosas no vale y lo invito a tomarse una pausa.", points: 4 },
+                    { text: "Lo consuelo con afecto y le sugiero dejarlo para otro momento así no la pasa mal.", points: 3 },
+                    { text: "Lo dejo que lidie solo con su enojo y decida si quiere volver a intentarlo o cambiar de actividad.", points: 5 }
                 ]
             },
             {
-                q: "¿Qué es lo que más satisfacción te da al terminar un proyecto?",
+                dimension: "Autocontrol de los padres",
+                q: "Estás muy cansado después de un día exigente y en casa hay desorden, gritos y demandas al mismo tiempo. ¿Cómo gestionás tu propio estado?",
                 options: [
-                    { text: "Saber que cada detalle quedó impecable, sin errores ni cosas sueltas.", points: 1 },
-                    { text: "Haber trabajado en un clima lindo donde todos se sintieron valorados.", points: 2 },
-                    { text: "Haber cumplido los tiempos con eficiencia y buen equilibrio entre esfuerzo y resultado.", points: 3 },
-                    { text: "Haber aportado una idea distinta que nadie había probado antes.", points: 4 },
-                    { text: "Haber alcanzado una meta ambiciosa superando obstáculos difíciles.", points: 5 }
+                    { text: "Pongo orden rápido con indicaciones claras y firmes para recuperar enseguida el control de la situación.", points: 1 },
+                    { text: "Me esfuerzo por seguir respondiendo a todo lo que me piden aunque por dentro esté agotado.", points: 2 },
+                    { text: "Hago una pausa breve, les digo con honestidad que necesito cinco minutos de calma y luego retomamos.", points: 4 },
+                    { text: "Bajo las exigencias del día y priorizo que estemos tranquilos y abrazados, aunque quede todo desordenado.", points: 3 },
+                    { text: "Me retiro un rato a mi espacio dejando que cada uno se entretenga por su cuenta hasta que baje el ritmo.", points: 5 }
                 ]
             },
             {
-                q: "Cuando aprendés algo totalmente nuevo, ¿cuál es tu método preferido?",
+                dimension: "Reconocer errores y reparar",
+                q: "Tuviste una reacción apurada o alzaste la voz más de lo necesario frente a una conducta de tu hijo. Una vez que baja la tensión, ¿qué hacés?",
                 options: [
-                    { text: "Combino un poco de teoría básica con ejercicios prácticos progresivos.", points: 3 },
-                    { text: "Leo guías, esquemas y teoría hasta entender toda la estructura.", points: 1 },
-                    { text: "Me mando directo a la práctica, aprendiendo de los errores en la cancha.", points: 5 },
-                    { text: "Le pido a alguien que sepa que me lo muestre y aprendo charlando.", points: 2 },
-                    { text: "Experimento por mi cuenta haciendo conexiones creativas y pruebas propias.", points: 4 }
+                    { text: "Retomo la rutina con normalidad y refuerzo con claridad cuál era la conducta esperada.", points: 1 },
+                    { text: "Le preparo algo que le gusta o tengo un gesto cariñoso para que sienta que está todo bien.", points: 2 },
+                    { text: "Le pido disculpas sinceras, reconozco que me desbordé y hablamos sobre cómo manejarlo mejor.", points: 4 },
+                    { text: "Lo abrazo largo rato pidiéndole perdón para asegurarme de que no haya quedado herido.", points: 3 },
+                    { text: "Comento al pasar que fue un mal momento para ambos y seguimos adelante sin darle demasiadas vueltas.", points: 5 }
                 ]
             },
             {
-                q: "¿Cómo reaccionás cuando alguien critica una idea o un trabajo tuyo?",
+                dimension: "Puesta de límites",
+                q: "Tu hijo insiste en pedir algo que ya dijiste que no (un dulce antes de cenar, una compra o un permiso). ¿Cómo sostenés la situación?",
                 options: [
-                    { text: "Analizo en silencio si la crítica tiene lógica antes de contestar.", points: 1 },
-                    { text: "Trato de entender el punto de vista del otro para no tensar el vínculo.", points: 2 },
-                    { text: "Tomo lo que suma y descarto lo que no me sirve.", points: 3 },
-                    { text: "Uso la crítica como disparador para convertir la idea en algo aún más original.", points: 4 },
-                    { text: "Defiendo con firmeza mi postura y redoblo la apuesta con argumentos claros.", points: 5 }
+                    { text: "Repito el «no» con autoridad y doy por cerrada la conversación para que aprenda a respetar la palabra adulta.", points: 1 },
+                    { text: "Le explico varias veces las razones de cuidado detrás de mi decisión buscando que quede conforme.", points: 2 },
+                    { text: "Acepto su enojo con empatía («sé que tenías muchas ganas»), pero mantengo el límite sin ceder.", points: 4 },
+                    { text: "Busco una alternativa intermedia parecida para que no sienta la negativa como algo tan duro.", points: 3 },
+                    { text: "Le explico mi postura una vez y dejo que procese solo su desacuerdo sin seguir debatiendo.", points: 5 }
                 ]
             },
             {
-                q: "¿Qué ambiente de trabajo o estudio te hace rendir mejor?",
+                dimension: "Estilos de apego",
+                q: "Tu hijo tiene que enfrentar una situación nueva que le da inseguridad (un primer día, una visita médica o dormir fuera). ¿Cómo lo preparás?",
                 options: [
-                    { text: "Un espacio colaborativo, empático y basado en el apoyo mutuo.", points: 2 },
-                    { text: "Un lugar informal, estimulante y abierto a probar cosas nuevas todo el tiempo.", points: 4 },
-                    { text: "Un lugar silencioso, ordenado y sin interrupciones constantes.", points: 1 },
-                    { text: "Un entorno dinámico, desafiante y con mucho ritmo.", points: 5 },
-                    { text: "Un espacio organizado pero flexible, con objetivos claros y autonomía.", points: 3 }
+                    { text: "Le transmito seguridad diciéndole lo que tiene que hacer y recordándole que ya es grande para afrontarlo.", points: 1 },
+                    { text: "Me quedo a su lado todo el tiempo posible o busco facilitarle el entorno para que no sienta temor.", points: 2 },
+                    { text: "Escucho sus miedos, le doy mucha contención física y le aseguro que siempre voy a estar ahí.", points: 3 },
+                    { text: "Validamos juntos su nerviosismo, anticipamos qué va a pasar y le muestro que confío en su capacidad.", points: 4 },
+                    { text: "Le doy espacio para que explore la situación a su modo, transmitiéndole tranquilidad desde la distancia.", points: 5 }
                 ]
             },
             {
-                q: "Cuando pensás en tu futuro a cinco años, ¿qué es lo que más pesa para vos?",
+                dimension: "Autonomía vs. Control",
+                q: "A la hora de elegir su ropa, su peinado o cómo ordenar su cuarto (dentro de lo seguro), ¿qué margen de decisión tiene?",
                 options: [
-                    { text: "Tener estabilidad, seguridad y dominar a fondo lo que hago.", points: 1 },
-                    { text: "Cultivar vínculos genuinos y construir tranquilidad para mí y los míos.", points: 2 },
-                    { text: "Sostener un buen equilibrio entre crecimiento profesional y calidad de vida.", points: 3 },
-                    { text: "Explorar nuevos horizontes, viajar y reinventarme continuamente.", points: 4 },
-                    { text: "Lograr metas ambiciosas y dejar una huella concreta.", points: 5 }
+                    { text: "Elijo o superviso directamente yo para asegurarme de que esté prolijo y adecuado al clima.", points: 1 },
+                    { text: "Le preparo dos opciones ya seleccionadas por mí para evitar que elija mal o pase frío.", points: 2 },
+                    { text: "Lo vamos charlando juntos hasta llegar a una elección con la que ambos nos sintamos cómodos.", points: 3 },
+                    { text: "Le doy libertad dentro de ciertos criterios básicos (ej. abrigo según el clima) y respeto su gusto.", points: 4 },
+                    { text: "Decide completamente por su cuenta, incluso si combina colores raros o sale desabrigado y lo nota después.", points: 5 }
                 ]
             },
             {
-                q: "Un amigo está pasando por un mal momento y te pide consejo. ¿Qué hacés?",
+                dimension: "Cercanía / Lejanía emocional",
+                q: "En el ritmo semanal entre trabajo, obligaciones y actividades, ¿cómo se da el encuentro afectivo con tus hijos?",
                 options: [
-                    { text: "Lo escucho con empatía sin juzgar, dándole presencia y contención.", points: 2 },
-                    { text: "Lo ayudo a desarmar el problema con lógica para encontrar la salida más clara.", points: 1 },
-                    { text: "Primero lo escucho y después le tiro algunas sugerencias prácticas y realistas.", points: 3 },
-                    { text: "Lo incentivo a actuar ya mismo y lo ayudo a dar el primer paso concreto.", points: 5 },
-                    { text: "Le propongo una mirada distinta para que pueda ver la situación desde afuera.", points: 4 }
+                    { text: "A través del acompañamiento en las rutinas, los horarios y el seguimiento de sus responsabilidades.", points: 1 },
+                    { text: "Estando siempre atento a resolver sus necesidades prácticas y pendientes del día a día.", points: 2 },
+                    { text: "Buscando momentos espontáneos de juego, charla o juego libre sin reloj ni agenda.", points: 4 },
+                    { text: "Con mucho contacto físico, demostraciones constantes de cariño y tiempo compartido en familia.", points: 3 },
+                    { text: "Compartiendo el mismo espacio mientras cada uno disfruta de sus propios intereses con libertad.", points: 5 }
                 ]
             },
             {
-                q: "¿Cómo te llevás con el riesgo?",
+                dimension: "Directividad / Intervencionismo",
+                q: "Tu hijo te cuenta un problema que tuvo con un compañero en la escuela. ¿Cuál es tu primer impulso?",
                 options: [
-                    { text: "Lo evito todo lo posible: prefiero ir sobre seguro.", points: 1 },
-                    { text: "Asumo un riesgo solo si no perjudica a las personas que tengo alrededor.", points: 2 },
-                    { text: "Lo evalúo de forma calculada: arriesgo únicamente si los beneficios superan los costos.", points: 3 },
-                    { text: "Me atrae cuando implica descubrir algo nuevo y salir de la rutina.", points: 4 },
-                    { text: "Lo considero indispensable para conseguir grandes resultados.", points: 5 }
+                    { text: "Decirle exactamente qué tiene que contestar o hacer mañana para resolverlo de raíz.", points: 1 },
+                    { text: "Evaluar si conviene hablar enseguida con la docente o los otros padres para protegerlo.", points: 2 },
+                    { text: "Escucharlo con empatía, darle contención afectiva y acompañarlo en lo que sintió.", points: 3 },
+                    { text: "Ayudarlo a poner en palabras lo que sintió y preguntarle qué opciones se le ocurren para encararlo.", points: 4 },
+                    { text: "Escuchar su relato con interés y confiar en que va a encontrar su propia forma de manejarlo.", points: 5 }
                 ]
             },
             {
-                q: "Si tuvieras que elegir una frase que te represente en el día a día, ¿cuál sería?",
+                dimension: "Reconocer errores y reparar",
+                q: "Te das cuenta de que pusiste una sanción o una regla en caliente que resultó desproporcionada. ¿Cómo actuás?",
                 options: [
-                    { text: "«Primero entender a fondo, después construir con precisión.»", points: 1 },
-                    { text: "«Ningún logro vale más que la calidad de los vínculos humanos.»", points: 2 },
-                    { text: "«La verdadera fuerza está en el equilibrio y en saber adaptarse.»", points: 3 },
-                    { text: "«Cada límite es apenas el comienzo de una nueva exploración.»", points: 4 },
-                    { text: "«El que se anima a decidir y actuar crea su propio destino.»", points: 5 }
+                    { text: "La mantengo hasta el final para no perder autoridad y la próxima vez trato de medirla mejor.", points: 1 },
+                    { text: "La voy levantando de a poco sin mencionarlo demasiado para suavizar el clima en casa.", points: 2 },
+                    { text: "Me acerco con cariño y le digo que prefiero que estemos bien antes que seguir enojados.", points: 3 },
+                    { text: "Le explico con claridad que me apresuré, ajusto la medida a algo justo y valido su mirada.", points: 4 },
+                    { text: "Le digo abiertamente que cada uno tiene derecho a rever sus decisiones y dejamos el tema cerrado.", points: 5 }
                 ]
             }
         ];
@@ -627,6 +686,7 @@
         let timerInterval = null;
         let timeElapsed = 0;
         let leaderboard = [];
+        let lastUnlockedStyle = null;
 
         document.getElementById('total-q-num').textContent = QUESTIONS_BANK.length;
 
@@ -643,11 +703,11 @@
                     if (Array.isArray(jsonLeaderboard)) {
                         leaderboard = jsonLeaderboard.map(item => {
                             const pts = item.score !== undefined ? Number(item.score) : 0;
-                            const profileObj = getProfileByScore(pts);
+                            const styleObj = getStyleByScore(pts);
                             return {
                                 name: item.name || "Anónimo",
                                 score: pts,
-                                profileTitle: item.profileTitle || profileObj.title,
+                                profileTitle: item.profileTitle || styleObj.title,
                                 timeSeconds: item.timeSeconds || 0,
                                 timeFormatted: item.timeFormatted || formatSeconds(item.timeSeconds || 0),
                                 date: item.date || new Date().toLocaleDateString('es-AR')
@@ -661,13 +721,13 @@
                 console.error("Error al cargar punteggi.json:", error);
             }
 
-            const stored = localStorage.getItem('personality_quiz_results_ar');
+            const stored = localStorage.getItem('parental_styles_results_ar');
             leaderboard = stored ? JSON.parse(stored) : [];
             renderLeaderboard();
         }
 
         async function saveLeaderboardToStorage() {
-            localStorage.setItem('personality_quiz_results_ar', JSON.stringify(leaderboard));
+            localStorage.setItem('parental_styles_results_ar', JSON.stringify(leaderboard));
 
             try {
                 const response = await fetch('salva_punteggi.php', {
@@ -726,6 +786,7 @@
             const progressPercent = ((currentQuestionIndex + 1) / QUESTIONS_BANK.length) * 100;
             document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
 
+            document.getElementById('question-dimension').querySelector('span').textContent = qData.dimension;
             document.getElementById('question-text').textContent = `${currentQuestionIndex + 1}. ${qData.q}`;
 
             const container = document.getElementById('options-container');
@@ -739,11 +800,11 @@
                 btn.className = `w-full text-left p-4 rounded-xl border transition-all duration-200 font-medium flex items-center justify-between text-sm sm:text-base shadow-sm `;
                 
                 if (selectedOption === undefined) {
-                    btn.className += `bg-white border-slate-200 hover:bg-violet-50 hover:border-violet-400 text-slate-800`;
+                    btn.className += `bg-white border-slate-200 hover:bg-teal-50/70 hover:border-teal-400 text-slate-800`;
                 } else if (selectedOption === idx) {
-                    btn.className += `bg-violet-600 border-violet-700 text-white font-semibold ring-2 ring-violet-400`;
+                    btn.className += `bg-teal-600 border-teal-700 text-white font-semibold ring-2 ring-teal-400`;
                 } else {
-                    btn.className += `bg-slate-50 border-slate-200 text-slate-400 opacity-70`;
+                    btn.className += `bg-slate-50 border-slate-200 text-slate-400 opacity-75`;
                 }
 
                 btn.onclick = () => selectOption(idx);
@@ -751,7 +812,7 @@
                 const optionLetter = String.fromCharCode(65 + idx);
                 btn.innerHTML = `
                     <div class="flex items-center space-x-3 pr-2">
-                        <span class="w-7 h-7 shrink-0 rounded-lg ${selectedOption === idx ? 'bg-white text-violet-700' : 'bg-violet-100 text-violet-800'} flex items-center justify-center font-bold text-xs">${optionLetter}</span>
+                        <span class="w-7 h-7 shrink-0 rounded-lg ${selectedOption === idx ? 'bg-white text-teal-700' : 'bg-teal-50 text-teal-800 border border-teal-200'} flex items-center justify-center font-bold text-xs">${optionLetter}</span>
                         <span>${escapeHtml(optObj.text)}</span>
                     </div>
                     ${selectedOption === idx ? '<i class="fa-solid fa-circle-check text-white text-lg shrink-0"></i>' : ''}
@@ -768,20 +829,20 @@
                 prevBtn.classList.add('hidden');
             }
 
-            // Botón Siguiente / Descubrir Perfil
+            // Botón Siguiente / Ver Resultado
             const nextBtn = document.getElementById('next-btn');
             if (userAnswers[currentQuestionIndex] !== undefined) {
                 nextBtn.removeAttribute('disabled');
-                nextBtn.className = "px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-700 hover:to-fuchsia-700 text-white font-bold rounded-xl flex items-center space-x-2 transition duration-200 cursor-pointer shadow-md";
+                nextBtn.className = "px-6 py-3 bg-gradient-to-r from-teal-600 to-sky-600 hover:from-teal-700 hover:to-sky-700 text-white font-bold rounded-xl flex items-center space-x-2 transition duration-200 cursor-pointer shadow-md";
                 if (currentQuestionIndex === QUESTIONS_BANK.length - 1) {
-                    nextBtn.querySelector('span').textContent = "Descubrir mi Perfil";
+                    nextBtn.querySelector('span').textContent = "Ver mi Estilo Parental";
                 } else {
                     nextBtn.querySelector('span').textContent = "Siguiente Pregunta";
                 }
             } else {
                 nextBtn.setAttribute('disabled', 'true');
                 nextBtn.className = "px-6 py-3 bg-slate-200 opacity-60 cursor-not-allowed text-slate-500 font-bold rounded-xl flex items-center space-x-2 transition duration-200";
-                nextBtn.querySelector('span').textContent = currentQuestionIndex === QUESTIONS_BANK.length - 1 ? "Descubrir mi Perfil" : "Siguiente Pregunta";
+                nextBtn.querySelector('span').textContent = currentQuestionIndex === QUESTIONS_BANK.length - 1 ? "Ver mi Estilo Parental" : "Siguiente Pregunta";
             }
         }
 
@@ -808,15 +869,14 @@
             }
         }
 
-        function getProfileByScore(totalPoints) {
-            const found = PERSONALITY_PROFILES.find(p => totalPoints >= p.minScore && totalPoints <= p.maxScore);
-            return found || PERSONALITY_PROFILES[2];
+        function getStyleByScore(totalPoints) {
+            const found = PARENTAL_STYLES.find(s => totalPoints >= s.minScore && totalPoints <= s.maxScore);
+            return found || PARENTAL_STYLES[2];
         }
 
         function finishQuiz() {
             clearInterval(timerInterval);
 
-            // Suma total de los números asignados a cada respuesta elegida
             let totalScore = 0;
             QUESTIONS_BANK.forEach((q, idx) => {
                 const chosenIdx = userAnswers[idx];
@@ -826,50 +886,64 @@
             });
 
             const maxPossibleScore = QUESTIONS_BANK.length * 5;
-            const profile = getProfileByScore(totalScore);
+            const style = getStyleByScore(totalScore);
+            lastUnlockedStyle = style;
             const formattedTime = formatSeconds(timeElapsed);
 
             // Encabezado del resultado
             const badgeElem = document.getElementById('result-badge-icon');
-            badgeElem.className = `w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-5 shadow-xl text-5xl ${profile.badgeStyle}`;
-            badgeElem.innerHTML = `<i class="fa-solid ${profile.icon}"></i>`;
+            badgeElem.className = `w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-5 shadow-xl text-5xl ${style.badgeStyle}`;
+            badgeElem.innerHTML = `<i class="fa-solid ${style.icon}"></i>`;
 
             const pillElem = document.getElementById('res-score-pill');
-            pillElem.className = `inline-block px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider border mb-3 ${profile.pillStyle}`;
+            pillElem.className = `inline-block px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider border mb-3 ${style.pillStyle}`;
             pillElem.textContent = `${currentUser} • Puntaje Total: ${totalScore} / ${maxPossibleScore}`;
 
-            document.getElementById('result-profile-title').textContent = profile.title;
-            document.getElementById('result-profile-subtitle').textContent = profile.subtitle;
-            document.getElementById('result-profile-overview').textContent = profile.overview;
+            document.getElementById('result-profile-title').textContent = style.title;
+            document.getElementById('result-profile-subtitle').textContent = style.subtitle;
+            document.getElementById('result-profile-overview').textContent = style.overview;
 
             // Resumen numérico
             document.getElementById('res-score').textContent = `${totalScore} / ${maxPossibleScore}`;
-            document.getElementById('res-range').textContent = `${profile.minScore}–${profile.maxScore} pts`;
+            document.getElementById('res-range').textContent = `${style.minScore}–${style.maxScore} pts`;
             document.getElementById('res-time').textContent = formattedTime;
 
-            // Características
+            // Fortalezas
             const charContainer = document.getElementById('res-characteristics');
             charContainer.innerHTML = '';
-            profile.characteristics.forEach(trait => {
+            style.characteristics.forEach(trait => {
                 const span = document.createElement('span');
-                span.className = "px-3 py-1.5 bg-white text-violet-900 border border-violet-200 rounded-xl text-xs sm:text-sm font-semibold shadow-sm";
+                span.className = "px-3 py-1.5 bg-white text-slate-800 border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold shadow-sm";
                 span.textContent = trait;
                 charContainer.appendChild(span);
             });
 
-            // Formas de pensar, actuar y ver las cosas
-            document.getElementById('res-thinking').textContent = profile.thinking;
-            document.getElementById('res-acting').textContent = profile.acting;
-            document.getElementById('res-worldview').textContent = profile.worldview;
+            // 3 Pilares sobre los temas de las preguntas
+            document.getElementById('res-limits-autonomy').textContent = style.limitsAutonomy;
+            document.getElementById('res-attachment-empathy').textContent = style.attachmentEmpathy;
+            document.getElementById('res-frustration-repair').textContent = style.frustrationRepair;
 
-            // Panorámica de los 5 perfiles
-            renderAllProfilesOverview(profile.id);
+            // Call to Action / Ruta de Mejora
+            document.getElementById('res-cta-title').textContent = style.ctaTitle;
+            document.getElementById('res-cta-description').textContent = style.ctaDescription;
+
+            const stepsContainer = document.getElementById('res-cta-steps');
+            stepsContainer.innerHTML = '';
+            style.ctaSteps.forEach(stepText => {
+                const stepCard = document.createElement('div');
+                stepCard.className = "bg-white/90 border border-amber-200 rounded-xl p-3.5 text-xs sm:text-sm text-slate-800 font-medium shadow-sm leading-snug";
+                stepCard.textContent = stepText;
+                stepsContainer.appendChild(stepCard);
+            });
+
+            // Panorámica de los 4 estilos
+            renderAllProfilesOverview(style.id);
 
             // Guardar en el historial
             saveResultToLeaderboard({
                 name: currentUser,
                 score: totalScore,
-                profileTitle: profile.title,
+                profileTitle: style.title,
                 timeSeconds: timeElapsed,
                 timeFormatted: formattedTime,
                 date: new Date().toLocaleDateString('es-AR')
@@ -878,24 +952,35 @@
             showScreen('screen-result');
         }
 
-        function renderAllProfilesOverview(activeProfileId) {
+        function copyActionPlan() {
+            if (!lastUnlockedStyle) return;
+            const textToCopy = `Mi Estilo Parental (${currentUser}): ${lastUnlockedStyle.title}\nRuta de Mejora — ${lastUnlockedStyle.ctaTitle}:\n${lastUnlockedStyle.ctaSteps.join('\n')}`;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showToast("¡Ruta de mejora copiada al portapapeles!", "success");
+            }).catch(() => {
+                showToast("No se pudo copiar automáticamente", "error");
+            });
+        }
+
+        function renderAllProfilesOverview(activeStyleId) {
             const listContainer = document.getElementById('all-profiles-list');
             listContainer.innerHTML = '';
 
-            PERSONALITY_PROFILES.forEach(p => {
-                const isUnlocked = p.id === activeProfileId;
+            PARENTAL_STYLES.forEach(s => {
+                const isUnlocked = s.id === activeStyleId;
                 const card = document.createElement('div');
-                card.className = `p-4 rounded-2xl border ${isUnlocked ? 'bg-violet-50 border-violet-400 ring-2 ring-violet-300' : 'bg-slate-50 border-slate-200'}`;
+                card.className = `p-4 rounded-2xl border ${isUnlocked ? 'bg-teal-50/70 border-teal-400 ring-2 ring-teal-300' : 'bg-slate-50 border-slate-200'}`;
                 card.innerHTML = `
-                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
                         <div class="flex items-center space-x-2">
-                            <i class="fa-solid ${p.icon} text-violet-600"></i>
-                            <span class="font-extrabold text-slate-900">${escapeHtml(p.title)}</span>
-                            ${isUnlocked ? '<span class="text-xs bg-violet-600 text-white px-2 py-0.5 rounded-full font-bold">Tu perfil</span>' : ''}
+                            <i class="fa-solid ${s.icon} text-teal-600"></i>
+                            <span class="font-extrabold text-slate-900">${escapeHtml(s.title)}</span>
+                            ${isUnlocked ? '<span class="text-xs bg-teal-600 text-white px-2 py-0.5 rounded-full font-bold">Tu estilo</span>' : ''}
                         </div>
-                        <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700">${p.minScore} – ${p.maxScore} puntos</span>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700">${s.minScore} – ${s.maxScore} puntos</span>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-600">${escapeHtml(p.overview)}</p>
+                    <p class="text-xs sm:text-sm text-slate-600 mb-2">${escapeHtml(s.overview)}</p>
+                    <p class="text-xs text-amber-800 font-semibold"><i class="fa-solid fa-compass mr-1"></i> Ruta de mejora: ${escapeHtml(s.ctaTitle)}</p>
                 `;
                 listContainer.appendChild(card);
             });
@@ -933,17 +1018,17 @@
 
             leaderboard.forEach((entry, idx) => {
                 const row = document.createElement('tr');
-                row.className = "hover:bg-violet-50/60 transition duration-150";
+                row.className = "hover:bg-teal-50/50 transition duration-150";
                 const isCurrent = entry.name === currentUser && idx === 0;
 
                 row.innerHTML = `
                     <td class="py-3 px-3 font-bold text-slate-500">#${idx + 1}</td>
-                    <td class="py-3 px-3 font-semibold ${isCurrent ? 'text-violet-700 font-bold' : 'text-slate-900'}">
-                        ${escapeHtml(entry.name)} ${isCurrent ? '<span class="text-xs bg-violet-100 px-2 py-0.5 rounded text-violet-800 border border-violet-200 ml-1">Vos</span>' : ''}
+                    <td class="py-3 px-3 font-semibold ${isCurrent ? 'text-teal-700 font-bold' : 'text-slate-900'}">
+                        ${escapeHtml(entry.name)} ${isCurrent ? '<span class="text-xs bg-teal-100 px-2 py-0.5 rounded text-teal-800 border border-teal-200 ml-1">Vos</span>' : ''}
                     </td>
-                    <td class="py-3 px-3 text-center font-extrabold text-violet-700">${entry.score}/75</td>
+                    <td class="py-3 px-3 text-center font-extrabold text-teal-700">${entry.score}/75</td>
                     <td class="py-3 px-3">
-                        <span class="inline-block bg-fuchsia-50 text-fuchsia-800 text-xs px-2.5 py-1 rounded-full border border-fuchsia-200 font-bold">
+                        <span class="inline-block bg-sky-50 text-sky-800 text-xs px-2.5 py-1 rounded-full border border-sky-200 font-bold">
                             ${escapeHtml(entry.profileTitle)}
                         </span>
                     </td>
@@ -982,11 +1067,11 @@
                     if (Array.isArray(importedData)) {
                         leaderboard = importedData.map(item => {
                             const pts = item.score !== undefined ? Number(item.score) : 0;
-                            const profileObj = getProfileByScore(pts);
+                            const styleObj = getStyleByScore(pts);
                             return {
                                 name: item.name || "Anónimo",
                                 score: pts,
-                                profileTitle: item.profileTitle || profileObj.title,
+                                profileTitle: item.profileTitle || styleObj.title,
                                 timeSeconds: item.timeSeconds || 0,
                                 timeFormatted: item.timeFormatted || formatSeconds(item.timeSeconds || 0),
                                 date: item.date || new Date().toLocaleDateString('es-AR')
@@ -1046,7 +1131,7 @@
             } else if (type === "error") {
                 toastIcon.className = "fa-solid fa-triangle-exclamation text-rose-400";
             } else {
-                toastIcon.className = "fa-solid fa-circle-info text-violet-400";
+                toastIcon.className = "fa-solid fa-circle-info text-teal-400";
             }
 
             toast.classList.remove('translate-y-20', 'opacity-0');
