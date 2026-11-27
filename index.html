@@ -128,7 +128,7 @@
             </div>
         </div>
 
-        <!-- 2. PANTALLA DEL QUIZ (sin etiqueta del rasgo evaluado) -->
+        <!-- 2. PANTALLA DEL QUIZ -->
         <div id="screen-quiz" class="hidden glass-container rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-300">
             <!-- Top Bar -->
             <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200">
@@ -310,7 +310,6 @@
 
     <!-- JS APP LOGIC -->
     <script>
-        // PEGA AQUÍ LA URL DE TU WEB APP DE GOOGLE APPS SCRIPT (/exec)
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGHpKjAJto5w1p3Fni60QWABuax6uGZSwbLM0B6fMRgaXnRMSKMZxIhzABpG7b9Ix5/exec";
 
         // --- 4 ESTILOS PARENTALES BIEN DIFERENCIADOS (15 - 75 PUNTOS) ---
@@ -430,11 +429,8 @@
         ];
 
         // --- 15 PREGUNTAS COTIDIANAS ---
-        // Cada puntaje (1..5) aparece exactamente 3 veces en cada posición (A, B, C, D, E)
-        // para evitar cualquier patrón predecible.
         const QUESTIONS_BANK = [
             {
-                // Puesta de límites
                 q: "Ya es la hora acordada para apagar las pantallas o ir a dormir, y tu hijo te pide «diez minutos más» porque está re enganchado con lo que hace. ¿Qué solés hacer?",
                 options: [
                     { text: "Le doy esos diez minutos extra para evitar una pelea antes de dormir y cerrar el día en paz.", points: 3 },
@@ -445,7 +441,6 @@
                 ]
             },
             {
-                // Estilos de apego
                 q: "Después de varias horas separados (jardín, escuela o trabajo), se reencuentran en casa. ¿Qué se da primero entre ustedes?",
                 options: [
                     { text: "Me quedo un rato disponible charlando o jugando a lo que tenga ganas antes de pasar a las obligaciones.", points: 4 },
@@ -456,7 +451,6 @@
                 ]
             },
             {
-                // Autonomía vs. Control
                 q: "Está preparando la mochila o terminando una tarea escolar y ves que se está olvidando algo importante. ¿Cómo actuás?",
                 options: [
                     { text: "Se lo agrego yo en silencio para ahorrarle un mal momento o un reto al día siguiente.", points: 2 },
@@ -467,7 +461,6 @@
                 ]
             },
             {
-                // Cercanía / Lejanía emocional
                 q: "Notás que vuelve a casa más callado de lo habitual, pero cuando le preguntás si pasó algo te contesta «nada». ¿Qué hacés?",
                 options: [
                     { text: "Lo dejo tranquilo en su espacio sin insistir, confiando en que cada uno procesa las cosas a su ritmo.", points: 5 },
@@ -478,7 +471,6 @@
                 ]
             },
             {
-                // Empatía
                 q: "Está angustiado y llorando porque se le rompió un juguete sencillo o perdió algo que para un adulto parece menor. ¿Cómo respondés?",
                 options: [
                     { text: "Le explico que es algo chico que tiene arreglo y que no hace falta ponerse así.", points: 1 },
@@ -489,7 +481,6 @@
                 ]
             },
             {
-                // Directividad / Intervencionismo
                 q: "Mientras juega con un hermano o un amigo, empiezan a discutir fuerte por las reglas del juego y levantan la voz. ¿Qué hacés?",
                 options: [
                     { text: "Freno un segundo el juego si se están lastimando y les pido que acuerden ellos cómo seguir.", points: 4 },
@@ -500,7 +491,6 @@
                 ]
             },
             {
-                // Manejo de la frustración de los hijos
                 q: "Está intentando armar algo o aprender una actividad nueva, no le sale y se enoja tirando las cosas. ¿Cuál es tu reacción?",
                 options: [
                     { text: "Le armo la parte más trabada para que no se desanime y pueda disfrutarlo.", points: 2 },
@@ -511,7 +501,6 @@
                 ]
             },
             {
-                // Autocontrol de los padres
                 q: "Llegás muy cansado después de un día pesado y en casa hay desorden, ruido y varios pedidos al mismo tiempo. ¿Cómo te manejás?",
                 options: [
                     { text: "Me retiro unos minutos a mi cuarto y dejo que se entretengan solos hasta que baje el ruido.", points: 5 },
@@ -522,7 +511,6 @@
                 ]
             },
             {
-                // Capacidad para reconocer errores y reparar
                 q: "Te das cuenta de que perdiste la paciencia y contestaste mal o gritaste más de la cuenta. Cuando pasa el momento, ¿qué hacés?",
                 options: [
                     { text: "Lo abrazo largo rato pidiéndole perdón para asegurarme de que no haya quedado sentido.", points: 3 },
@@ -533,7 +521,6 @@
                 ]
             },
             {
-                // Puesta de límites
                 q: "Insiste varias veces pidiendo algo a lo que ya le dijiste que no (una golosina antes de comer, una compra o un permiso). ¿Cómo sostenés la situación?",
                 options: [
                     { text: "Repito que no con tono firme y corto el tema para que quede claro que la decisión está tomada.", points: 1 },
@@ -544,7 +531,6 @@
                 ]
             },
             {
-                // Estilos de apego
                 q: "Tiene que atravesar una situación nueva que le da algo de miedo o inseguridad (empezar una actividad, ir al médico o dormir afuera). ¿Cómo lo acompañás?",
                 options: [
                     { text: "Le explico bien qué tiene que hacer y lo animo diciéndole que ya está grande para hacerlo.", points: 1 },
@@ -555,7 +541,6 @@
                 ]
             },
             {
-                // Autonomía vs. Control
                 q: "A la hora de elegir su ropa, su peinado o cómo acomodar sus cosas (dentro de lo seguro), ¿qué margen tiene?",
                 options: [
                     { text: "Le doy dos opciones ya elegidas por mí para evitar que salga desabrigado o desprolijo.", points: 2 },
@@ -566,7 +551,6 @@
                 ]
             },
             {
-                // Cercanía / Lejanía emocional
                 q: "En medio de la semana entre trabajo, horarios y actividades, ¿cómo suelen compartir tiempo juntos?",
                 options: [
                     { text: "Aprovechando las rutinas diarias, las comidas y el seguimiento de sus actividades.", points: 3 },
@@ -577,7 +561,6 @@
                 ]
             },
             {
-                // Directividad / Intervencionismo
                 q: "Te cuenta un problema o un roce que tuvo con un compañero en la escuela. ¿Qué es lo primero que te sale hacer?",
                 options: [
                     { text: "Escucharlo y preguntarle qué se le ocurre hacer mañana para manejarlo.", points: 4 },
@@ -588,14 +571,13 @@
                 ]
             },
             {
-                // Capacidad para reconocer errores y reparar
                 q: "Notás que pusiste una penitencia o una regla en caliente que después te pareció exagerada. ¿Cómo seguís?",
                 options: [
-                    { text: "La dejo tal cual para no desautorizarme y la próxima vez trato de medirla mejor.", points: 5 },
-                    { text: "La voy aflojando de a poco sin darle demasiada vuelta para suavizar el clima.", points: 1 },
-                    { text: "Me acerco con cariño y le digo que prefiero que estemos bien antes que seguir enojados.", points: 2 },
-                    { text: "Le digo que me apuré con la medida, la ajusto a algo más justo y escucho su punto de vista.", points: 3 },
-                    { text: "Le comento con naturalidad que uno también puede cambiar de opinión y damos vuelta la página.", points: 4 }
+                    { text: "Le comento con naturalidad que uno también puede cambiar de opinión y damos vuelta la página.", points: 5 },
+                    { text: "La dejo tal cual para no desautorizarme y la próxima vez trato de medirla mejor.", points: 1 },
+                    { text: "La voy aflojando de a poco sin darle demasiada vuelta para suavizar el clima.", points: 2 },
+                    { text: "Me acerco con cariño y le digo que prefiero que estemos bien antes que seguir enojados.", points: 3 },
+                    { text: "Le digo que me apuré con la medida, la ajusto a algo más justo y escucho su punto de vista.", points: 4 }
                 ]
             }
         ];
