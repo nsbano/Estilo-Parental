@@ -1,6 +1,6 @@
 <?php
 // IMPOSTA QUI LA TUA PASSWORD SEGRETA PER SCARICARE IL JSON
-$ADMIN_PASSWORD = 'CambiaQuestaPassword2026!';
+$ADMIN_PASSWORD = 'Humana2811!';
 $file = __DIR__ . '/punteggi.json';
 
 // 1. DOWNLOAD RISERVATO SOLO ALL'AMMINISTRATORE (GET ?download=1&key=...)
