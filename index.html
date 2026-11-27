@@ -34,21 +34,6 @@
             color: #0f172a;
         }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(241, 245, 249, 0.9);
-            border-radius: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(13, 148, 136, 0.6);
-            border-radius: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #0d9488;
-        }
-
         @keyframes pulse-subtle {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.03); }
@@ -73,10 +58,10 @@
                 <p class="text-xs text-slate-500 hidden sm:block">Vínculo, límites, empatía y autonomía en la crianza cotidiana</p>
             </div>
         </div>
-        <button id="leaderboardToggleBtn" onclick="toggleLeaderboardModal()" class="flex items-center space-x-2 bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200 px-4 py-2 rounded-xl transition duration-200 text-sm font-semibold shadow-sm">
-            <i class="fa-solid fa-users text-teal-600"></i>
-            <span>Historial</span>
-        </button>
+        <span class="hidden sm:inline-flex items-center space-x-1.5 text-xs font-bold text-teal-800 bg-teal-50 border border-teal-200 px-3.5 py-1.5 rounded-xl">
+            <i class="fa-solid fa-heart-pulse text-teal-600"></i>
+            <span>Sin límite de tiempo</span>
+        </span>
     </header>
 
     <!-- Main Container -->
@@ -90,7 +75,7 @@
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Descubrí tu Estilo Parental</h2>
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Respondé <strong class="text-teal-700">15 situaciones cotidianas</strong> de la crianza. No hay respuestas "buenas" o "malas": cada opción refleja una intención genuina de cuidado, guía o acompañamiento. Al finalizar, vas a conocer tu estilo predominante y una <strong class="text-sky-700">ruta práctica de mejora</strong>.
+                    Respondé a tu ritmo <strong class="text-teal-700">15 situaciones cotidianas</strong> de la crianza. No hay respuestas "buenas" o "malas": cada opción refleja una intención genuina de cuidado, guía o acompañamiento. Al finalizar, vas a conocer tu estilo predominante y una <strong class="text-sky-700">ruta práctica de mejora</strong>.
                 </p>
 
                 <!-- Info Box -->
@@ -98,7 +83,7 @@
                     <div class="flex flex-col items-center text-center p-2">
                         <i class="fa-solid fa-list-check text-teal-600 text-xl mb-1"></i>
                         <span class="font-bold text-slate-900">15 Escenas</span>
-                        <span class="text-xs text-slate-500">Crianza real y cotidiana</span>
+                        <span class="text-xs text-slate-500">Sin reloj ni apuro</span>
                     </div>
                     <div class="flex flex-col items-center text-center p-2">
                         <i class="fa-solid fa-compass text-sky-600 text-xl mb-1"></i>
@@ -112,14 +97,27 @@
                     </div>
                 </div>
 
-                <form onsubmit="startQuiz(event)" class="space-y-4 text-left max-w-md mx-auto">
+                <form onsubmit="startQuiz(event)" novalidate class="space-y-4 text-left max-w-md mx-auto">
                     <div>
-                        <label for="username" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Ingresá tu Nombre o Apodo</label>
+                        <label for="username" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Tu Nombre o Apodo</label>
                         <div class="relative">
                             <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
                             <input type="text" id="username" required placeholder="Ej. Laura, Diego..." 
                                 class="w-full bg-white border border-slate-300 focus:border-teal-500 rounded-xl pl-11 pr-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/30 transition duration-200 font-medium shadow-sm">
                         </div>
+                    </div>
+
+                    <div>
+                        <label for="useremail" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Tu Correo Electrónico (Email válido)</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="email" id="useremail" required placeholder="Ej. nombre@correo.com" 
+                                class="w-full bg-white border border-slate-300 focus:border-teal-500 rounded-xl pl-11 pr-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/30 transition duration-200 font-medium shadow-sm">
+                        </div>
+                        <p id="form-error-msg" class="hidden text-xs text-rose-600 font-semibold mt-1.5">
+                            <i class="fa-solid fa-circle-exclamation mr-1"></i>
+                            <span>Por favor, completá tu nombre e ingresá un email válido.</span>
+                        </p>
                     </div>
 
                     <button type="submit" class="w-full py-4 bg-gradient-to-r from-teal-600 to-sky-600 hover:from-teal-700 hover:to-sky-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-teal-500/25 transform hover:-translate-y-0.5 active:translate-y-0 transition duration-200 flex items-center justify-center space-x-2">
@@ -136,7 +134,7 @@
 
         <!-- 2. PANTALLA DEL QUIZ -->
         <div id="screen-quiz" class="hidden glass-container rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-300">
-            <!-- Top Bar -->
+            <!-- Top Bar (sin temporizador) -->
             <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-200">
                 <div class="flex items-center space-x-2">
                     <span class="w-3 h-3 rounded-full bg-teal-500 animate-pulse"></span>
@@ -145,11 +143,6 @@
 
                 <div class="text-sm font-bold text-slate-700 bg-teal-50 px-4 py-2 rounded-xl border border-teal-200">
                     Pregunta <span id="current-q-num" class="text-teal-700 font-extrabold text-base">1</span> de <span id="total-q-num" class="text-slate-800">15</span>
-                </div>
-
-                <div class="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl shadow-sm">
-                    <i class="fa-regular fa-clock text-teal-600"></i>
-                    <span id="timer-text" class="font-mono text-base font-bold text-slate-700">00:00</span>
                 </div>
             </div>
 
@@ -215,8 +208,8 @@
                 </p>
             </div>
 
-            <!-- Resumen Numérico Compacto -->
-            <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto mb-8">
+            <!-- Resumen Numérico Compacto (2 columnas, sin tiempo) -->
+            <div class="grid grid-cols-2 gap-3 sm:gap-4 max-w-lg mx-auto mb-8">
                 <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
                     <span class="block text-xs text-slate-500 font-semibold mb-1">Puntaje Total</span>
                     <span id="res-score" class="text-xl sm:text-2xl font-black text-teal-700">0 / 75</span>
@@ -224,10 +217,6 @@
                 <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
                     <span class="block text-xs text-slate-500 font-semibold mb-1">Rango del Estilo</span>
                     <span id="res-range" class="text-xl sm:text-2xl font-black text-sky-700">--</span>
-                </div>
-                <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
-                    <span class="block text-xs text-slate-500 font-semibold mb-1">Tiempo</span>
-                    <span id="res-time" class="text-xl sm:text-2xl font-black text-slate-800">00:00</span>
                 </div>
             </div>
 
@@ -298,13 +287,10 @@
                 </div>
             </div>
 
-            <!-- Acciones -->
+            <!-- Acciones (sin botón de clasificación) -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
                 <button onclick="resetQuiz()" class="w-full sm:w-auto px-7 py-3.5 bg-gradient-to-r from-teal-600 to-sky-600 hover:from-teal-700 hover:to-sky-700 text-white font-bold rounded-xl shadow-lg transition duration-200">
                     <i class="fa-solid fa-rotate-right mr-2"></i> Volver a Hacer el Test
-                </button>
-                <button onclick="toggleLeaderboardModal()" class="w-full sm:w-auto px-7 py-3.5 bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold rounded-xl shadow-sm transition duration-200">
-                    <i class="fa-solid fa-users mr-2 text-teal-600"></i> Ver Historial
                 </button>
                 <button onclick="toggleAllProfilesPanel()" class="w-full sm:w-auto px-7 py-3.5 bg-teal-50 hover:bg-teal-100 text-teal-900 border border-teal-200 font-bold rounded-xl transition duration-200">
                     <i class="fa-solid fa-layer-group mr-2"></i> Explorar los 4 Estilos
@@ -322,74 +308,19 @@
 
     </main>
 
-    <!-- MODAL HISTORIAL DE PARTICIPANTES -->
-    <div id="modal-leaderboard" class="fixed inset-0 bg-slate-950/70 backdrop-blur-md hidden items-center justify-center p-4 z-50 transition-opacity duration-300">
-        <div class="glass-container w-full max-w-2xl rounded-3xl p-6 sm:p-8 shadow-2xl relative flex flex-col max-h-[90vh]">
-            
-            <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-                <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-users text-2xl text-teal-600"></i>
-                    <div>
-                        <h3 class="text-xl font-extrabold text-slate-900">Historial de Resultados</h3>
-                        <p class="text-xs text-slate-500">Registro de participantes, puntajes totales y estilos parentales</p>
-                    </div>
-                </div>
-                <button onclick="toggleLeaderboardModal()" class="text-slate-600 hover:text-slate-900 p-2 rounded-lg bg-slate-100">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-
-            <div class="overflow-y-auto custom-scrollbar my-4 flex-grow pr-1">
-                <table class="w-full text-left text-sm text-slate-800">
-                    <thead class="bg-slate-100 text-xs uppercase text-slate-700 sticky top-0 border-b border-slate-200">
-                        <tr>
-                            <th class="py-3 px-3 rounded-l-lg">#</th>
-                            <th class="py-3 px-3">Participante</th>
-                            <th class="py-3 px-3 text-center">Puntos</th>
-                            <th class="py-3 px-3">Estilo Parental</th>
-                            <th class="py-3 px-3 text-right rounded-r-lg">Tiempo</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leaderboard-table-body" class="divide-y divide-slate-200">
-                        <!-- Filas dinámicas -->
-                    </tbody>
-                </table>
-                <div id="leaderboard-empty" class="hidden text-center py-8 text-slate-400">
-                    <i class="fa-regular fa-folder-open text-4xl mb-2"></i>
-                    <p>Todavía no hay resultados guardados.</p>
-                </div>
-            </div>
-
-            <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
-                <div class="flex items-center space-x-2">
-                    <button onclick="exportLeaderboardJSON()" class="px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-800 rounded-xl text-xs font-bold border border-slate-300 flex items-center space-x-1.5 transition shadow-sm">
-                        <i class="fa-solid fa-download text-teal-600"></i>
-                        <span>Exportar JSON</span>
-                    </button>
-                    
-                    <label for="import-json-input" class="px-3.5 py-2 bg-white hover:bg-slate-50 text-slate-800 rounded-xl text-xs font-bold border border-slate-300 flex items-center space-x-1.5 cursor-pointer transition shadow-sm">
-                        <i class="fa-solid fa-upload text-emerald-600"></i>
-                        <span>Importar JSON</span>
-                    </label>
-                    <input type="file" id="import-json-input" accept=".json" onchange="importLeaderboardJSON(event)" class="hidden">
-                </div>
-
-                <button onclick="clearLeaderboard()" class="px-3.5 py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-700 rounded-xl text-xs font-bold border border-rose-300 transition">
-                    <i class="fa-solid fa-trash mr-1"></i> Limpiar
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Notification Toast -->
     <div id="toast" class="fixed bottom-6 right-6 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl border border-teal-500 flex items-center space-x-3 transition-all duration-300 transform translate-y-20 opacity-0 z-50">
         <i id="toast-icon" class="fa-solid fa-circle-info text-teal-400"></i>
         <span id="toast-msg" class="text-sm font-medium">Notificación</span>
     </div>
 
-    <!-- Footer -->
-    <footer class="mt-8 text-center text-xs text-slate-300/80 py-2">
+    <!-- Footer con acceso privado de descarga solo para el administrador -->
+    <footer class="max-w-4xl w-full mx-auto mt-8 flex items-center justify-between text-xs text-slate-300/80 py-2 px-2">
+        <span></span>
         <p>Mapa de Estilos Parentales &copy; 2026</p>
+        <button type="button" onclick="downloadAdminJSON()" title="Descarga privada (Administrador)" class="text-slate-400/50 hover:text-slate-200 transition p-1.5">
+            <i class="fa-solid fa-lock text-xs"></i>
+        </button>
     </footer>
 
     <!-- JS APP LOGIC -->
@@ -681,102 +612,71 @@
 
         // --- ESTADO DE LA APLICACIÓN ---
         let currentUser = "";
+        let currentEmail = "";
         let currentQuestionIndex = 0;
         let userAnswers = [];
-        let timerInterval = null;
-        let timeElapsed = 0;
-        let leaderboard = [];
         let lastUnlockedStyle = null;
 
         document.getElementById('total-q-num').textContent = QUESTIONS_BANK.length;
 
-        // --- CARGA AUTOMÁTICA DE JSON Y LOCALSTORAGE ---
-        window.addEventListener('DOMContentLoaded', () => {
-            loadLeaderboardAutomatico();
-        });
-
-        async function loadLeaderboardAutomatico() {
-            try {
-                const response = await fetch('punteggi.json?t=' + Date.now());
-                if (response.ok) {
-                    const jsonLeaderboard = await response.json();
-                    if (Array.isArray(jsonLeaderboard)) {
-                        leaderboard = jsonLeaderboard.map(item => {
-                            const pts = item.score !== undefined ? Number(item.score) : 0;
-                            const styleObj = getStyleByScore(pts);
-                            return {
-                                name: item.name || "Anónimo",
-                                score: pts,
-                                profileTitle: item.profileTitle || styleObj.title,
-                                timeSeconds: item.timeSeconds || 0,
-                                timeFormatted: item.timeFormatted || formatSeconds(item.timeSeconds || 0),
-                                date: item.date || new Date().toLocaleDateString('es-AR')
-                            };
-                        });
-                        renderLeaderboard();
-                        return;
-                    }
-                }
-            } catch (error) {
-                console.error("Error al cargar punteggi.json:", error);
-            }
-
-            const stored = localStorage.getItem('parental_styles_results_ar');
-            leaderboard = stored ? JSON.parse(stored) : [];
-            renderLeaderboard();
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
         }
 
-        async function saveLeaderboardToStorage() {
-            localStorage.setItem('parental_styles_results_ar', JSON.stringify(leaderboard));
-
+        // --- ENVÍO SOLO DE REGISTRO NUEVO AL SERVIDOR (SIN LEER LISTA DE EMAILS) ---
+        async function appendResultToServer(record) {
             try {
                 const response = await fetch('salva_punteggi.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(leaderboard)
+                    body: JSON.stringify(record)
                 });
 
                 const result = await response.json();
                 if (!response.ok || result.status !== 'success') {
-                    console.error("Error del servidor:", result.message);
+                    console.error("Error al guardar en servidor:", result.message);
                 }
             } catch (error) {
-                console.warn("Guardado local completado (servidor PHP no disponible):", error);
+                console.warn("No se pudo conectar con salva_punteggi.php:", error);
             }
+        }
+
+        // --- DESCARGA PRIVADA SOLO PARA EL ADMINISTRADOR ---
+        function downloadAdminJSON() {
+            const adminKey = prompt("Ingresá la clave de administrador para descargar punteggi.json:");
+            if (!adminKey) return;
+
+            const downloadUrl = `salva_punteggi.php?download=1&key=${encodeURIComponent(adminKey.trim())}`;
+            window.location.href = downloadUrl;
         }
 
         // --- LÓGICA DEL TEST ---
         function startQuiz(event) {
             event.preventDefault();
             const inputName = document.getElementById('username').value.trim();
-            if (!inputName) return;
+            const inputEmail = document.getElementById('useremail').value.trim().toLowerCase();
+            const errorMsg = document.getElementById('form-error-msg');
 
+            if (!inputName || !isValidEmail(inputEmail)) {
+                errorMsg.classList.remove('hidden');
+                if (!inputName) {
+                    document.getElementById('username').focus();
+                } else {
+                    document.getElementById('useremail').focus();
+                }
+                return;
+            }
+
+            errorMsg.classList.add('hidden');
             currentUser = inputName;
+            currentEmail = inputEmail;
             document.getElementById('player-display-name').textContent = currentUser;
 
             currentQuestionIndex = 0;
             userAnswers = [];
-            timeElapsed = 0;
 
             showScreen('screen-quiz');
-            startTimer();
             renderQuestion();
-        }
-
-        function startTimer() {
-            clearInterval(timerInterval);
-            document.getElementById('timer-text').textContent = "00:00";
-
-            timerInterval = setInterval(() => {
-                timeElapsed++;
-                document.getElementById('timer-text').textContent = formatSeconds(timeElapsed);
-            }, 1000);
-        }
-
-        function formatSeconds(sec) {
-            const minutes = Math.floor(sec / 60);
-            const seconds = sec % 60;
-            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
         }
 
         function renderQuestion() {
@@ -875,8 +775,6 @@
         }
 
         function finishQuiz() {
-            clearInterval(timerInterval);
-
             let totalScore = 0;
             QUESTIONS_BANK.forEach((q, idx) => {
                 const chosenIdx = userAnswers[idx];
@@ -888,7 +786,6 @@
             const maxPossibleScore = QUESTIONS_BANK.length * 5;
             const style = getStyleByScore(totalScore);
             lastUnlockedStyle = style;
-            const formattedTime = formatSeconds(timeElapsed);
 
             // Encabezado del resultado
             const badgeElem = document.getElementById('result-badge-icon');
@@ -906,7 +803,6 @@
             // Resumen numérico
             document.getElementById('res-score').textContent = `${totalScore} / ${maxPossibleScore}`;
             document.getElementById('res-range').textContent = `${style.minScore}–${style.maxScore} pts`;
-            document.getElementById('res-time').textContent = formattedTime;
 
             // Fortalezas
             const charContainer = document.getElementById('res-characteristics');
@@ -939,13 +835,12 @@
             // Panorámica de los 4 estilos
             renderAllProfilesOverview(style.id);
 
-            // Guardar en el historial
-            saveResultToLeaderboard({
+            // Enviar nombre, email y resultado al servidor (sin descargar ni mostrar lista)
+            appendResultToServer({
                 name: currentUser,
+                email: currentEmail,
                 score: totalScore,
                 profileTitle: style.title,
-                timeSeconds: timeElapsed,
-                timeFormatted: formattedTime,
                 date: new Date().toLocaleDateString('es-AR')
             });
 
@@ -993,111 +888,9 @@
 
         function resetQuiz() {
             document.getElementById('username').value = currentUser;
+            document.getElementById('useremail').value = currentEmail;
             document.getElementById('all-profiles-panel').classList.add('hidden');
             showScreen('screen-register');
-        }
-
-        // --- GESTIÓN DE HISTORIAL DE PARTICIPANTES ---
-        function saveResultToLeaderboard(record) {
-            leaderboard.unshift(record);
-            renderLeaderboard();
-            saveLeaderboardToStorage();
-        }
-
-        function renderLeaderboard() {
-            const tbody = document.getElementById('leaderboard-table-body');
-            const emptyMsg = document.getElementById('leaderboard-empty');
-            tbody.innerHTML = '';
-
-            if (leaderboard.length === 0) {
-                emptyMsg.classList.remove('hidden');
-                return;
-            } else {
-                emptyMsg.classList.add('hidden');
-            }
-
-            leaderboard.forEach((entry, idx) => {
-                const row = document.createElement('tr');
-                row.className = "hover:bg-teal-50/50 transition duration-150";
-                const isCurrent = entry.name === currentUser && idx === 0;
-
-                row.innerHTML = `
-                    <td class="py-3 px-3 font-bold text-slate-500">#${idx + 1}</td>
-                    <td class="py-3 px-3 font-semibold ${isCurrent ? 'text-teal-700 font-bold' : 'text-slate-900'}">
-                        ${escapeHtml(entry.name)} ${isCurrent ? '<span class="text-xs bg-teal-100 px-2 py-0.5 rounded text-teal-800 border border-teal-200 ml-1">Vos</span>' : ''}
-                    </td>
-                    <td class="py-3 px-3 text-center font-extrabold text-teal-700">${entry.score}/75</td>
-                    <td class="py-3 px-3">
-                        <span class="inline-block bg-sky-50 text-sky-800 text-xs px-2.5 py-1 rounded-full border border-sky-200 font-bold">
-                            ${escapeHtml(entry.profileTitle)}
-                        </span>
-                    </td>
-                    <td class="py-3 px-3 text-right font-mono text-xs text-slate-600 font-semibold">${escapeHtml(entry.timeFormatted)}</td>
-                `;
-
-                tbody.appendChild(row);
-            });
-        }
-
-        function exportLeaderboardJSON() {
-            if (leaderboard.length === 0) {
-                showToast("¡No hay datos para exportar!", "error");
-                return;
-            }
-
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(leaderboard, null, 2));
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", "punteggi.json");
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            downloadAnchor.remove();
-
-            showToast("¡Historial exportado en JSON!", "success");
-        }
-
-        function importLeaderboardJSON(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const importedData = JSON.parse(e.target.result);
-                    if (Array.isArray(importedData)) {
-                        leaderboard = importedData.map(item => {
-                            const pts = item.score !== undefined ? Number(item.score) : 0;
-                            const styleObj = getStyleByScore(pts);
-                            return {
-                                name: item.name || "Anónimo",
-                                score: pts,
-                                profileTitle: item.profileTitle || styleObj.title,
-                                timeSeconds: item.timeSeconds || 0,
-                                timeFormatted: item.timeFormatted || formatSeconds(item.timeSeconds || 0),
-                                date: item.date || new Date().toLocaleDateString('es-AR')
-                            };
-                        });
-                        renderLeaderboard();
-                        saveLeaderboardToStorage();
-                        showToast("¡Historial importado con éxito!", "success");
-                    } else {
-                        showToast("¡El archivo JSON no tiene un formato válido!", "error");
-                    }
-                } catch (err) {
-                    showToast("Error al leer el archivo JSON", "error");
-                }
-            };
-            reader.readAsText(file);
-            event.target.value = '';
-        }
-
-        function clearLeaderboard() {
-            if (confirm("¿Estás seguro de que querés borrar todo el historial de resultados?")) {
-                leaderboard = [];
-                saveLeaderboardToStorage();
-                renderLeaderboard();
-                showToast("Historial limpiado", "info");
-            }
         }
 
         function showScreen(screenId) {
@@ -1106,17 +899,6 @@
             document.getElementById('screen-result').classList.add('hidden');
             document.getElementById(screenId).classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function toggleLeaderboardModal() {
-            const modal = document.getElementById('modal-leaderboard');
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            } else {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
         }
 
         function showToast(message, type = "info") {
